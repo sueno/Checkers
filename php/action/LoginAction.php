@@ -14,7 +14,9 @@ class LoginAction implements ActionInterface {
         }
     }
     
-    // @Override
+    /**
+     * @Override
+     */
     public initAction() {
         
     }

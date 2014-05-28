@@ -10,6 +10,9 @@ class UserDao extends DaoSuper implements DaoInterface {
 		parent::connect();
 	}
 	
+	/**
+	 * @Override
+	 */
 	public function insert ($post) {
 		if ( parent::postExist($post, array("users_name","users_mail","users_password","groups_name")) ) {
 		    $group_id = 0;
@@ -21,6 +24,9 @@ class UserDao extends DaoSuper implements DaoInterface {
 		}
 	}
 	
+	/**
+	 * @Override
+	 */
 	public function select ($data, $elem = "*", $conditions = "") {
 		return parent::selectTable($this->tableName,$elem,$conditions);
 	}
