@@ -1,5 +1,5 @@
 <?php
-interface DBAccessInterface {
+interface DaoInterface {
     public function /* void */  connect();
 	public function /* int */   insert(/* PostBean */ $post);
 	public function /* Array<BeansInterface[]>[] */ 
