@@ -1,6 +1,7 @@
 <?php
 
-class CommentShow implements ActionInterface {
+class LoginAction implements ActionInterface {
+
     public __construct() {
         
         try {
@@ -13,34 +14,28 @@ class CommentShow implements ActionInterface {
         }
     }
     
-    /** 
+    /**
      * @Override
      */
     public initAction() {
         
     }
     
-    /** 
-     * @Override
-     */
+    // @Override
     public saveAction() {
         
     }
     
-    /** 
-     * @Override
-     */
+    // @Override
     public showAction() {
         
     }
     
-    /** 
-     * @Override
-     */
-    public errorAction(Exception e) {
-        throw new Exception('error');
+    // @Override
+    public errorAction() {
+        
     }
+       
 }
-
 
 ?>
