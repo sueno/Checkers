@@ -14,24 +14,32 @@ class LoginAction implements ActionInterface {
         }
     }
     
-    // @Override
+    /** 
+     * @Override
+     */
     public initAction() {
         
     }
     
-    // @Override
+    /** 
+     * @Override
+     */
     public saveAction() {
         
     }
     
-    // @Override
+    /** 
+     * @Override
+     */
     public showAction() {
         
     }
     
-    // @Override
-    public errorAction() {
-        
+    /** 
+     * @Override
+     */
+    public errorAction(Exception e) {
+        throw new Exception('error');
     }
        
 }
