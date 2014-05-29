@@ -18,7 +18,7 @@ echo "<br>----------------<br>";
 
 echo "indert<br>";
 
-$dao->insertTable("groups","null,'2000'");
+$dao->insertTable("groups","null,null");
 echo $dao->resultCheck;
 echo "<br>----------------<br>";
 
