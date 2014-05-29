@@ -2,7 +2,7 @@
 require_once 'php/dao/DaoInterface.php';
 require_once 'php/dao/DaoSuper.php';
 
-class ContentDao extends DaoSuper implements DaoInterface {
+class CommentDao extends DaoSuper implements DaoInterface {
 
 	private $tableName = "contains";
 	
@@ -14,8 +14,8 @@ class ContentDao extends DaoSuper implements DaoInterface {
 	 * @Override
 	 */
 	public function insert ($post) {
-		if ( parent::postExist($post, array("contains_user_id","contents_title","contents_body","contents_date","contents_kind")) ) {
-			return parent::insertTable($this->tableName,"null,'".$post["contains_user_id"]."','".$post["contents_title"]."','".$post["contents_body"]."','".$post["contents_date"]."',date(),false,'".$post["contents_kind"]."'");
+		if ( parent::postExist($post, array("comments_contents_id","comments_poster","comments_body","comments_date","comments_flag")) ) {
+			return parent::insertTable($this->tableName,"null,'".$post["comments_contains_id"]."','".$post["comments_poster"]."','".$post["comments_body"]."','".$post["comments_date"]."','".$post["comments_flag"]."'");
 		} else {
 			return -1;
 		}

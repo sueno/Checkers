@@ -2,7 +2,7 @@
 require_once 'php/dao/DaoInterface.php';
 require_once 'php/dao/DaoSuper.php';
 
-class UserDao extends DaoSuper implements DaoInterface {
+class GroupDao extends DaoSuper implements DaoInterface {
 
 	private $tableName = "users";
 	
@@ -14,11 +14,8 @@ class UserDao extends DaoSuper implements DaoInterface {
 	 * @Override
 	 */
 	public function insert ($post) {
-		if ( parent::postExist($post, array("users_name","users_mail","users_password","groups_name")) ) {
-		    $group_id = 0;
-		    $status = 1;
-		    $image = "null";
-			return parent::insertTable($this->tableName,"null,".$group_id.",".$status.",'".$post["users_name"]."','".$post["users_mail"]."','".$post["users_password"]."',".$image.",date()");
+		if ( parent::postExist($post, array("groups_name")) ) {
+			return parent::insertTable($this->tableName,"null,'".$post["groups_name"]."'");
 		} else {
 			return -1;
 		}
