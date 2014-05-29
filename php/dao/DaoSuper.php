@@ -2,12 +2,12 @@
 class DaoSuper {
 	
 	private $link;
-	private $errorLog = "";
+	public $errorLog = "";
 	
 	public function connect() {
 // 		$this->link = mysql_connect('localhost', 'root', 'root');
 		$this->link = mysql_connect('127.7.252.129', 'nohohon', '');
-		$conn = mysql_select_db( 'NextGroupWorkDB', $this->link );
+		$conn = mysql_select_db( 'NextGroupWareDB', $this->link );
 	}
 	
 	public function insertTable ($tableName, $values) {
