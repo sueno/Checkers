@@ -1,6 +1,6 @@
 <?php
-require_once 'php/dao/DaoInterface.php';
-require_once 'php/dao/DaoSuper.php';
+require_once 'DaoInterface.php';
+require_once 'DaoSuper.php';
 
 class CommentDao extends DaoSuper implements DaoInterface {
 
@@ -27,6 +27,13 @@ class CommentDao extends DaoSuper implements DaoInterface {
 	public function select ($data, $elem = "*", $conditions = "") {
 		return parent::selectTable($this->tableName,$elem,$conditions);
 	}
+	
+	/**
+	 * @Override
+	 */
+	 public function update ($post) {
+	     return parent::updateTable($this->tableName,$post);
+	 }
 	
 }
 ?>

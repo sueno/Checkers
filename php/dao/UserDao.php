@@ -1,8 +1,8 @@
 <?php
-require_once 'php/dao/DaoInterface.php';
-require_once 'php/dao/DaoSuper.php';
+require_once 'DaoInterface.php';
+require_once 'DaoSuper.php';
 
-class UserDao extends DaoSuper implements DaoInterface {
+class UserDao extends DaoSuper {
 
 	private $tableName = "users";
 	
@@ -27,9 +27,15 @@ class UserDao extends DaoSuper implements DaoInterface {
 	/**
 	 * @Override
 	 */
-	public function select ($post, $elem = "*", $conditions = "") {
+	public function select ($data, $elem = "*", $conditions = "") {
 		return parent::selectTable($this->tableName,$elem,$conditions);
 	}
 	
+	/**
+	 * @Override
+	 */
+	 public function update ($post) {
+	     return parent::updateTable($this->tableName,$post);
+	 }
 }
 ?>

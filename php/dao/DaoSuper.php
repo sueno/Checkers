@@ -1,9 +1,15 @@
 <?php
-class DaoSuper {
+require_once 'DaoInterface.php';
+
+abstract class DaoSuper implements DaoInterface {
 	
 	private $link;
 	public $errorLog = "";
 	
+	
+	/**
+	 * @Override
+	 */
 	public function connect() {
 // 		$this->link = mysql_connect('localhost', 'root', 'root');
 		$this->link = mysql_connect('127.7.252.129', 'nohohon', '');
@@ -34,9 +40,11 @@ class DaoSuper {
 		return $resultArray;
 	}
 	
-	public function update () {
-		//TODO not implementation
-	}
+	public function updateTable ($tableName, $post) {
+	     if ( parent::postExist($post, array($tableName."_id")) ) {
+	        
+	     }
+	 }
 	
 	private function execSQL ($sql) {
 		$sql_utf8 = mb_convert_encoding($sql, "UTF-8", "auto");
@@ -59,6 +67,19 @@ class DaoSuper {
 	        $flag &= ( !empty($post[$elem]) && isset($post[$elem]) );
 	    }
 	    return $flag;
+	}
+	
+	public function getTableCalumnExistList ($post, $tableName) {
+	    $list = array();
+	    $rows = mysql_query('SHOW COLUMNS FROM '.$tableName, $this->link);
+        while ($row = mysql_fetch_array($rows, MYSQL_ASSOC)) {
+	        foreach ($existList as $elem) {
+	            if ( !empty($post[$row['Field']]) && isset($post[$row['Field']]) ) {
+	                $list[$row['Field']] = $post[$row['Field']];
+	            }
+	        }
+        }
+	    return $list;
 	}
 }
 ?>
