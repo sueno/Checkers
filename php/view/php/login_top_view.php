@@ -1,4 +1,10 @@
-<?php $DEBUG = 1; ?>
+<?php $DEBUG = 1; 
+
+        //テスト用配列　
+
+    $groupList = array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期"));
+    
+?>
 
 <html>
 <head>
@@ -34,17 +40,15 @@
 <form action="../controler.php" method="POST">
 <table>
     <tr><td>ユーザーID:</td><td><input type="text" name="users_id"><td></tr>
+    <tr><td>メールアドレス:</td><td><input type="text" name="users_mail"><td></tr>
     <tr><td>パスワード:</td><td><input type="text" name="users_password"><td></tr>
     <tr><td>グループを選択:</td><td><select name="groups_id">
     <!-- アクションの連想配列名に変更-->
     <?php
-        //テスト用配列　
-//        if (defined('DEBUG'))
-            $BEANS = array("groups"=>  array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期")));
+
             
-        $groupsBeans = $BEANS["groups"];
 //        var_dump($groupsBeans);
-        foreach($groupsBeans as $bean)
+        foreach($groupList as $bean)
         {
             
               echo "<option value=\"".$bean["id"]."\">".$bean["name"]."</option>";
