@@ -22,7 +22,7 @@
 </form>
 </div>
 
-
+<div>
 <div id ="right">
 <h2>ユーザー登録</h2>
 <form action="../controler.php" method="POST">
@@ -34,14 +34,14 @@
     <?php
         //テスト用配列　
 //        if (defined('DEBUG'))
-            $BEANS = array("groups"=>array(0=>array("id"=>1,"name"=>"11期"),1=>array("id"=>2,"name"=>"12期")));
+            $BEANS = array("groups"=>  array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期")));
             
-        $groupsBeans = $BEANS["group"];
+        $groupsBeans = $BEANS["groups"];
 //        var_dump($groupsBeans);
         foreach($groupsBeans as $bean)
         {
-                foreach($bean as $key=>$value)
-                    echo "<option value=\"".$key."\">".$value."</option>";
+            
+              echo "<option value=\"".$bean["id"]."\">".$bean["name"]."</option>";
 
         }
     
