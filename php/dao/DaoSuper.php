@@ -1,5 +1,7 @@
 <?php
+echo "<br>----------------7<br>";
 require_once 'DaoInterface.php';
+echo "<br>----------------<br>";
 
 abstract class DaoSuper implements DaoInterface {
 	
@@ -12,9 +14,16 @@ abstract class DaoSuper implements DaoInterface {
 	 */
 	public function connect() {
 // 		$this->link = mysql_connect('localhost', 'root', 'root');
-		$this->link = mysql_connect('127.7.252.129', 'nohohon', '');
+
+        $ip = getenv("REMOTE_ADDR"); 
+		$this->link = mysql_connect($ip, 'nohohon', '');
+		
 		$conn = mysql_select_db( 'NextGroupWareDB', $this->link );
 	}
+	
+	abstract public function insert($post);
+	abstract public function select($post, $elem, $conditions);
+	abstract public function update($post);
 	
 	public function insertTable ($tableName, $values) {
 		$__tableName = htmlspecialchars($tableName);
@@ -71,7 +80,7 @@ abstract class DaoSuper implements DaoInterface {
 	
 	public function getTableCalumnExistList ($post, $tableName) {
 	    $list = array();
-	    $rows = mysql_query('SHOW COLUMNS FROM '.$tableName, $this->link);
+	    $rows = mysql_query("SHOW COLUMNS FROM {$tableName}", $this->link);
         while ($row = mysql_fetch_array($rows, MYSQL_ASSOC)) {
 	        foreach ($existList as $elem) {
 	            if ( !empty($post[$row['Field']]) && isset($post[$row['Field']]) ) {
