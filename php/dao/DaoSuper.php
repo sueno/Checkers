@@ -4,7 +4,8 @@ class DaoSuper {
 	private $link;
 	
 	public function connect() {
-		$this->link = mysql_connect('localhost', 'root', 'root');
+// 		$this->link = mysql_connect('localhost', 'root', 'root');
+		$this->link = mysql_connect('localhost:/lib/mysql/socket/mysql.sock', 'myUser', '');
 		$conn = mysql_select_db( 'NextGroupWorkDB', $this->link );
 	}
 	

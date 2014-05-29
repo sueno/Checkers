@@ -27,7 +27,7 @@ class UserDao extends DaoSuper implements DaoInterface {
 	/**
 	 * @Override
 	 */
-	public function select ($data, $elem = "*", $conditions = "") {
+	public function select ($post, $elem = "*", $conditions = "") {
 		return parent::selectTable($this->tableName,$elem,$conditions);
 	}
 	
