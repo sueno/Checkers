@@ -1,29 +1,44 @@
 <?php
+require_once('dao/UserDao.php');
 
-private $post;
-private $mode;
-private $actionObj;
-private $controller = new MainController();
-private $action = $controller->getAction();
-
-try {
-    $action->initAction();
-    $action->saveAction();
-    $action->showAction();
-catch {
-    $action->errorAction(Exception e);
-}
+$hoge = new MainController();
 
 class MainController {
-    
-    public __construct() {
-        $this->$post = htmlspecialchars($_POST);
-        $this->$mode = $post["mode"];
-        $this->actionObj = $this->getAction();
+
+    private $post;
+    // private $mode;
+    private $actionObj;
+
+    public function __construct() {
+        
+        if (isset($_POST)) {
+            $this->post = htmlspecialchars($_POST);
+            // $this->mode = $_GET["mode"];
+        }
+        else {
+            $this->mode = "visitor";
+        }
+        $this->actionObj = $this->getAction($_GET["mode"]);
+        var_dump($this->actionObj);
+        $this->init();
+    }
+
+    public function init() {
+        try {
+            $action->initAction();
+            $action->saveAction();
+            $action->showAction();
+        }
+        catch(Exception $e){
+            $action->errorAction($e);
+        }
     }
     
-    public getAction() {
-        
+    public function getAction($mode) {
+
+        echo "aaaa <br />";
+        echo $mode;
+
         switch($mode) {
             case 'visitor':
             case 'signup_confirm':

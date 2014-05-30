@@ -1,13 +1,13 @@
 <?php
-require_once('../dao/ContentDao.php')
-
-private $reportObj = new ContentDao();
-private $post;
-private $mode;
+require_once('../dao/ContentDao.php');
 
 class ReportAction implements ActionInterface {
-    
-    public __construct($post) {
+
+    private $reportObj = new ContentDao();
+    private $post;
+    private $mode;
+
+    public function __construct($post) {
         $this->post = $post;
         $this->mode = $post['mode'];
     }
@@ -15,7 +15,7 @@ class ReportAction implements ActionInterface {
     /** 
      * @Override
      */
-    public saveAction() {
+    public function saveAction() {
             $this->reportObj->insert($this->post);
         }
     }
@@ -23,7 +23,7 @@ class ReportAction implements ActionInterface {
     /** 
      * @Override
      */
-    public showAction() {
+    public function showAction() {
         $BEANS = $this->reportObj->select($this->post);
         swicth($mode) {
             case 'group_reports':

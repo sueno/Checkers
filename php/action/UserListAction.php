@@ -1,7 +1,7 @@
 <?php
 
 class UserList implements ActionInterface {
-    public __construct() {
+    public function __construct() {
         
         try {
             $this->initAction();
@@ -16,28 +16,28 @@ class UserList implements ActionInterface {
     /** 
      * @Override
      */
-    public initAction() {
+    public function initAction() {
         
     }
     
     /** 
      * @Override
      */
-    public saveAction() {
+    public function saveAction() {
         
     }
     
     /** 
      * @Override
      */
-    public showAction() {
+    public function showAction() {
         
     }
     
     /** 
      * @Override
      */
-    public errorAction(Exception e) {
+    public function errorAction(Exception e) {
         throw new Exception('error');
     }
 }

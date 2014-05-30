@@ -1,11 +1,11 @@
 <?php
 
-class ActionInterface {
+interface ActionInterface {
 
-    public __construct();
-    public initAction();
-    public saveAction();
-    public errorAction();
+    public function initAction();
+    public function saveAction();
+    public function showAction();
+    public function errorAction($e);
     
 }
 

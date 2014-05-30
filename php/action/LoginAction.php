@@ -1,13 +1,15 @@
 <?php
-require_once('../dao/UserDao.php')
-
-private $loginObj = new UserDao();
-private $post;
-private $mode;
+require_once('../dao/UserDao.php');
+require_once('ActionInterface.php');
 
 class LoginAction implements ActionInterface {
+
+    private $loginObj;
+    private $post;
+    private $mode;
     
-    public __construct($post) {
+    public function __construct($post) {
+        $this->$loginObj = new UserDao();
         $this->post = $post;
         $this->mode = $post['mode'];
     }
@@ -15,7 +17,7 @@ class LoginAction implements ActionInterface {
     /** 
      * @Override
      */
-    public saveAction() {
+    public function saveAction() {
         if ($mode == 'signup_complete') {
             $this->post["users_stat"] = 1;
             $this->loginObj->insert($this->post);
@@ -25,9 +27,9 @@ class LoginAction implements ActionInterface {
     /** 
      * @Override
      */
-    public showAction() {
+    public function showAction() {
         $BEANS = $this->loginObj->select($this->post);
-        swicth($mode) {
+        switch($mode) {
             case 'visitor':
                 require_once('../view/login_top_view.php');
                 break;

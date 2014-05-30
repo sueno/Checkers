@@ -1,20 +1,22 @@
 <?php
 require_once('../dao/DaoSuper.php');
-$daoSuperObj = new DaoSuper();
 
 class ActionSuper implements ActionInterface {
  
+    $daoSuperObj = new DaoSuper();
+
     /** 
      * @Override
      */
-    public initAction() {
+    public function initAction() {
         $this->daoSuperObj->connect();
+        session_start();
     }
     
     /** 
      * @Override
      */
-    public errorAction(Exception e) {
+    public function errorAction(Exception e) {
         echo e->getMessage();
     }
 }
