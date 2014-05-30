@@ -6,19 +6,20 @@ $hoge = new MainController();
 class MainController {
 
     private $post;
-    // private $mode;
     private $actionObj;
+    private $mode;
 
     public function __construct() {
         
-        if (isset($_POST)) {
+        if (isset($_POST['mode'])) {
             $this->post = htmlspecialchars($_POST);
-            // $this->mode = $_GET["mode"];
+            $this->post['mode'] = $this->mode;
         }
         else {
             $this->mode = "visitor";
         }
-        $this->actionObj = $this->getAction($_GET["mode"]);
+        $this->actionObj = $this->getAction($this->mode);
+        echo 'this action obj';
         var_dump($this->actionObj);
         $this->init();
     }
@@ -43,6 +44,7 @@ class MainController {
             case 'visitor':
             case 'signup_confirm':
             case 'signup_complete':
+            	echo 'bbbbb';
                 require_once('action/LoginAction.php');
                 return new LonginAction($this->post);
                 break;

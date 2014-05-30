@@ -2,8 +2,10 @@
 require_once('../dao/DaoSuper.php');
 
 class ActionSuper implements ActionInterface {
- 
-    $daoSuperObj = new DaoSuper();
+	
+	public function __construct() {
+    	$daoSuperObj = new DaoSuper();
+	}
 
     /** 
      * @Override
@@ -16,8 +18,8 @@ class ActionSuper implements ActionInterface {
     /** 
      * @Override
      */
-    public function errorAction(Exception e) {
-        echo e->getMessage();
+    public function errorAction($e) {
+        echo $e->getMessage();
     }
 }
 
