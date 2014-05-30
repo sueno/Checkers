@@ -1,15 +1,14 @@
 <?php
 require_once('../dao/ContentDao.php');
 
-private $reportObj = new ContentDao();
-private $post;
-private $mode;
-
 class ReportAction implements ActionInterface {
-    
+	private $post;
+	private $mode;
+	
     public function __construct($post) {
         $this->post = $post;
         $this->mode = $post['mode'];
+        $reportObj = new ContentDao();
     }
     
     /** 

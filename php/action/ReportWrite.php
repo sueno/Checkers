@@ -2,13 +2,12 @@
 
 class ReportWrite implements ActionInterface {
     public function __construct() {
-        
         try {
             $this->initAction();
             $this->saveAction();
             $this->showAction();
         }
-        catch(Exception e) {
+        catch(e) {
             $this->initAction();
         }
     }
