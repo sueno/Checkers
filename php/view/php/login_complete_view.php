@@ -1,7 +1,7 @@
 <?php $DEBUG = 1; 
 
     //テスト用配列　
-    //本番は$_dataの宣言を削除する
+    //本番は$_data,$groupListの宣言を削除する
     $data = array("users_id"=>"testID", "users_mail"=>"testmailadress@test.com", "users_password"=>"password", "groups_id"=>1);
     $groupList = array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期"));
     $signupInfo = $data;
@@ -22,7 +22,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>グループページ</title>
+        <title>登録完了ページ</title>
         <link href="../css/login_confirm_view.css" rel="stylesheet" type="text/css">
         <meta http-equiv="refresh" content="10;URL=../controler.php">
 
