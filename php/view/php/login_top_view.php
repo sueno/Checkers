@@ -5,14 +5,14 @@
     $groupList= $BEANS["groups"];
 //    $groupList = array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期"));
 //    $path="testPOSTview.php";
-    $path="../../MainController.php";   
+    $path="MainController.php";   
 ?>
 
 <html>
 <head>
 <meta charset="utf-8">
 <title>ログインページ</title>
-<link href="../css/login_view.css" rel="stylesheet" type="text/css">
+<link href="view/css/login_view.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
