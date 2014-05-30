@@ -15,8 +15,7 @@ class ReportAction implements ActionInterface {
      * @Override
      */
     public function saveAction() {
-            $this->reportObj->insert($this->post);
-        }
+    	$this->reportObj->insert($this->post);
     }
     
     /** 
@@ -24,7 +23,7 @@ class ReportAction implements ActionInterface {
      */
     public function showAction() {
         $BEANS = $this->reportObj->select($this->post);
-        swicth($mode) {
+        switch($mode) {
             case 'group_reports':
                 require_once('../view/group_view.php.php');
                 break;
