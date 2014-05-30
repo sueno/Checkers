@@ -2,7 +2,7 @@
 
 class UsersBean extends BeansSuper {
     
-    __construct() {
+    public function __construct() {
         parent::tableName = 'users';
     }
 	
