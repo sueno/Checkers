@@ -9,7 +9,7 @@
     $memberInfo = array("id"=>1,"member_name"=>"百田", "mail"=>"momota@momoclo.com", "group_name"=>"11期");
 
     $path="testPOSTview.php";
-    
+//  $path="../../MainController.php";    
 ?>
 
 <html>

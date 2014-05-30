@@ -2,9 +2,10 @@
 
         //テスト用配列　
 
-    $groupList = array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期"));
+    $groupList= $BEANS["groups"];
+//    $groupList = array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期"));
     $path="testPOSTview.php";
-    
+    $path="../../MainController.php";   
 ?>
 
 <html>

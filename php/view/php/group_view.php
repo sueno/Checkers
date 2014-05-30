@@ -21,7 +21,7 @@
                             array("member_id"=>5,"member_name"=>"高橋"));
     
     $path="testPOSTview.php";
-    
+//  $path="../../MainController.php";    
     $userInfo = $session; 
     
 ?>

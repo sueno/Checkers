@@ -6,7 +6,7 @@
     $groupList = array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期"));
     $signupInfo = $data;
     $path="testPOSTview.php";
-    
+//  $path="../../MainController.php";    
     //グループIDからグループ名を取得
     $groupName="null";
     foreach($groupList as $bean)
