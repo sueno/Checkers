@@ -42,11 +42,16 @@ class MainController {
 
         switch($mode) {
             case 'visitor':
+            	require_once('action/LoginAction.php');
+            	return new LoginAction($this->post);
+            	break;
             case 'signup_confirm':
+            	require_once('action/LoginConfirmAction.php');
+            	return new LoginConfirmAction($this->post);
+            	break;
             case 'signup_complete':
-            	echo 'bbbbb';
-                require_once('action/LoginAction.php');
-                return new LoginAction($this->post);
+                require_once('action/LoginCompleteAction.php');
+                return new LoginCompleteAction($this->post);
                 break;
             case 'group_reports':
                 require_once('action/ReportListAction.php');
