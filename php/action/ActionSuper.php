@@ -1,19 +1,19 @@
 <?php
-require_once('../dao/DaoSuper.php');
+require_once('dao/DaoSuper.php');
+require_once 'ActionInterface.php';
 
-class ActionSuper implements ActionInterface {
-	
-	public function __construct() {
-    	$daoSuperObj = new DaoSuper();
-	}
+abstract class ActionSuper implements ActionInterface {
 
     /** 
      * @Override
      */
     public function initAction() {
-        $this->daoSuperObj->connect();
         session_start();
     }
+    
+
+    abstract public function saveAction();
+    abstract public function showAction();
     
     /** 
      * @Override

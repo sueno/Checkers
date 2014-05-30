@@ -26,12 +26,12 @@ class MainController {
 
     public function init() {
         try {
-            $action->initAction();
-            $action->saveAction();
-            $action->showAction();
+            $this->actionObj->initAction();
+            $this->actionObj->saveAction();
+            $this->actionObj->showAction();
         }
         catch(Exception $e){
-            $action->errorAction($e);
+            $this->actionObj->errorAction($e);
         }
     }
     
@@ -46,7 +46,7 @@ class MainController {
             case 'signup_complete':
             	echo 'bbbbb';
                 require_once('action/LoginAction.php');
-                return new LonginAction($this->post);
+                return new LoginAction($this->post);
                 break;
             case 'group_reports':
                 require_once('action/ReportListAction.php');

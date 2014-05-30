@@ -1,7 +1,7 @@
 <?php
-require_once '../dao/UserDao.php';
-require_once 'ActionSuper.php';
-require_once 'ActionInterface.php';
+require_once 'dao/UserDao.php';
+require_once 'action/ActionSuper.php';
+require_once 'action/ActionInterface.php';
 
 class LoginAction extends ActionSuper implements ActionInterface {
 
@@ -10,10 +10,17 @@ class LoginAction extends ActionSuper implements ActionInterface {
     private $mode;
     
     public function __construct($post) {
-        $this->$loginObj = new UserDao();
+        $this->loginObj = new UserDao();
         $this->post = $post;
         $this->mode = $post['mode'];
     }
+    
+//     /**
+//      * @Override
+//      */
+//     public function initAction () {
+//     	parent::initAction();
+//     }
     
     /** 
      * @Override
@@ -30,6 +37,20 @@ class LoginAction extends ActionSuper implements ActionInterface {
      */
     public function showAction() {
         $BEANS = $this->loginObj->select($this->post);
+<<<<<<< HEAD
+//         switch($mode) {
+//             case 'visitor':
+                require 'view/php/login_top_view.php';
+//                 break;
+//             case 'signup_confirm':
+//                 $data = array('users_id' => $post['users_id'], 'users_mail' => $post['users_mail'], 'users_password' => $post['users_password'], 'groups_id' => $post['groups_id']);
+//                 require_once('../view/login_confirm_view.php');
+//                 break;
+//             case 'signup_complete':
+//                 require_once('../view/login_complete_view.php');
+//                 break;
+//         }
+=======
         switch($mode) {
             case 'visitor':
                 require_once('../view/login_top_view.php');
@@ -43,6 +64,7 @@ class LoginAction extends ActionSuper implements ActionInterface {
                 require_once('../view/login_complete_view.php');
                 break;
         }
+>>>>>>> FETCH_HEAD
     }
        
 }
