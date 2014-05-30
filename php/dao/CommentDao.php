@@ -4,7 +4,7 @@ require_once 'DaoSuper.php';
 
 class CommentDao extends DaoSuper implements DaoInterface {
 
-	private $tableName = "contains";
+	private $tableName = "comments";
 	
 	public function connect () {
 		parent::connect();
@@ -14,8 +14,8 @@ class CommentDao extends DaoSuper implements DaoInterface {
 	 * @Override
 	 */
 	public function insert ($post) {
-		if ( parent::postExist($post, array("comments_contents_id","comments_poster","comments_body","comments_date","comments_flag")) ) {
-			return parent::insertTable($this->tableName,"null,'".$post["comments_contains_id"]."','".$post["comments_poster"]."','".$post["comments_body"]."','".$post["comments_date"]."','".$post["comments_flag"]."'");
+		if ( parent::postExist($post, array("comments_contents_id","comments_poster","comments_body")) ) {
+			return parent::insertTable($this->tableName,"null,".$post["comments_contents_id"].",".$post["comments_poster"].",'".$post["comments_body"]."',now(),false");
 		} else {
 			return -1;
 		}
@@ -24,7 +24,7 @@ class CommentDao extends DaoSuper implements DaoInterface {
 	/**
 	 * @Override
 	 */
-	public function select ($data, $elem = "*", $conditions = "") {
+	public function select ($post = null, $elem = "*", $conditions = "") {
 		return parent::selectTable($this->tableName,$elem,$conditions);
 	}
 	

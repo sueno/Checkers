@@ -27,6 +27,9 @@ abstract class DaoSuper implements DaoInterface {
 		$__tableName = htmlspecialchars($tableName);
 		$__values = htmlspecialchars($values);
 		$sql = "insert into {$__tableName} values ({$__values})";
+		
+		echo $sql."<br />";
+		
 		$this->errorLog = $this->resultCheck($this->execSQL($sql));
 		if (empty($this->errorLog)) {
 			return mysql_insert_id();
