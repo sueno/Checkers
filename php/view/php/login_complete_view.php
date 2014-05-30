@@ -5,6 +5,7 @@
     $data = array("users_id"=>"testID", "users_mail"=>"testmailadress@test.com", "users_password"=>"password", "groups_id"=>1);
     $groupList = array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期"));
     $signupInfo = $data;
+    $path="testPOSTview.php";
     
     //グループIDからグループ名を取得
     $groupName="null";
@@ -24,7 +25,7 @@
         <meta charset="utf-8">
         <title>登録完了ページ</title>
         <link href="../css/login_confirm_view.css" rel="stylesheet" type="text/css">
-        <meta http-equiv="refresh" content="10;URL=../controler.php">
+        <meta http-equiv="refresh" content="10;URL=<?php echo $path; ?>?mode=individual_reports">
 
     </head>
 

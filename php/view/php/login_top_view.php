@@ -3,6 +3,7 @@
         //テスト用配列　
 
     $groupList = array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期"));
+    $path="testPOSTview.php";
     
 ?>
 
@@ -25,7 +26,7 @@
 
 <div id ="left" Align="left">
 <h2>ログイン</h2>
-<form action="../controler.php" method="POST">
+<form action="<?php echo $path; ?>?mode=group_reports" method="POST">
 <table>
     <tr><td>ログインID:</td><td><input type="text" name="users_id"><td></tr>
     <tr><td>パスワード:</td><td><input type="text" name="users_password"><td></tr>
@@ -37,7 +38,7 @@
 
 <div id ="right" Align="right">
 <h2>ユーザー登録</h2>
-<form action="../controler.php" method="POST">
+<form action="<?php echo $path; ?>?mode=signup_confirm" method="POST">
 <table>
     <tr><td>ユーザーID:</td><td><input type="text" name="users_id"><td></tr>
     <tr><td>メールアドレス:</td><td><input type="text" name="users_mail"><td></tr>
