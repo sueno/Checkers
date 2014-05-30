@@ -1,6 +1,8 @@
 <?php $DEBUG = 1; 
 
         //テスト用配列　
+var_dump($BEANS);
+
 
     $groupList= $BEANS["groups"];
 //    $groupList = array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期"));

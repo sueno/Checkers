@@ -4,6 +4,12 @@ require_once 'ActionInterface.php';
 
 abstract class ActionSuper implements ActionInterface {
 
+	private $post;
+
+	public function __construct($post) {
+		$this->post = $post;
+	}
+	
     /** 
      * @Override
      */

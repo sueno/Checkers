@@ -1,26 +1,24 @@
 <?php
-require_once 'dao/UserDao.php';
+require_once 'dao/GroupDao.php';
 require_once 'action/ActionSuper.php';
 require_once 'action/ActionInterface.php';
 
 class LoginAction extends ActionSuper implements ActionInterface {
 
     private $loginObj;
-    private $post;
-    private $mode;
-    
+
     public function __construct($post) {
-        $this->loginObj = new UserDao();
-        $this->post = $post;
-        $this->mode = $post['mode'];
+    	parent::__construct($post);
     }
     
-//     /**
-//      * @Override
-//      */
-//     public function initAction () {
-//     	parent::initAction();
-//     }
+    /**
+     * @Override
+     */
+    public function initAction () {
+    	parent::initAction();
+        $this->loginObj = new GroupDao();
+        $this->loginObj->connect();
+    }
     
     /** 
      * @Override
@@ -36,7 +34,7 @@ class LoginAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function showAction() {
-        $BEANS = $this->loginObj->select($this->post);
+        $BEANS["groups"] = $this->loginObj->select($this->post);
 //         switch($mode) {
 //             case 'visitor':
                 require 'view/php/login_top_view.php';
