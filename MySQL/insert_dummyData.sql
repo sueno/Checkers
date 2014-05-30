@@ -1,0 +1,22 @@
+insert into groups values (null,0000);
+insert into groups values (null,2010);
+insert into groups values (null,2011);
+insert into groups values (null,2012);
+insert into groups values (null,2013);
+insert into groups values (null,2014);
+insert into groups values (null,2015);
+insert into groups values (null,2016);
+insert into groups values (null,2017);
+insert into groups values (null,2018);
+insert into groups values (null,2019);
+
+insert into users values (null,1,0,'user01','user01@mail','user01',null,now());
+insert into users values (null,2,1,'user02','user02@mail','user02',null,now());
+insert into users values (null,2,2,'user03','user03@mail','user03',null,now());
+insert into users values (null,3,0,'user04','user04@mail','user04',null,now());
+insert into users values (null,3,1,'user05','user05@mail','user05',null,now());
+insert into users values (null,3,2,'user06','user06@mail','user06',null,now());
+insert into users values (null,4,2,'user07','user07@mail','user07',null,now());
+insert into users values (null,5,2,'user08','user08@mail','user08',null,now());
+insert into users values (null,6,2,'user09','user09@mail','user09',null,now());
+insert into users values (null,4,1,'user10','user10@mail','user10',null,now());

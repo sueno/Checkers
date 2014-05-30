@@ -4,7 +4,7 @@ require_once 'DaoSuper.php';
 
 class GroupDao extends DaoSuper implements DaoInterface {
 
-	private $tableName = "users";
+	private $tableName = "groups";
 	
 	/**
 	 * @Override
@@ -23,19 +23,19 @@ class GroupDao extends DaoSuper implements DaoInterface {
 			return -1;
 		}
 	}
-	
+
 	/**
 	 * @Override
 	 */
-	public function select ($data, $elem = "*", $conditions = "") {
+	public function select ($post = null, $elem = "*", $conditions = "") {
 		return parent::selectTable($this->tableName,$elem,$conditions);
 	}
 	
 	/**
 	 * @Override
 	 */
-	 public function update ($post) {
-	     return parent::updateTable($this->tableName,$post);
-	 }
+	public function update ($post) {
+		return parent::updateTable($this->tableName,$post);
+	}
 }
 ?>
