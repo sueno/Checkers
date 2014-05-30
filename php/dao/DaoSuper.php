@@ -1,7 +1,5 @@
 <?php
-echo "<br>----------------7<br>";
 require_once 'DaoInterface.php';
-echo "<br>----------------<br>";
 
 abstract class DaoSuper implements DaoInterface {
 	
@@ -29,8 +27,8 @@ abstract class DaoSuper implements DaoInterface {
 		$__tableName = htmlspecialchars($tableName);
 		$__values = htmlspecialchars($values);
 		$sql = "insert into {$__tableName} values ({$__values})";
-		$this->resultCheck = $this->resultCheck($this->execSQL($sql));
-		if (empty($this->resultCheck)) {
+		$this->errorLog = $this->resultCheck($this->execSQL($sql));
+		if (empty($this->errorLog)) {
 			return mysql_insert_id();
 		} else {
 			return -1;
@@ -70,10 +68,15 @@ abstract class DaoSuper implements DaoInterface {
 		return $ret;
 	}
 	
+	public function getResultCheck() {
+		return $this->errorLog;
+	}
+	
 	public function postExist ($post, $existList) {
 	    $flag = true;
 	    foreach ($existList as $elem) {
-	        $flag &= ( !empty($post[$elem]) && isset($post[$elem]) );
+	        $flag &= ( array_key_exists($elem, $post) );
+	        if (!$flag) print(" *".$elem);
 	    }
 	    return $flag;
 	}

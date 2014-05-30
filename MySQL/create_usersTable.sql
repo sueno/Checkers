@@ -1,5 +1,5 @@
 create table users (
-    id              int             not null    primary key ,
+    id              int             not null    primary key 	auto_increment,
     group_id        int             not null ,
     stat            int             not null    default 0 ,
     name            varchar(30)     not null ,

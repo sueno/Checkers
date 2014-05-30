@@ -1,7 +1,6 @@
 <?php
 require_once 'DaoInterface.php';
 require_once 'DaoSuper.php';
-echo "<br>----------------<br>";
 
 class UserDao extends DaoSuper {
 
@@ -15,11 +14,10 @@ class UserDao extends DaoSuper {
 	 * @Override
 	 */
 	public function insert ($post) {
-		if ( parent::postExist($post, array("users_name","users_mail","users_password","groups_name")) ) {
-		    $group_id = 0;
+		if ( parent::postExist($post, array("users_name","users_mail","users_password","group_id")) ) {
 		    $status = 1;
 		    $image = "null";
-			return parent::insertTable($this->tableName,"null,".$group_id.",".$status.",'".$post["users_name"]."','".$post["users_mail"]."','".$post["users_password"]."',".$image.",date()");
+			return parent::insertTable($this->tableName,"null,".$post["group_id"].",".$status.",'".$post["users_name"]."','".$post["users_mail"]."','".$post["users_password"]."',".$image.",now()");
 		} else {
 			return -1;
 		}

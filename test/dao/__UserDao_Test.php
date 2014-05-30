@@ -1,32 +1,32 @@
 <?php
 
-echo "<br>----------------<br>";
+echo "<br>------ require ----------<br>";
 
 require_once '../../php/dao/UserDao.php';
 
-echo "<br>----------------<br>";
-
+echo "<br>------ new DAO instance ----------<br>";
 $dao = new UserDao();
 
 
-echo "<br>----------------<br>";
+echo "<br>------ connect ----------<br>";
 $dao->connect();
 
+
+echo "<br>------ select ----------<br>";
 $res = $dao->select();
-
 print_r($res);
-echo "<br>----------------<br>";
-
-echo "insert<br>";
-
-$dao->insert(array("users_name"=>"test01","users_mail"=>"test01@mail","users_password"=>"1111","group_id"=>"0"));
-echo $dao->resultCheck;
-echo "<br>----------------<br>";
 
 
+echo "<br>------ insert ----------<br>";
+$dao->insert(array("users_name"=>"test01","users_mail"=>"test01@mail","users_password"=>"1111","group_id"=>2));
+echo $dao->getResultCheck();
+
+
+echo "<br>------ select ----------<br>";
 $res = $dao->select();
-
 print_r($res);
-echo "<br>----------------<br>";
+
+
+echo "<br>------ end ----------<br>";
 
 ?>
