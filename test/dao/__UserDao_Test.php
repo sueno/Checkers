@@ -19,7 +19,7 @@ echo "<br>----------------<br>";
 
 echo "insert<br>";
 
-$dao->insert(array("users_name"=>"test01","users_mail"=>"test01@mail","users_password"=>"1111","groups_name"=>"0"));
+$dao->insert(array("users_name"=>"test01","users_mail"=>"test01@mail","users_password"=>"1111","group_id"=>"0"));
 echo $dao->resultCheck;
 echo "<br>----------------<br>";
 
