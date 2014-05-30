@@ -12,10 +12,6 @@ abstract class DaoSuper implements DaoInterface {
 	 */
 	public function connect() {
 		$this->link = mysql_connect('localhost', 'root', 'root');
-
-//         $ip = getenv("REMOTE_ADDR"); 
-// 		$this->link = mysql_connect($ip, 'nohohon', '');
-		
 		$conn = mysql_select_db( 'NextGroupWareDB', $this->link );
 	}
 	
