@@ -1,8 +1,9 @@
 <?php
-require_once('../dao/UserDao.php');
-require_once('ActionInterface.php');
+require_once '../dao/UserDao.php';
+require_once 'ActionSuper.php';
+require_once 'ActionInterface.php';
 
-class LoginAction implements ActionInterface {
+class LoginAction extends ActionSuper implements ActionInterface {
 
     private $loginObj;
     private $post;
