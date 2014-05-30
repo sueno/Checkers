@@ -47,6 +47,10 @@ abstract class DaoSuper implements DaoInterface {
 		while ( $data = mysql_fetch_assoc( $result ) ) {
 			$resultArray[] = $data;
 		}
+		
+		echo "SQL SELECT  ".$tableName."<br />";
+		var_dump($resultArray);
+		
 		return $resultArray;
 	}
 	

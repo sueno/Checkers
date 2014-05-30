@@ -8,7 +8,7 @@ class UserList implements ActionInterface {
             $this->saveAction();
             $this->showAction();
         }
-        catch(Exception e) {
+        catch(Exception $e) {
             $this->initAction();
         }
     }
@@ -37,7 +37,7 @@ class UserList implements ActionInterface {
     /** 
      * @Override
      */
-    public function errorAction(Exception e) {
+    public function errorAction(Exception $e) {
         throw new Exception('error');
     }
 }

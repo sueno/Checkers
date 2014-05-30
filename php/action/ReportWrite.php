@@ -7,7 +7,7 @@ class ReportWrite implements ActionInterface {
             $this->saveAction();
             $this->showAction();
         }
-        catch(e) {
+        catch(Exception $e) {
             $this->initAction();
         }
     }
@@ -36,7 +36,7 @@ class ReportWrite implements ActionInterface {
     /** 
      * @Override
      */
-    public function errorAction(Exception e) {
+    public function errorAction(Exception $e) {
         throw new Exception('error');
     }
 }
