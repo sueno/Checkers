@@ -30,7 +30,7 @@
     width: 150px; 
     margin: 1px 0px;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
 }
 #menu li a:hover{
     border-left: 1px solid #474655;
@@ -48,12 +48,16 @@
     width: 150px; 
     margin: 1px 0px;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
 }
 #menu #haji li a:hover{
     display: block; 
     border: 1px solid #474655;
     background-color: #F3D898;
+}
+#info{
+    font-size: 12px;
+
 }
 
 .body_part{

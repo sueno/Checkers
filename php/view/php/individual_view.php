@@ -43,7 +43,7 @@
 
 
     <body>
-        <h2><?php echo $memberInfo["member_name"]?>さんのページです</h2>
+  
         <div id="menu">
             <ul>
                 <li><a href="" onclick="window.document.menuForm1.submit(); return false;" >個人ページ</a>
@@ -72,14 +72,17 @@
         
             
         <div class="body_part">
-        
+            <h2><?php echo $memberInfo["member_name"]?>さんのページです</h2>
             <!-- プロフィール表示部-->
             <div class="body_left">
                 <h2>プロフィール</h2><br>
                 <table>
-                    <tr><td>名前</td><td><?php echo $memberInfo["member_name"];?></td></tr>
-                    <tr><td>メールアドレス</td><td><?php echo $memberInfo["mail"];?></td></tr>
-                    <tr><td>所属グループ</td><td><?php echo $memberInfo["group_name"];?></td></tr>
+                    <tr><td>名前</td></tr>
+                    <tr><td><?php echo $memberInfo["member_name"];?></td></tr>
+                    <tr><td>メールアドレス</td></tr>
+                    <tr><td><?php echo $memberInfo["mail"];?></td></tr>
+                    <tr><td>所属グループ</td></tr>
+                    <tr><td><?php echo $memberInfo["group_name"];?></td></tr>
                 </table>
             
             </div>
@@ -88,7 +91,7 @@
             <div class="body_right">
             <table border="2">
                 <tr>
-                    <th>タイトル</th><th>コメント数</th><th>投稿日</th><th>作成者</th><th>削除・編集</th>
+                    <th>タイトル</th><th>コメント数</th><th>投稿日</th><th>削除・編集</th>
                 </tr>
                 <tr>
                     <th colspan="4">本文</th>
@@ -116,7 +119,8 @@
                         echo "<td><a href=\"\" onclick=\"commentClick(".$temp["content_id"]."); return false;\">コメント(".$temp["comment_num"].")</a></td>";
                         echo "<td>".$temp["date"]."</td>";
                         echo "<td><form action=\"".$path."\" method=\POST\" name=\"delete\"><input type=\"checkbox\" value=\"".$temp["content_id"]."\"></form>";
-                        echo "<form action=\"".$path."\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"削除\"></form></td>";                        
+                        echo "<form action=\"".$path."\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"削除\"></form>";                        
+                        echo "<form action=\"".$path."?mode=report_edit\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"編集\"></form></td>";                        
                         echo "<tr><td colspan=\"5\"><a href=\"\" onclick=\"bodyClick(".$temp["content_id"]."); return false;\">".$temp["body"]."</a></td></tr>";
                     }
                 ?>
