@@ -24,7 +24,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>日報閲覧ページ</title>
+        <title>日報編集ページ</title>
         <link href="../css/menu.css" rel="stylesheet" type="text/css">
   
      </head>
@@ -60,22 +60,12 @@
         
         
         <div class="body_part">
-        <h1>日報閲覧ページ</h1>
-        <?php
-            if($userInfo["name"]==$report["user_name"])
-                {
-                    ?>
-                 <form action="<?php echo $path."?mode=report_edit"; ?>" method="POST">
-                    <input  type="hidden" name="content_id" value="<?php echo $report["content_id"]; ?> ">
-                    <div align="right"><input type="submit" value="編集"></div>
-                </form>
-        
-        <?php } ?>
-        
-        
-        
+        <h1>日報編集ページ</h1>
+
+
             <table border="1">
-                <tr><td><?php echo $report["title"]; ?></td><td><?php echo $report["date"]; ?></td><td><?php echo $report["user_name"]; ?></td></tr>
+                <tr><td>タイトル：</td><td><?php echo $report["title"]; ?></td>
+                <td><?php echo $report["date"]; ?></td><td><?php echo $report["user_name"]; ?></td></tr>
                 <tr><td colspan="3"><?php echo $report["body"]; ?></td></tr>
             </table>
             <br>
@@ -101,6 +91,3 @@
         
     </body>
 </html>
-               
-               
-               
