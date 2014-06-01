@@ -66,7 +66,8 @@
                 </li>
  
 
-                <li><a href="" >ログイン情報</a>
+                <li><a href=""><font id="info"><?php echo $userInfo["name"]?><br><?php echo $userInfo["group"]?></font></a>
+ 
                 </li>
             </ul>
         </div>

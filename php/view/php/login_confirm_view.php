@@ -9,7 +9,7 @@
     $signupInfo = $data;
 
 //    $path="testPOSTview.php";
-  $path="../../MainController.php";
+  $path="MainController.php";
      
     //グループIDからグループ名を取得
     $groupName="null";
@@ -28,7 +28,7 @@
     <head>
         <meta charset="utf-8">
         <title>登録確認ページ</title>
-        <link href="../css/login_confirm_view.css" rel="stylesheet" type="text/css">
+        <link href="view/css/login_confirm_view.css" rel="stylesheet" type="text/css">
 
     </head>
 
