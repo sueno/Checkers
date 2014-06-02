@@ -20,7 +20,8 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function initAction () {
-    	parent::initAction();
+    	session_start();
+    	
     	$this->reportObj = new ReportDao();
     	$this->reportObj->connect();
     	
@@ -32,6 +33,13 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function saveAction() {
+    	$sessionVal = $this->getTableCalumnExistList($this->post, array("users_name","users_password","groups_id"));
+    	if ($sessionVal!=null) {
+    		$_SESSION["user_name"] = $sessionVal["users_name"];
+//     		$_SESSION[]
+    	} else {
+    		
+    	}
     }
     
     /** 
@@ -48,6 +56,20 @@ class ReportListAction extends ActionSuper implements ActionInterface {
         print_r($BEANS);
         
         require_once('view/php/group_view.php');
+    }
+    
+
+
+    private function getTableCalumnExistList ($post, $values) {
+    	$list = array();
+    	foreach($values as $val) {
+    		if ( isset( $post[$val] ) && $post[$val]!="" ) {
+    			$list[$val] = $post[$val];
+    		} else {
+    			return null;
+    		}
+    	}
+    	return $list;
     }
 }
 

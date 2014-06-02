@@ -7,5 +7,5 @@ create table users (
     password        varchar(20)     not null ,
     img_path        varchar(100)    default 'user/img/dummy.png' ,
     latest_login    date ,
-	foreign key		(group_id)		references	groups(id)         not null
+	foreign key		(group_id)		references	groups(id)
 ) engine=InnoDB;
