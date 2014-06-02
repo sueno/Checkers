@@ -1,7 +1,11 @@
 <?php
-require_once('../dao/ContentDao.php');
+require_once 'action/ActionSuper.php';
+require_once 'action/ActionInterface.php';
 
-class ReportAction implements ActionInterface {
+require_once 'dao/ReportDao.php';
+require_once 'dao/MemberDao.php';
+
+class ReportAction extends ActionSuper implements ActionInterface {
 
     
     private $post;
@@ -10,7 +14,6 @@ class ReportAction implements ActionInterface {
 
     public function __construct($post) {
         $this->post = $post;
-        $this->reportObj = new ReportDao();
     }
     
     /**
@@ -18,7 +21,7 @@ class ReportAction implements ActionInterface {
      */
     public function initAction () {
     	parent::initAction();
-    	$this->loginObj = new GroupDao();
+    	$this->loginObj = new ReportDao();
     	$this->loginObj->connect();
     	
     	$this->memberObj = new MemberDao();

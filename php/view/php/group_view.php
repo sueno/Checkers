@@ -3,23 +3,24 @@
         //テスト用配列　本番はこれらの宣言をコメントアウト
     $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
     
-    $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529", "user_id"=>1,"user_name"=>"百田",    "body"=>"今日は暑かった。日傘ほしい", "content_date"=>'2014-05-29', "comment_num"=>5),
-                        array("content_id"=>2,"title"=>"【日報】20140530", "user_id"=>2,"user_name"=>"玉井",    "body"=>"今日は寒かった。毛布ほしい", "content_date"=>'2014-05-30', "comment_num"=>3),
-                        array("content_id"=>3,"title"=>"【日報】20140530", "user_id"=>3,"user_name"=>"佐々木",  "body"=>"今日は適当な日だった"      , "content_date"=>'2014-05-30', "comment_num"=>10)
-                    );
-    $memberList = array(array("member_id"=>1,"member_name"=>"百田"), 
-                        array("member_id"=>2,"member_name"=>"玉井"),
-                        array("member_id"=>3,"member_name"=>"佐々木"),
-                        array("member_id"=>4,"member_name"=>"有安"),
-                        array("member_id"=>5,"member_name"=>"高城")
-                    );
+//     $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529", "user_id"=>1,"user_name"=>"百田",    "body"=>"今日は暑かった。日傘ほしい", "content_date"=>'2014-05-29', "comment_num"=>5),
+//                         array("content_id"=>2,"title"=>"【日報】20140530", "user_id"=>2,"user_name"=>"玉井",    "body"=>"今日は寒かった。毛布ほしい", "content_date"=>'2014-05-30', "comment_num"=>3),
+//                         array("content_id"=>3,"title"=>"【日報】20140530", "user_id"=>3,"user_name"=>"佐々木",  "body"=>"今日は適当な日だった"      , "content_date"=>'2014-05-30', "comment_num"=>10)
+//                     );
+//     $memberList = array(array("member_id"=>1,"member_name"=>"百田"), 
+//                         array("member_id"=>2,"member_name"=>"玉井"),
+//                         array("member_id"=>3,"member_name"=>"佐々木"),
+//                         array("member_id"=>4,"member_name"=>"有安"),
+//                         array("member_id"=>5,"member_name"=>"高城")
+//                     );
                         
     $candidateList = array( array("member_id"=>1,"member_name"=>"前田"), 
                             array("member_id"=>2,"member_name"=>"指原"),
                             array("member_id"=>3,"member_name"=>"篠田"),
                             array("member_id"=>4,"member_name"=>"渡辺"),
                             array("member_id"=>5,"member_name"=>"高橋"));
- 
+ $reports = $BEAN["reports"];
+ $memberList = $BEAN["member"];
     
      //パス指定
 //  $path="testPOSTview.php";
