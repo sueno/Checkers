@@ -65,7 +65,7 @@ class MainController {
                 break;
             case 'individual_reports':
                 require_once('action/ReportWrite.php');
-                return new ReportWrite($this->post);
+                return new UserListAction($this->post);
                 break;
             case 'report_show':
                 require_once('action/CommentShow.php');

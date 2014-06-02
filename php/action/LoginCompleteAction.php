@@ -11,6 +11,7 @@ class LoginCompleteAction extends ActionSuper implements ActionInterface {
     public function __construct($post) {
     	parent::__construct($post);
     	$this->post = $post;
+    	$this->loginObj = new UserDao();
     }
     
     /**
@@ -27,6 +28,8 @@ class LoginCompleteAction extends ActionSuper implements ActionInterface {
      */
     public function saveAction() {
             $this->post["users_stat"] = 1;
+//             echo 'post <br />';
+//             var_dump($this->post);
             $this->loginObj->insert($this->post);
     }
     
