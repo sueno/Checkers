@@ -3,9 +3,9 @@
         //テスト用配列　本番はこれらの宣言をコメントアウト
     $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
     
-    $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529", "user_id"=>1,"user_name"=>"百田",    "body"=>"今日は暑かった。日傘ほしい", "date"=>'2014-05-29', "comment_num"=>5),
-                        array("content_id"=>2,"title"=>"【日報】20140530", "user_id"=>2,"user_name"=>"玉井",    "body"=>"今日は寒かった。毛布ほしい", "date"=>'2014-05-30', "comment_num"=>3),
-                        array("content_id"=>3,"title"=>"【日報】20140530", "user_id"=>3,"user_name"=>"佐々木",  "body"=>"今日は適当な日だった"      , "date"=>'2014-05-30', "comment_num"=>10)
+    $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529", "user_id"=>1,"user_name"=>"百田",    "body"=>"今日は暑かった。日傘ほしい", "content_date"=>'2014-05-29', "comment_num"=>5),
+                        array("content_id"=>2,"title"=>"【日報】20140530", "user_id"=>2,"user_name"=>"玉井",    "body"=>"今日は寒かった。毛布ほしい", "content_date"=>'2014-05-30', "comment_num"=>3),
+                        array("content_id"=>3,"title"=>"【日報】20140530", "user_id"=>3,"user_name"=>"佐々木",  "body"=>"今日は適当な日だった"      , "content_date"=>'2014-05-30', "comment_num"=>10)
                     );
     $memberList = array(array("member_id"=>1,"member_name"=>"百田"), 
                         array("member_id"=>2,"member_name"=>"玉井"),
@@ -151,7 +151,7 @@
                         echo "<tr>";
                         echo "<td><a href=\"\" onclick=\"bodyClick(".$temp["content_id"]."); return false;\">".$temp["title"]."</a></td>";
                         echo "<td><a href=\"\" onclick=\"commentClick(".$temp["content_id"]."); return false;\">コメント(".$temp["comment_num"].")</a></td>";
-                        echo "<td>".$temp["date"]."</td>";
+                        echo "<td>".$temp["content_date"]."</td>";
                         echo "<td><a href=\"\" onclick=\"userClick(".$temp["user_id"]."); return false;\">".$temp["user_name"]."</a></td>";
                         echo "<tr><td colspan=\"4\"><a href=\"\" onclick=\"bodyClick(".$temp["content_id"]."); return false;\">".$temp["body"]."</a></td></tr>";
                     }

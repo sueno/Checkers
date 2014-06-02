@@ -1,11 +1,11 @@
 <?php $DEBUG = 1; 
 
         //テスト用配列　
-    $session = array("name"=>百田,"group"=>"１１期"); 
+    $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>2,"group_id"=>1); 
     
     $report = array("content_id"=>1,
                     "title"=>"【日報】20140529", 
-                    "user_id"=>1,
+                    "user_id"=>3,
                     "user_name"=>"百田",    
                     "body"=>"ニューシングル、泣いてもいいんだよが5月8日発売ということで！6日、7日、8日と全国いろんなところに行ってきましたぁ!!名古屋、滋賀、山形、新潟、仙台、盛いやぁ～楽しかった(*゜▽゜*)それぞれの地域の色があって、どこに行っても楽しい方々ばかりで…（´∀`*）笑いすぎてお腹が筋肉痛になったの久しぶり！笑モノノフさんにもたくさん会えて(*´艸｀)ふふみんなありがとねーん！(。-∀-)「泣いてもいいんだよ」たくさん聞いてください(＾＾)", 
                     "date"=>'2014-05-29', "comment_num"=>5
@@ -15,8 +15,13 @@
                         array("user_name"=>"ぼへみあ", "content"=>"こんにちは。"),
                     );
                         
-    $path="testPOSTview.php";
-//  $path="../../MainController.php";    
+     //パス指定
+  $path="testPOSTview.php";
+//    $path="MainController.php";
+  
+    $headPath="../css/";
+//    $headPath="view/css/"; 
+
     $userInfo = $session; 
     
 ?>
@@ -25,8 +30,8 @@
     <head>
         <meta charset="utf-8">
         <title>日報閲覧ページ</title>
-        <link href="../css/menu.css" rel="stylesheet" type="text/css">
-        <link href="../css/report_show.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $headPath; ?>menu.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $headPath; ?>report_show.css" rel="stylesheet" type="text/css">
   
      </head>
 
@@ -53,7 +58,7 @@
                 </li>
  
 
-                <li><a href=""><font id="info"><?php echo $userInfo["name"]?><br><?php echo $userInfo["group"]?></font></a>
+                <li><a href=""><font id="info"><?php echo $userInfo["user_name"]?><br><?php echo $userInfo["group_name"]?></font></a>
                 </li>
             </ul>
         </div>
@@ -63,7 +68,8 @@
         <div class="body_part">
         <h1>日報閲覧ページ</h1>
         <?php
-            if($userInfo["name"]==$report["user_name"])
+            //閲覧者と投稿者が同じ場合には編集ボタンを作る 
+            if($userInfo["user_id"]==$report["user_id"])
                 {
                     ?>
                  <form action="<?php echo $path."?mode=report_edit"; ?>" method="POST">

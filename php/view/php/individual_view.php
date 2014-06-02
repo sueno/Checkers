@@ -3,11 +3,11 @@
     //テスト用配列　
     $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
 
-    $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529",       "body"=>"今日は暑かった。日傘ほしい", "date"=>'2014-05-29', "comment_num"=>5),
-                        array("content_id"=>2,"title"=>"【日報】20140530",       "body"=>"今日は寒かった。毛布ほしい", "date"=>'2014-05-30', "comment_num"=>3),
-                        array("content_id"=>3,"title"=>"【日報】20140531",       "body"=>"今日は適当な日だった"      , "date"=>'2014-05-31', "comment_num"=>10)
+    $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529",       "body"=>"今日は暑かった。日傘ほしい", "content_date"=>'2014-05-29', "comment_num"=>5),
+                        array("content_id"=>2,"title"=>"【日報】20140530",       "body"=>"今日は寒かった。毛布ほしい", "content_date"=>'2014-05-30', "comment_num"=>3),
+                        array("content_id"=>3,"title"=>"【日報】20140531",       "body"=>"今日は適当な日だった"      , "content_date"=>'2014-05-31', "comment_num"=>10)
                     );
-    $memberInfo = array("id"=>1,"member_name"=>"百田", "mail"=>"momota@momoclo.com", "group_name"=>"11期");
+    $profInfo = array("id"=>1,"name"=>"百田", "mail"=>"momota@momoclo.com", "group_name"=>"11期");
 
      //パス指定
 //  $path="testPOSTview.php";
@@ -18,7 +18,7 @@
 
     //代入
     $userInfo = $session;
-    $memberInfo = $member;
+//    $profInfo=
 ?>
 
 <html>
@@ -83,17 +83,17 @@
         
             
         <div class="body_part">
-            <h2><?php echo $memberInfo["member_name"]?>さんのページです</h2>
+            <h2><?php echo $profInfo["name"]?>さんのページです</h2>
             <!-- プロフィール表示部-->
             <div class="body_left">
                 <h2>プロフィール</h2><br>
                 <table>
                     <tr><td>名前</td></tr>
-                    <tr><td><?php echo $memberInfo["member_name"];?></td></tr>
+                    <tr><td><?php echo $profInfo["name"];?></td></tr>
                     <tr><td>メールアドレス</td></tr>
-                    <tr><td><?php echo $memberInfo["mail"];?></td></tr>
+                    <tr><td><?php echo $profInfo["mail"];?></td></tr>
                     <tr><td>所属グループ</td></tr>
-                    <tr><td><?php echo $memberInfo["group_name"];?></td></tr>
+                    <tr><td><?php echo $profInfo["group_name"];?></td></tr>
                 </table>
             
             </div>
@@ -128,7 +128,7 @@
                         echo "<tr>";
                         echo "<td><a href=\"\" onclick=\"bodyClick(".$temp["content_id"]."); return false;\">".$temp["title"]."</a></td>";
                         echo "<td><a href=\"\" onclick=\"commentClick(".$temp["content_id"]."); return false;\">コメント(".$temp["comment_num"].")</a></td>";
-                        echo "<td>".$temp["date"]."</td>";
+                        echo "<td>".$temp["content_date"]."</td>";
                         echo "<td><form action=\"".$path."\" method=\POST\" name=\"delete\"><input type=\"checkbox\" value=\"".$temp["content_id"]."\"></form>";
                         echo "<form action=\"".$path."\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"削除\"></form>";                        
                         echo "<form action=\"".$path."?mode=report_edit\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"編集\"></form></td>";                        

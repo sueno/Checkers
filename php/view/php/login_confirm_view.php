@@ -51,7 +51,7 @@
             </table>
             
             <form action="<?php echo $path; ?>?mode=signup_complete" method="POST">
-            <input type=hidden name="users_id"          value="<?php echo $signupInfo["users_id"]; ?>">
+            <input type=hidden name="users_id"          value="<?php echo $signupInfo["users_name"]; ?>">
             <input type=hidden name="users_mail"        value="<?php echo $signupInfo["users_mail"]; ?>">
             <input type=hidden name="users_password"    value="<?php echo $signupInfo["users_password"]; ?>">
             <input type=hidden name="groups_id"         value="<?php echo $signupInfo["groups_id"]; ?>">

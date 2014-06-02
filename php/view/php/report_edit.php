@@ -1,7 +1,7 @@
 <?php $DEBUG = 1; 
 
         //テスト用配列　
-    $session = array("name"=>百田,"group"=>"１１期"); 
+    $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
     
     $report = array("content_id"=>1,
                     "title"=>"【日報】20140529", 
@@ -15,8 +15,13 @@
                         array("user_name"=>"ぼへみあ", "content"=>"こんにちは。"),
                     );
                         
-    $path="testPOSTview.php";
-//  $path="../../MainController.php";    
+     //パス指定
+//  $path="testPOSTview.php";
+    $path="MainController.php";
+  
+    $headPath="../css/";
+//    $headPath="view/css/"; 
+
     $userInfo = $session; 
     
 ?>
@@ -25,8 +30,8 @@
     <head>
         <meta charset="utf-8">
         <title>日報編集ページ</title>
-        <link href="../css/menu.css" rel="stylesheet" type="text/css">
-        <link href="../css/report_edit.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $headPath; ?>menu.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $headPath; ?>report_edit.css" rel="stylesheet" type="text/css">
   
      </head>
 
@@ -53,7 +58,7 @@
                 </li>
  
 
-                <li><a href=""><font id="info"><?php echo $userInfo["name"]?><br><?php echo $userInfo["group"]?></font></a>
+                <li><a href=""><font id="info"><?php echo $userInfo["user_name"]?><br><?php echo $userInfo["group_name"]?></font></a>
                 </li>
             </ul>
         </div>
