@@ -32,6 +32,7 @@ class CommentShowAction extends ActionSuper implements ActionInterface {
      */
     public function showAction() {
 		$BEANS["comment"] = $this->commentDaoObj->select($this->post);
+		echo json_encode($BEANS);
 		return $BEANS;
     }
     

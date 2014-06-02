@@ -18,7 +18,7 @@
                         
      //パス指定
 //   $path="testPOSTview.php";
-    $path="MainController.php";
+    $path="../../MainController.php";
   
 //    $headPath="../css/";
     $headPath="view/css/"; 
@@ -108,21 +108,61 @@
             
             <!-- ここに非同期通信の処理を追加 -->
             <script>
-            var xmlHttpRequest= new XMLHttpRequest();;
 
        	 	 // XMLHttpRequest オブジェクトを作成
-         	var xhr = XMLHttpRequestCreate();
+         	var xhr = new XMLHttpRequest();
          
             xhr.open("POST" , "<?php echo $path;?>" + "?mode=comment_show"  );
 
         	var form_data = new FormData();
 
+        	xhr.onreadystatechange = function ()
+        	{
+
+				switch(xhr.readyState)
+				{
+	
+					// ------------------------------------------------------------
+					// レスポンスボディを受信中（繰り返し実行される）
+					// ------------------------------------------------------------
+					case 3:
+						document.write("受信中 :" + xhr.responseText.length + " characters");
+						break;
+				
+					// ------------------------------------------------------------
+					// XHR 通信が完了した（成功失敗に関わらず）
+					// ------------------------------------------------------------
+					case 4:
+				
+						// ------------------------------------------------------------
+						// リクエスト成功
+						// ------------------------------------------------------------
+						if((200 <= xhr.status && xhr.status < 300) || (xhr.status == 304))
+							{
+				
+							document.write("レスポンス:" + xhr.responseText);
+				
+						// ------------------------------------------------------------
+						// リクエスト失敗
+						// ------------------------------------------------------------
+							}
+						else
+							{
+								document.write("リクエスト失敗");
+				
+							}
+						break;
+					}
+				};
+        	
         	// ------------------------------------------------------------
         	// 名前と値を指定してデータを格納する
         	// ------------------------------------------------------------
         	form_data.append("content_id","<?php echo $report["content_id"];?>");
 
         	xhr.send(form_data);
+	
+
 			</script>
             
         </div>
