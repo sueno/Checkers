@@ -31,8 +31,8 @@ class CommentShowAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function showAction() {
-		$comment["comment"] = $this->commentDaoObj->select($this->post);
-		return $comment;
+		$BEANS["comment"] = $this->commentDaoObj->select($this->post);
+		return $BEANS;
     }
     
 }
