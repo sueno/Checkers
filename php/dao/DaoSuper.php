@@ -63,7 +63,7 @@ abstract class DaoSuper implements DaoInterface {
 	     if ( $this->postExist($post, array($id)) && $updateColumn!=null ) {
 	     	$input = array();
 	     	foreach ($updateColumn as $key=>$value) {
-	     		$input->add(" {$key} = {$value} ");
+	     		$input[] = (" {$key} = {$value} ");
 	     	}
 	     	$inputAll = implode(",",$input);
 	     	$sql = "update {$tableName} set {$inputAll} where id = $post[$id] ";
@@ -108,9 +108,9 @@ abstract class DaoSuper implements DaoInterface {
 	    $list = array();
 	    $rows = mysql_query("SHOW COLUMNS FROM {$tableName}", $this->link);
         while ($row = mysql_fetch_array($rows, MYSQL_ASSOC)) {
-	        foreach ($existList as $elem) {
+	        foreach ($post as $elem) {
 	            if ( !empty($post[$tableName."_".$row['Field']]) && isset($post[$tableName."_".$row['Field']]) ) {
-	                $list[$row['Field']] = $post[$row['Field']];
+	                $list[$row['Field']] = $post[$tableName."_".$row['Field']];
 	            }
 	        }
         }

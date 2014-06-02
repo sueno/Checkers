@@ -27,6 +27,14 @@ $res = $dao->select();
 print_r($res);
 
 
+echo "<br>------ update ----------<br>";
+$dao->update(array("users_id"=>4,"users_stat"=>2));
+
+
+echo "<br>------ select ----------<br>";
+$res = $dao->select(null,"*","where id = 4");
+print_r($res);
+
 echo "<br>------ end ----------<br>";
 
 ?>
