@@ -1,26 +1,31 @@
 <?php
 require_once('dao/UserDao.php');
 
-$hoge = new MainController();
+$generateMainObj = new MainController();
 
 class MainController {
 
-    private $post;
+    private $post = array();
     private $actionObj;
     private $mode;
-
+    
     public function __construct() {
-        
-        if (isset($_POST['mode'])) {
-            $this->post = htmlspecialchars($_POST);
-            $this->post['mode'] = $this->mode;
+    	
+
+    	//todo 各オブジェクトに直接渡す
+    	$this->post = $_POST;
+    	// debug
+    	
+    	
+        if (isset($_GET['mode'])) {
+            $this->mode = htmlspecialchars($_GET['mode']);
         }
         else {
             $this->mode = "visitor";
         }
         $this->actionObj = $this->getAction($this->mode);
-        echo 'this action obj';
-        var_dump($this->actionObj);
+//         echo 'this action obj <br />';
+//         var_dump($this->actionObj);
         $this->init();
     }
 
@@ -37,8 +42,8 @@ class MainController {
     
     public function getAction($mode) {
 
-        echo "aaaa <br />";
-        echo $mode;
+//         echo "aaaa <br />";
+//         echo $mode;
 
         switch($mode) {
             case 'visitor':
