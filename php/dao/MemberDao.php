@@ -15,11 +15,11 @@ class MemberDao extends DaoSuper implements DaoInterface {
 	 * @Override
 	 */
 	public function select ($post = null, $elem = "*", $conditions = "") {
-		if ( parent::postExist($post, array("group_id")) ) {
+		if ( parent::postExist($post, array("groups_id","stat")) ) {
 			return parent::selectTable(
 					"users",
 					"id as member_id, name as member_name",
-					"where group_id = {$post['group_id']} and stat = 1");
+					"where group_id = {$post['groups_id']} and stat = {$post['stat']}");
 		}
 	}
 

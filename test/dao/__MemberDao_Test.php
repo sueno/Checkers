@@ -18,7 +18,7 @@ echo "<br>";
 print_r($res);
 
 echo "<br>------ select ----------<br>";
-$res = $dao->select(array("group_id"=>17));
+$res = $dao->select(array("groups_id"=>17,"stat"=>1));
 echo "<br>";
 print_r($res);
 
