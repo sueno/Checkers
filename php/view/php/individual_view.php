@@ -18,8 +18,7 @@
 
     //代入
     $userInfo = $_SESSION;
-    
-    $session = 
+     
     $reports = $BEANS["reports"];
     $profInfo = $BEANS["users"][0];
     $groupInfo = $BEANS["groups"][0];

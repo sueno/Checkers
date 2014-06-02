@@ -103,12 +103,15 @@
                     <input  type="textarea" name="body" style="width:400px; height:150px;">
                     <div><input type="submit" value="送信"></div>
             </form>
+            
+            
+            
             <!-- ここに非同期通信の処理を追加 -->
             <script>
             var xmlHttpRequest= new XMLHttpRequest();;
 
-         // XMLHttpRequest オブジェクトを作成
-         var xhr = XMLHttpRequestCreate();
+       	 	 // XMLHttpRequest オブジェクトを作成
+         	var xhr = XMLHttpRequestCreate();
          
             xhr.open("POST" , "<?php echo $path;?>" + "?mode=comment_show"  );
 
@@ -118,8 +121,6 @@
         	// 名前と値を指定してデータを格納する
         	// ------------------------------------------------------------
         	form_data.append("content_id","<?php echo $report["content_id"];?>");
-        	form_data.append("user_id","<?php echo $userInfo["user_id"];?>");
-        	form_data.append("body","<?php echo $report["body"];?>");
 
         	xhr.send(form_data);
 			</script>
