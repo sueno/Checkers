@@ -3,7 +3,7 @@
 class UsersBean extends BeansSuper {
     
     public function __construct() {
-        parent::tableName = 'users';
+        $this->tableName = 'users';
     }
 	
 	public function setId($value) {

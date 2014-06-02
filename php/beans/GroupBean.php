@@ -2,8 +2,8 @@
 
 class GroupBean extends BeansSuper {
     
-    __construct() {
-        parent::tableName = 'groups';
+    public function __construct() {
+        $this->tableName = 'groups';
     }
 	
 	public function setId($value) {
@@ -13,7 +13,7 @@ class GroupBean extends BeansSuper {
 	    return $this->data["groups_id"];
 	}
 	
-	public funstion setName($value) {
+	public function setName($value) {
 	    $this->data["groups_name"] = $value;
 	}
 	public function getName() {

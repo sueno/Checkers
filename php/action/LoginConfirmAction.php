@@ -21,7 +21,6 @@ class LoginConfirmAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function initAction () {
-    	parent::initAction();
         $this->loginObj = new GroupDao();
         $this->loginObj->connect();
     }

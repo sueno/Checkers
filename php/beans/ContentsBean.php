@@ -2,8 +2,8 @@
 
 class ContentsBean extends BeansSuper {
     
-    __construct() {
-        parent::tableName = 'users';
+    public function __construct() {
+        $this->tableName = 'users';
     }
 	
 	public function setId($value) {
@@ -27,35 +27,35 @@ class ContentsBean extends BeansSuper {
 	    return $this->data["contents_title"];
 	}
 	
-	public funstion setBody($value) {
+	public function setBody($value) {
 	    $this->data["contents_body"] = $value;
 	}
 	public function getBody() {
 	    return $this->data["contents_body"];
 	}
 	
-	public funstion setDate($value) {
+	public function setContentDate($value) {
 	    $this->data["contents_date"] = $value;
 	}
-	public function getDate() {
+	public function getContentDate() {
 	    return $this->data["contents_date"];
 	}
 	
-	public funstion setUpdateDate($value) {
+	public function setUpdateDate($value) {
 	    $this->data["contents_update_date"] = $value;
 	}
 	public function getUpdateDate() {
 	    return $this->data["contents_update_date"];
 	}
 	
-	public funstion setDeleteFlg($value) {
+	public function setDeleteFlg($value) {
 	    $this->data["contents_delete_flg"] = $value;
 	}
 	public function getDeleteFlg() {
 	    return $this->data["contents_delete_flg"];
 	}
 
-	public funstion setKind($value) {
+	public function setKind($value) {
 	    $this->data["contents_kind"] = $value;
 	} 
 	public function getKind() {
