@@ -14,6 +14,8 @@ class ReportListAction extends ActionSuper implements ActionInterface {
 
     public function __construct($post) {
         $this->post = $post;
+    	$this->reportObj = new ReportDao();
+    	$this->memberObj = new MemberDao();
     }
     
     /**
@@ -22,10 +24,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     public function initAction () {
     	session_start();
     	
-    	$this->reportObj = new ReportDao();
     	$this->reportObj->connect();
-    	
-    	$this->memberObj = new MemberDao();
     	$this->memberObj->connect();
     }
     
@@ -33,11 +32,11 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function saveAction() {
-    	$sessionVal = $this->getTableCalumnExistList($this->post, array("users_name","users_password","groups_id"));
+    	$sessionVal = $this->getTableCalumnExistList($this->post, array("users_name","users_password"));
     	if ($sessionVal!=null) {
     		$_SESSION["user_id"] = 1;
     		$_SESSION["user_name"] = $sessionVal["users_name"];
-    		$_SESSION["group_id"] = $sessionVal["groups_id"];
+    		$_SESSION["group_id"] = 2;
     		$_SESSION["group_name"] = "dummyGroup";
     	} else {
         	throw new Exception('login failed');
@@ -54,8 +53,6 @@ class ReportListAction extends ActionSuper implements ActionInterface {
         $BEANS["member"] = $this->memberObj->select($post);
         $post2 = array("groups_id"=>2,"stat"=>1);
         $BEANS["candidate"] = $this->memberObj->select($post2);
-        
-        print_r($BEANS);
         
         require_once('view/php/group_view.php');
     }

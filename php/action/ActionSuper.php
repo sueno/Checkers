@@ -31,7 +31,9 @@ abstract class ActionSuper implements ActionInterface {
     public function errorAction($e) {
         echo $e->getMessage();
         require_once 'action/LoginAction.php';
-        return new LoginAction(null);
+        $login = new LoginAction(null);
+        $login->initAction();
+        $login->showAction();
     }
     
 }
