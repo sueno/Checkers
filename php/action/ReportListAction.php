@@ -64,10 +64,11 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     public function showAction() {
     	$BEANS = array();
         $BEANS["reports"] = $this->reportObj->select(null,"","where id = ");
-        $post = array("groups_id"=>2,"stat"=>2);
+        $post = array("groups_id"=>$_SESSION["group_id"],"stat"=>2);
         $BEANS["member"] = $this->memberObj->select($post);
-        $post2 = array("groups_id"=>2,"stat"=>1);
+        $post2 = array("groups_id"=>$_SESSION["group_id"],"stat"=>1);
         $BEANS["candidate"] = $this->memberObj->select($post2);
+        
         
         require_once('view/php/group_view.php');
     }
