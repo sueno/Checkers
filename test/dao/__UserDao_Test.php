@@ -18,7 +18,7 @@ print_r($res);
 
 
 echo "<br>------ insert ----------<br>";
-$dao->insert(array("users_name"=>"test01","users_mail"=>"test01@mail","users_password"=>"1111","group_id"=>2));
+$dao->insert(array("users_name"=>"test01","users_mail"=>"test01@mail","users_password"=>"1111","groups_id"=>2));
 echo $dao->getResultCheck();
 
 
