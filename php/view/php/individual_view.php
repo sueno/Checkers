@@ -129,9 +129,16 @@
                         echo "<td><a href=\"\" onclick=\"bodyClick(".$temp["content_id"]."); return false;\">".$temp["title"]."</a></td>";
                         echo "<td><a href=\"\" onclick=\"commentClick(".$temp["content_id"]."); return false;\">コメント(".$temp["comment_num"].")</a></td>";
                         echo "<td>".$temp["content_date"]."</td>";
-                        echo "<td><form action=\"".$path."\" method=\POST\" name=\"delete\"><input type=\"checkbox\" value=\"".$temp["content_id"]."\"></form>";
-                        echo "<form action=\"".$path."\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"削除\"></form>";                        
-                        echo "<form action=\"".$path."?mode=report_edit\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"編集\"></form></td>";                        
+                        if($profInfo["id"]==$userInfo["user_id"])
+                        {
+                            echo "<td><form action=\"".$path."\" method=\POST\" name=\"delete\"><input type=\"checkbox\" value=\"".$temp["content_id"]."\"></form>";
+                            echo "<form action=\"".$path."\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"削除\"></form>";                        
+                            echo "<form action=\"".$path."?mode=report_edit\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"編集\"></form></td></tr>"; 
+                        }
+                        
+                        else
+                            echo "<td></td></tr>";
+                            
                         echo "<tr><td colspan=\"5\"><a href=\"\" onclick=\"bodyClick(".$temp["content_id"]."); return false;\">".$temp["body"]."</a></td></tr>";
                     }
                 ?>
