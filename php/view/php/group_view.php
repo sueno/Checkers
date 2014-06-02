@@ -77,6 +77,7 @@
             <ul>
                 <li><a href="" onclick="window.document.menuForm1.submit(); return false;" >個人ページ</a>
                     <form name="menuForm1" method="POST" action="<?php echo $path; ?>?mode=individual_reports">
+                    <input type="hidden" name="user_id" value="<?php echo $userInfo["user_id"]; ?>">
                     </form>
                 </li>
 
