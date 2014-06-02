@@ -83,10 +83,10 @@ class MainController {
                		require_once 'action/CommentAddAction.php';
                		return new CommentAddAction($this->post);
                		break;
-            case 'report_edit':
-                require_once 'action/UserList.php';
-                return new UserList($this->post);
-                break;
+            case 'group_recog':
+               	require_once 'action/GroupRecogAction.php';
+               	return new GroupRecogAction($this->post);
+               	break;
         }
     }
 }
