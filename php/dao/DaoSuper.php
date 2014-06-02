@@ -51,8 +51,8 @@ abstract class DaoSuper implements DaoInterface {
 			$resultArray[] = $data;
 		}
 		
-		echo "SQL SELECT  ".$tableName."<br />";
-		var_dump($resultArray);
+// 		echo "SQL SELECT  ".$tableName."<br />";
+// 		var_dump($resultArray);
 		
 		return $resultArray;
 	}
