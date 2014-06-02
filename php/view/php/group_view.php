@@ -1,7 +1,7 @@
 <?php $DEBUG = 1; 
 
         //テスト用配列　本番はこれらの宣言をコメントアウト
-    $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
+//     $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
     
 //     $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529", "user_id"=>1,"user_name"=>"百田",    "body"=>"今日は暑かった。日傘ほしい", "content_date"=>'2014-05-29', "comment_num"=>5),
 //                         array("content_id"=>2,"title"=>"【日報】20140530", "user_id"=>2,"user_name"=>"玉井",    "body"=>"今日は寒かった。毛布ほしい", "content_date"=>'2014-05-30', "comment_num"=>3),
@@ -33,7 +33,7 @@
     $headPath="view/css/"; 
 
     //BEANSを代入
-    $userInfo = $session;   //$_SESSION
+    $userInfo = $_SESSION;   //$_SESSION
     $memberList = $member;
     $candidateList = $candidate;
     
