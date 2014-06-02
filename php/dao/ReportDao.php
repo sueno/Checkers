@@ -15,7 +15,7 @@ class ReportDao extends DaoSuper implements DaoInterface {
 	 * @Override
 	 */
 	public function select ($post = null, $elem = "*", $conditions = "") {
-		if ( parent::postExist($post, array("contents_id")) ) {
+		if ( parent::postExist($post, array()) ) {
 			return parent::selectTable(
 					"contents",
 					"contents.id as content_id, title, users.id as user_id, users.name as user_name, contents.body, content_date, count(comments.id) as comment_num",

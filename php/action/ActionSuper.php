@@ -15,6 +15,10 @@ abstract class ActionSuper implements ActionInterface {
      */
     public function initAction() {
         session_start();
+
+        if ( !isset( $_SESSION["user_name"] ) || $_SESSION["user_name"]=="" ) {
+        	throw new Exception('not session');
+        }
     }
     
 
@@ -26,7 +30,10 @@ abstract class ActionSuper implements ActionInterface {
      */
     public function errorAction($e) {
         echo $e->getMessage();
+        require_once 'action/LoginAction.php';
+        return new LoginAction(null);
     }
+    
 }
 
 

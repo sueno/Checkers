@@ -8,11 +8,12 @@
                     "user_id"=>3,
                     "user_name"=>"百田",    
                     "body"=>"ニューシングル、泣いてもいいんだよが5月8日発売ということで！6日、7日、8日と全国いろんなところに行ってきましたぁ!!名古屋、滋賀、山形、新潟、仙台、盛いやぁ～楽しかった(*゜▽゜*)それぞれの地域の色があって、どこに行っても楽しい方々ばかりで…（´∀`*）笑いすぎてお腹が筋肉痛になったの久しぶり！笑モノノフさんにもたくさん会えて(*´艸｀)ふふみんなありがとねーん！(。-∀-)「泣いてもいいんだよ」たくさん聞いてください(＾＾)", 
-                    "date"=>'2014-05-29', "comment_num"=>5
+                    "content_date"=>'2014-05-29', 
+                    "comment_num"=>5
                     );
-    $comments = array(  array("user_name"=>"武士", "content"=>"いいね。見習いたい"), 
-                        array("user_name"=>"モノノフ", "content"=>"あーりんわっしょい"), 
-                        array("user_name"=>"ぼへみあ", "content"=>"こんにちは。"),
+    $comments = array(  array("user_name"=>"武士", "content"=>"いいね。見習いたい", "user_id"=>5, "date"=>'2014-05-29'), 
+                        array("user_name"=>"モノノフ", "content"=>"あーりんわっしょい","user_id"=>6, "date"=>'2014-05-29'), 
+                        array("user_name"=>"ぼへみあ", "content"=>"こんにちは。","user_id"=>7, "date"=>'2014-05-29'),
                     );
                         
      //パス指定
@@ -82,7 +83,7 @@
         
         
             <table border="1">
-                <tr><td><?php echo $report["title"]; ?></td><td><?php echo $report["date"]; ?></td><td><?php echo $report["user_name"]; ?></td></tr>
+                <tr><td><?php echo $report["title"]; ?></td><td><?php echo $report["content_date"]; ?></td><td><?php echo $report["user_name"]; ?></td></tr>
                 <tr><td colspan="3"><?php echo $report["body"]; ?></td></tr>
             </table>
             <br>

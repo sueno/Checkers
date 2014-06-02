@@ -14,13 +14,16 @@
 //                         array("member_id"=>5,"member_name"=>"高城")
 //                     );
                         
-    $candidateList = array( array("member_id"=>1,"member_name"=>"前田"), 
-                            array("member_id"=>2,"member_name"=>"指原"),
-                            array("member_id"=>3,"member_name"=>"篠田"),
-                            array("member_id"=>4,"member_name"=>"渡辺"),
-                            array("member_id"=>5,"member_name"=>"高橋"));
- $reports = $BEAN["reports"];
- $memberList = $BEAN["member"];
+//     $candidateList = array( array("member_id"=>1,"member_name"=>"前田"), 
+//                             array("member_id"=>2,"member_name"=>"指原"),
+//                             array("member_id"=>3,"member_name"=>"篠田"),
+//                             array("member_id"=>4,"member_name"=>"渡辺"),
+//                             array("member_id"=>5,"member_name"=>"高橋"));
+ $reports = $BEANS["reports"];
+ $member = $BEANS["member"];
+ $candidate = $BEANS["candidate"];
+ 
+ var_dump($BEANS);
     
      //パス指定
 //  $path="testPOSTview.php";

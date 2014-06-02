@@ -8,12 +8,9 @@
                     "user_id"=>1,
                     "user_name"=>"百田",    
                     "body"=>"ニューシングル、泣いてもいいんだよが5月8日発売ということで！6日、7日、8日と全国いろんなところに行ってきましたぁ!!名古屋、滋賀、山形、新潟、仙台、盛いやぁ～楽しかった(*゜▽゜*)それぞれの地域の色があって、どこに行っても楽しい方々ばかりで…（´∀`*）笑いすぎてお腹が筋肉痛になったの久しぶり！笑モノノフさんにもたくさん会えて(*´艸｀)ふふみんなありがとねーん！(。-∀-)「泣いてもいいんだよ」たくさん聞いてください(＾＾)", 
-                    "date"=>'2014-05-29', "comment_num"=>5
+                    "content_date"=>'2014-05-29', "comment_num"=>5
                     );
-    $comments = array(  array("user_name"=>"武士", "content"=>"いいね。見習いたい"), 
-                        array("user_name"=>"モノノフ", "content"=>"あーりんわっしょい"), 
-                        array("user_name"=>"ぼへみあ", "content"=>"こんにちは。"),
-                    );
+
                         
      //パス指定
 //  $path="testPOSTview.php";
@@ -72,7 +69,7 @@
             <table border="1">
                 <form method="POST" action="<?php echo $path; ?>?mode=individual_reports">
                 <tr><td>タイトル：</td> <td><input type="text" name="title" value="<?php echo $report["title"]; ?>" size="50"></td>
-                    <td>作成日:</td>    <td><input type="text" name="date" value="<?php echo $report["date"]; ?>" size="50"></td></tr>
+                    <td>作成日:</td>    <td><input type="text" name="content_date" value="<?php echo $report["content_date"]; ?>" size="50"></td></tr>
                     
                 <tr><td colspan="4"><textarea name="body"  rows="30" cols="100">本文をここに入力</textarea></td></tr>
             </table>
