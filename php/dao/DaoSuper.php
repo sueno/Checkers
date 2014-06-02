@@ -58,8 +58,15 @@ abstract class DaoSuper implements DaoInterface {
 	}
 	
 	public function updateTable ($tableName, $post) {
-	     if ( parent::postExist($post, array($tableName."_id")) ) {
-	        
+		$updateColumn = $this->getTableCalumnExistList($post, $tableName);
+		$id = $tableName."_id";
+	     if ( $this->postExist($post, array($id)) && $updateColumn!=null ) {
+	     	$input = array();
+	     	foreach ($updateColumn as $key=>$value) {
+	     		$input->add(" {$key} = {$value} ");
+	     	}
+	     	$inputAll = implode(",",$input);
+	     	$sql = "update {$tableName} set {$inputAll} where id = $post[$id] ";
 	     }
 	 }
 	
