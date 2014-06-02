@@ -1,6 +1,6 @@
 <?php $DEBUG = 1; 
 
-        //テスト用配列　
+        //テスト用配列　結合時にはコメントアウト
     $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
     
     $report = array("content_id"=>1,
@@ -13,8 +13,8 @@
 
                         
      //パス指定
-//  $path="testPOSTview.php";
-    $path="MainController.php";
+  $path="testPOSTview.php";
+//    $path="MainController.php";
   
     $headPath="../css/";
 //    $headPath="view/css/"; 
@@ -64,16 +64,33 @@
         
         <div class="body_part">
         <h1>日報編集ページ</h1>
-
-
+		<?php 
+		if(ISSET($report))		//日報編集の場合
+		{	?>
             <table border="1">
                 <form method="POST" action="<?php echo $path; ?>?mode=individual_reports">
                 <tr><td>タイトル：</td> <td><input type="text" name="title" value="<?php echo $report["title"]; ?>" size="50"></td>
                     <td>作成日:</td>    <td><input type="text" name="content_date" value="<?php echo $report["content_date"]; ?>" size="50"></td></tr>
                     
-                <tr><td colspan="4"><textarea name="body"  rows="30" cols="100">本文をここに入力</textarea></td></tr>
+                <tr><td colspan="4"><textarea name="body"  rows="30" cols="100"><?php echo $report["body"]; ?></textarea></td></tr>
             </table>
+            <INPUT TYPE="HIDDEN" NAME="content_ID" VALUE="<?php ECHO $report["content_id"];?>">
             <input type="submit" value="投稿する"></form>
+        <?php } 
+        
+        ELSE		//新規作成の場合
+        {?>
+        	<table border="1">
+        	<form method="POST" action="<?php echo $path; ?>?mode=individual_reports">
+        	<tr><td>タイトル：</td> <td><input type="text" name="title"  size="50"></td>
+        	<td>作成日:</td>    <td><input type="text" name="content_date" value="<?php echo date('Y-m-d'); ?>" size="50"></td></tr>
+        	
+        	<tr><td colspan="4"><textarea name="body"  rows="30" cols="100">本文をここに入力</textarea></td></tr>
+        	</table>
+        	
+        	<input type="submit" value="投稿する"></form>
+        
+        <?php }?>
             
             <br>
             <br>
