@@ -36,6 +36,7 @@ class MainController {
             $this->actionObj->showAction();
         }
         catch(Exception $e){
+        	echo 'error aaa<br />';
             $this->actionObj->errorAction($e);
         }
     }
