@@ -3,7 +3,7 @@ require_once 'dao/CommentDao.php';
 require_once 'action/ActionSuper.php';
 require_once 'action/ActionInterface.php';
 
-class CommentShowAction extends ActionSuper implements ActionInterface {
+class CommentAddAction extends ActionSuper implements ActionInterface {
 
     private $commentDaoObj;
     private $post;
@@ -25,7 +25,11 @@ class CommentShowAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function saveAction() {
-    	$this->loginObj->insert($this->post);
+    	//debug
+//     	$this->post['comments_contents_id'] = 1;
+//     	$this->post['comments_poster'] = 3;
+//     	$this->post['comments_body'] = "hogebodyhoge";
+    	$this->commentDaoObj->insert($this->post);
     }
     
     /** 
