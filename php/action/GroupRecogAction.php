@@ -26,7 +26,7 @@ class GroupRecogAction extends ActionSuper implements ActionInterface {
      */
     public function saveAction() {
     	//debug
-    	$this->post['id'] = 1;
+    	$this->post['users_id'] = 4;
     	
     	$this->post["users_stat"] = 2;
     	$this->userDaoObj->update($this->post);

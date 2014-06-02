@@ -26,13 +26,21 @@ class ReportManageAction extends ActionSuper implements ActionInterface {
      */
     public function saveAction() {
     	// debug
-    	$this->post['content_id'] = 11;
-    	$this->post['title'] = "title edit title";
-    	$this->post['body'] = "contents edit contents";
-    	if ($this->post['content_id'] == null) {
+    	$this->post['contents_user_id'] = 3;
+//     	$this->post['contents_title'] = "title edit title";
+    	$this->post['contents_body'] = "contents edit contents";
+    	$this->post['contents_date'] = "2014-06-03";
+    	$this->post['contents_kind'] = 0;
+
+    	if (array_key_exists('contents_title', $this->post)) {
     		$this->contentDaoObj->insert($this->post);
     	}
     	else {
+    		$this->post['contents_id'] = 4;
+    		echo "<br><br><br>";
+    		print_r($this->post);
+    		echo "<br><br><br>";
+    		
     		$this->contentDaoObj->update($this->post);
     	}
     	header('Location: ReportShowAction.php');
