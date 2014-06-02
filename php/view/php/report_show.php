@@ -17,13 +17,13 @@
                     );
                         
      //パス指定
-  $path="testPOSTview.php";
-//    $path="MainController.php";
+//   $path="testPOSTview.php";
+    $path="MainController.php";
   
-    $headPath="../css/";
-//    $headPath="view/css/"; 
+//    $headPath="../css/";
+    $headPath="view/css/"; 
 
-    $userInfo = $session; 
+    $userInfo = $_SESSION; 
     
 ?>
 
