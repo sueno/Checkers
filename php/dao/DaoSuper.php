@@ -109,7 +109,7 @@ abstract class DaoSuper implements DaoInterface {
 	    $rows = mysql_query("SHOW COLUMNS FROM {$tableName}", $this->link);
         while ($row = mysql_fetch_array($rows, MYSQL_ASSOC)) {
 	        foreach ($existList as $elem) {
-	            if ( !empty($post[$row['Field']]) && isset($post[$row['Field']]) ) {
+	            if ( !empty($post[$tableName."_".$row['Field']]) && isset($post[$tableName."_".$row['Field']]) ) {
 	                $list[$row['Field']] = $post[$row['Field']];
 	            }
 	        }
