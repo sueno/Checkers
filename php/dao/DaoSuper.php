@@ -11,8 +11,15 @@ abstract class DaoSuper implements DaoInterface {
 	 * @Override
 	 */
 	public function connect() {
-		$this->link = mysql_connect('localhost', 'root', 'root');
-		$conn = mysql_select_db( 'NextGroupWareDB', $this->link );
+// 		$this->link = mysql_connect('localhost', 'root', 'root');
+// 		$conn = mysql_select_db( 'NextGroupWareDB', $this->link );
+
+		try {
+			$pdo = new PDO('mysql:host=localhost;dbname=NextGroupWareDB;charset=utf8','root','root',
+					array(PDO::ATTR_EMULATE_PREPARES => false));
+		} catch (PDOException $e) {
+			exit('DB connection failed.'.$e->getMessage());
+		}
 	}
 	
 	abstract public function insert($post);
