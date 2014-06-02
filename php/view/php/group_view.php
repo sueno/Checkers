@@ -97,7 +97,7 @@
         
             
         <div class="body_part">
-        <h2><?php echo $userInfo["group"]?>さんのページです</h2>
+        <h2><?php echo $userInfo["group_name"]?>さんのページです</h2>
         
             <!-- グループメンバ表示部-->
             <div class="body_left">
