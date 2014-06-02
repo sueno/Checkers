@@ -2,27 +2,27 @@
 
 class BeansSuper implements BeansInterface{
     
-    $data = array();
-    $tableTitle = "";
-    
+	protected $data;
+	protected $tableTitle = "";
+		
     /**
      * @Override
      */
-    public function string getTablelTitle() {
+    public function /* string */ getTablelTitle() {
         return $this->tableTitle;
     }
     
     /**
      * @Override
      */
-	public function string[] getCalams() {
+	public function /* string[] */ getCalams() {
 	    return array_keys($this->data);
 	}
 	
     /**
      * @Override
      */
-	public function setByKey($key、$value) {
+	public function setByKey($key, $value) {
 	    $this->data[$key] = $value;
 	}
 	
@@ -30,7 +30,7 @@ class BeansSuper implements BeansInterface{
      * @Override
      */
 	public function getElement($key) {
-	   return $this->data[$key]
+	   return $this->data[$key];
 	}
 	
 }
