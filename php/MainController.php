@@ -68,9 +68,13 @@ class MainController {
                 return new UserListAction($this->post);
                 break;
             case 'report_show':
-                require_once 'action/CommentShow.php';
-                return new CommentShow($this->post);
+                require_once 'action/ReportShow.php';
+                return new ReportShow($this->post);
                 break;
+            case 'comment_show':
+               	require_once 'action/CommentShow.php';
+               	return new CommentShow($this->post);
+               	break;
             case 'report_edit':
                 require_once 'action/UserList.php';
                 return new UserList($this->post);
