@@ -90,20 +90,9 @@
             <br>
             <br>
             <h2>コメント</h2>
-            <table>
-            <?php foreach($comments as $temp) {?>
-                <tr><td>名前</td><td><?php echo $temp["user_name"]?></td></tr>
-                <tr><td></td><td><?php echo $temp["content"]?></td></tr>
-            <?php }?>
-            </table>
-            <br>
-            <h2>コメントする</h2>
-            <form action="<?php echo $path."?mode=report_edit"; ?>" method="POST">
-                    <input  type="hidden" name="content_id" value="<?php echo $report["content_id"]; ?> ">
-                    <input  type="textarea" name="body" style="width:400px; height:150px;">
-                    <div><input type="submit" value="送信"></div>
-            </form>
+
             
+        <div id="xmlObj"></div>
             
             
             <!-- ここに非同期通信の処理を追加 -->
@@ -116,31 +105,37 @@
         	xhr.responseType = "json";
 			xhr.send(null);          
 
-
-			xhr.onload = function(e){
-
+			xhr.onload = function(e)
+			{
 				// 指定したデータ型でレスポンスボディの内容を取得
 				var obj = xhr.response;
-
 				// 出力テスト
-				console.log(obj); // {aaa:0,bbb:1,ccc:2}
+				console.log(obj);
+// 				 document.write('<tr>');
+
+				 var td1 = "";
+				 var td2 = "";
+				 for (var key in obj) 
+				{
+					td1 += "<tr><td>"+"名前"+"</td>"+"<td>"+obj[key]["user_name"]+""+"</tr>";
+					td1 += "<tr><td>"+"</td>"+"<td>"+obj[key]["content"]+""+"</tr>";
+				 }
+				 window.document.getElementById("xmlObj").innerHTML = "<table>"+td1+td2+"</table>";
 			};
         	
-        	// ------------------------------------------------------------
-        	// 名前と値を指定してデータを格納する
-        	// ------------------------------------------------------------
- //       	form_data.append("content_id","<?php echo $report["content_id"];?>");
 
-
-        	// ------------------------------------------------------------
-        	// レスポンスタイプを設定
-        	// ------------------------------------------------------------
-
-	
 
 			</script>
+		            <br>
+            <h2>コメントする</h2>
+            <form action="<?php echo $path."?mode=report_edit"; ?>" method="POST">
+                    <input  type="hidden" name="content_id" value="<?php echo $report["content_id"]; ?> ">
+                    <input  type="textarea" name="body" style="width:400px; height:150px;">
+                    <div><input type="submit" value="送信"></div>
+            </form>	
             
         </div>
+        
         
     </body>
 </html>
