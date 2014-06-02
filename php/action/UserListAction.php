@@ -4,17 +4,20 @@ require_once 'action/ActionInterface.php';
 
 require_once 'dao/ReportDao.php';
 require_once 'dao/UserDao.php';
+require_once 'dao/GroupDao.php';
 
 class UserListAction extends ActionSuper implements ActionInterface {
     
     private $post;
    	private $reportObj;
    	private $userObj;
+   	private $groupObj;
 
     public function __construct($post) {
         $this->post = $post;
     	$this->reportObj = new ReportDao();
     	$this->userObj = new UserDao();
+    	$this->groupObj = new GroupDao();
     }
     
     /**
@@ -24,6 +27,7 @@ class UserListAction extends ActionSuper implements ActionInterface {
     	parent::initAction();
     	$this->reportObj->connect();
     	$this->userObj->connect();
+    	$this->groupObj->connect();
     }
     
     /** 
@@ -38,8 +42,10 @@ class UserListAction extends ActionSuper implements ActionInterface {
     public function showAction() {
     	$BEANS = array();
         $BEANS["reports"] = $this->reportObj->select();
-        $post = array("users_name"=>"");
-        $BEANS["users"] = $this->userObj->select($post,"*","where name = '{$post["users_name"]}'");
+        $userName = $this->post["user_id"];
+        $BEANS["users"] = $this->userObj->select($post,"*","where id = '{$userName}'");
+        $groupId = $BEANS["users"]["group_id"];
+        $BEANS["groups"] = 
         
         print_r($BEANS);
         

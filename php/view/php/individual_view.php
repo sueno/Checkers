@@ -1,24 +1,28 @@
 <?php $DEBUG = 1; 
 
     //テスト用配列　
-    $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
+//     $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
 
-    $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529",       "body"=>"今日は暑かった。日傘ほしい", "content_date"=>'2014-05-29', "comment_num"=>5),
-                        array("content_id"=>2,"title"=>"【日報】20140530",       "body"=>"今日は寒かった。毛布ほしい", "content_date"=>'2014-05-30', "comment_num"=>3),
-                        array("content_id"=>3,"title"=>"【日報】20140531",       "body"=>"今日は適当な日だった"      , "content_date"=>'2014-05-31', "comment_num"=>10)
-                    );
-    $profInfo = array("id"=>1,"name"=>"百田", "mail"=>"momota@momoclo.com", "group_name"=>"11期");
+//     $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529",       "body"=>"今日は暑かった。日傘ほしい", "content_date"=>'2014-05-29', "comment_num"=>5),
+//                         array("content_id"=>2,"title"=>"【日報】20140530",       "body"=>"今日は寒かった。毛布ほしい", "content_date"=>'2014-05-30', "comment_num"=>3),
+//                         array("content_id"=>3,"title"=>"【日報】20140531",       "body"=>"今日は適当な日だった"      , "content_date"=>'2014-05-31', "comment_num"=>10)
+//                     );
+//     $profInfo = array("id"=>1,"name"=>"百田", "mail"=>"momota@momoclo.com", "group_name"=>"11期");
 
      //パス指定
 //  $path="testPOSTview.php";
     $path="MainController.php";
   
-    $headPath="../css/";
-//    $headPath="view/css/"; 
+//     $headPath="../css/";
+   $headPath="view/css/"; 
 
     //代入
-    $userInfo = $session;
-//    $profInfo=
+    $userInfo = $_SESSION;
+    
+    $session = 
+    $reports = $BEANS["reports"];
+    $profInfo = $BEANS["users"][0];
+    $groupInfo = $BEANS["groups"][0];
 ?>
 
 <html>
@@ -93,7 +97,7 @@
                     <tr><td>メールアドレス</td></tr>
                     <tr><td><?php echo $profInfo["mail"];?></td></tr>
                     <tr><td>所属グループ</td></tr>
-                    <tr><td><?php echo $profInfo["group_name"];?></td></tr>
+                    <tr><td><?php echo $groupInfo["name"];?></td></tr>
                 </table>
             
             </div>
