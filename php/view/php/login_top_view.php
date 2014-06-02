@@ -31,7 +31,7 @@ var_dump($BEANS);
 <h2>ログイン</h2>
 <form action="<?php echo $path; ?>?mode=group_reports" method="POST">
 <table>
-    <tr><td>ログインID:</td><td><input type="text" name="users_id"><td></tr>
+    <tr><td>ログインID:</td><td><input type="text" name="users_name"><td></tr>
     <tr><td>パスワード:</td><td><input type="text" name="users_password"><td></tr>
     <tr><td></td><td><input type="submit" value="ログイン" ></td></tr>
 </table>
@@ -43,7 +43,7 @@ var_dump($BEANS);
 <h2>ユーザー登録</h2>
 <form action="<?php echo $path; ?>?mode=signup_confirm" method="POST">
 <table>
-    <tr><td>ユーザーID:</td><td><input type="text" name="users_id"><td></tr>
+    <tr><td>ユーザーID:</td><td><input type="text" name="users_name"><td></tr>
     <tr><td>メールアドレス:</td><td><input type="text" name="users_mail"><td></tr>
     <tr><td>パスワード:</td><td><input type="text" name="users_password"><td></tr>
     <tr><td>グループを選択:</td><td><select name="groups_id">

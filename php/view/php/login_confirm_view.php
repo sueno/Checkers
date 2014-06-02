@@ -2,14 +2,18 @@
 
     //テスト用配列　
     //本番は$_data,$groupListの宣言を削除
-//    $data = array("users_id"=>"testID", "users_mail"=>"testmailadress@test.com", "users_password"=>"password", "groups_id"=>1);
+//    $data = array("users_name"=>"testID", "users_mail"=>"testmailadress@test.com", "users_password"=>"password", "groups_id"=>1);
 //    $groupList = array(array("id"=>1,"name"=>"11期"),array("id"=>2,"name"=>"12期"),array("id"=>3,"name"=>"13期"));
 
     $groupList= $BEANS["groups"];
     $signupInfo = $data;
 
-//    $path="testPOSTview.php";
-  $path="MainController.php";
+     //パス指定
+//  $path="testPOSTview.php";
+    $path="MainController.php";
+  
+//    $headPath="../css/";
+    $headPath="view/css/"; 
      
     //グループIDからグループ名を取得
     $groupName="null";
@@ -28,7 +32,7 @@
     <head>
         <meta charset="utf-8">
         <title>登録確認ページ</title>
-        <link href="view/css/login_confirm_view.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $headPath; ?>login_confirm_view.css" rel="stylesheet" type="text/css">
 
     </head>
 
@@ -39,7 +43,7 @@
             <br>
             <table>
                 
-                <tr><td>ユーザーID</td>         <td><?php echo $signupInfo["users_id"]; ?></td></tr>
+                <tr><td>ユーザーID</td>         <td><?php echo $signupInfo["users_name"]; ?></td></tr>
                 <tr><td>メールアドレス</td>     <td><?php echo $signupInfo["users_mail"]; ?></td></tr>
                 <tr><td>パスワード</td>         <td><?php echo $signupInfo["users_password"]; ?></td></tr>
                 <tr><td>選択グループ</td>       <td><?php echo $groupName; ?></td></tr>
