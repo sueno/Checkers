@@ -19,6 +19,7 @@
         <meta charset="utf-8">
         <title>個人ページ</title>
         <link href="../css/group_view.css" rel="stylesheet" type="text/css">
+        <link href="../css/menu.css" rel="stylesheet" type="text/css">
         
         <!-- リンクをクリックした時のPOST送信動作-->
         <script type="text/javascript">
