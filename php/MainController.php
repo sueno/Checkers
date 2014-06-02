@@ -1,5 +1,5 @@
 <?php
-require_once('dao/UserDao.php');
+require_once 'dao/UserDao.php';
 
 $generateMainObj = new MainController();
 
@@ -48,31 +48,31 @@ class MainController {
 
         switch($mode) {
             case 'visitor':
-            	require_once('action/LoginAction.php');
+            	require_once 'action/LoginAction.php';
             	return new LoginAction($this->post);
             	break;
             case 'signup_confirm':
-            	require_once('action/LoginConfirmAction.php');
+            	require_once 'action/LoginConfirmAction.php';
             	return new LoginConfirmAction($this->post);
             	break;
             case 'signup_complete':
-                require_once('action/LoginCompleteAction.php');
+                require_once 'action/LoginCompleteAction.php';
                 return new LoginCompleteAction($this->post);
                 break;
             case 'group_reports':
-                require_once('action/ReportListAction.php');
+                require_once 'action/ReportListAction.php';
                 return new ReportListAction($this->post); 
                 break;
             case 'individual_reports':
-                require_once('action/ReportWrite.php');
+                require_once 'action/ReportWrite.php';
                 return new UserListAction($this->post);
                 break;
             case 'report_show':
-                require_once('action/CommentShow.php');
+                require_once 'action/CommentShow.php';
                 return new CommentShow($this->post);
                 break;
             case 'report_edit':
-                require_once('action/UserList.php');
+                require_once 'action/UserList.php';
                 return new UserList($this->post);
                 break;
         }
