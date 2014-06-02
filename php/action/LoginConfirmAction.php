@@ -9,7 +9,7 @@ class LoginConfirmAction extends ActionSuper implements ActionInterface {
     private $post;
 
     public function __construct($post) {
-    	parent::__construct($post);
+//     	parent::__construct($post);
     	$this->loginObj = new GroupDao();
     	$this->post = $post;
     	//debub
