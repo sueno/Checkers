@@ -1,7 +1,7 @@
 <?php $DEBUG = 1; 
 
     //テスト用配列　
-    $session = array("name"=>有安杏果,"group"=>"１１期"); 
+    $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
 
     $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529",       "body"=>"今日は暑かった。日傘ほしい", "date"=>'2014-05-29', "comment_num"=>5),
                         array("content_id"=>2,"title"=>"【日報】20140530",       "body"=>"今日は寒かった。毛布ほしい", "date"=>'2014-05-30', "comment_num"=>3),
@@ -9,17 +9,24 @@
                     );
     $memberInfo = array("id"=>1,"member_name"=>"百田", "mail"=>"momota@momoclo.com", "group_name"=>"11期");
 
-    $path="testPOSTview.php";
-//  $path="../../MainController.php"; 
+     //パス指定
+//  $path="testPOSTview.php";
+    $path="MainController.php";
+  
+    $headPath="../css/";
+//    $headPath="view/css/"; 
+
+    //代入
     $userInfo = $session;
+    $memberInfo = $member;
 ?>
 
 <html>
     <head>
         <meta charset="utf-8">
         <title>個人ページ</title>
-        <link href="../css/group_view.css" rel="stylesheet" type="text/css">
-        <link href="../css/menu.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $headPath; ?>group_view.css" rel="stylesheet" type="text/css">
+        <link href="<?php echo $headPath; ?>menu.css" rel="stylesheet" type="text/css">
         
         <!-- リンクをクリックした時のPOST送信動作-->
         <script type="text/javascript">
@@ -67,7 +74,7 @@
                 </li>
  
 
-                <li><a href=""><font id="info"><?php echo $userInfo["name"]?><br><?php echo $userInfo["group"]?></font></a>
+                <li><a href=""><font id="info"><?php echo $userInfo["user_name"]?><br><?php echo $userInfo["group_name"]?></font></a>
  
                 </li>
             </ul>
