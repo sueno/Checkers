@@ -11,7 +11,7 @@ class LoginCompleteAction extends ActionSuper implements ActionInterface {
     private $post;
 
     public function __construct($post) {
-    	parent::__construct($post);
+//     	parent::__construct($post);
     	$this->post = $post;
     	$this->userDaoObj = new UserDao();
     	$this->groupDaoObj = new GroupDao();
