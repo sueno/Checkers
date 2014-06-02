@@ -35,10 +35,12 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     public function saveAction() {
     	$sessionVal = $this->getTableCalumnExistList($this->post, array("users_name","users_password","groups_id"));
     	if ($sessionVal!=null) {
+    		$_SESSION["user_id"] = 1;
     		$_SESSION["user_name"] = $sessionVal["users_name"];
-//     		$_SESSION[]
+    		$_SESSION["group_id"] = $sessionVal["groups_id"];
+    		$_SESSION["group_name"] = "dummyGroup";
     	} else {
-    		
+        	throw new Exception('login failed');
     	}
     }
     
