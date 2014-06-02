@@ -39,16 +39,20 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     		$userObj = new UserDao();
     		$userObj->connect();
     		$userData = $userObj->select(null,"id, group_id, password","where name = '{$sessionVal["users_name"]}'");
-    		if ( $sessionVal["users_password"] != $userData[0]["password"] ) {
+    		$user = $userData[0];
+    		var_dump($user);
+    		if ( $sessionVal["users_password"] != $user["password"] ) {
         		throw new Exception('password no match');
     		}
     		$groupObj = new GroupDao();
     		$groupObj->connect();
-    		$groupData = $groupObj->select(null,"name","where id = {$userData[0]["group_id"]}");
-    		$_SESSION["user_id"] = $userData[0]["id"];
-    		$_SESSION["user_name"] = $sessionVal[0]["users_name"];
-    		$_SESSION["group_id"] = $userData[0]["group_id"];
-    		$_SESSION["group_name"] = $groupData[0]["name"];
+    		$groupData = $groupObj->select(null,"name","where id = {$user['group_id']}");
+    		var_dump($groupData);
+    		$group = $groupData[0];
+    		$_SESSION["user_id"] = $user["id"];
+    		$_SESSION["user_name"] = $sessionVal["users_name"];
+    		$_SESSION["group_id"] = $user["group_id"];
+    		$_SESSION["group_name"] = $group["name"];
     	} else {
         	throw new Exception('login failed');
     	}
@@ -59,7 +63,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      */
     public function showAction() {
     	$BEANS = array();
-        $BEANS["reports"] = $this->reportObj->select();
+        $BEANS["reports"] = $this->reportObj->select(null,"","where id = ");
         $post = array("groups_id"=>2,"stat"=>2);
         $BEANS["member"] = $this->memberObj->select($post);
         $post2 = array("groups_id"=>2,"stat"=>1);

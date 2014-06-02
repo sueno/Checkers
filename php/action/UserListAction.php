@@ -14,6 +14,7 @@ class UserListAction extends ActionSuper implements ActionInterface {
    	private $groupObj;
 
     public function __construct($post) {
+    	parent::__construct($post);
         $this->post = $post;
     	$this->reportObj = new ReportDao();
     	$this->userObj = new UserDao();
@@ -45,7 +46,7 @@ class UserListAction extends ActionSuper implements ActionInterface {
         $userName = $this->post["user_id"];
         $BEANS["users"] = $this->userObj->select($post,"*","where id = '{$userName}'");
         $groupId = $BEANS["users"]["group_id"];
-        $BEANS["groups"] = 
+        $BEANS["groups"] = $this->groupObj->select(null,"groups_name","where id = {$groupId}");
         
         print_r($BEANS);
         
