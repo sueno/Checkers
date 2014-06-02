@@ -26,6 +26,7 @@
         <meta charset="utf-8">
         <title>日報閲覧ページ</title>
         <link href="../css/menu.css" rel="stylesheet" type="text/css">
+        <link href="../css/report_show.css" rel="stylesheet" type="text/css">
   
      </head>
 

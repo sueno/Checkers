@@ -26,6 +26,7 @@
         <meta charset="utf-8">
         <title>日報編集ページ</title>
         <link href="../css/menu.css" rel="stylesheet" type="text/css">
+        <link href="../css/report_edit.css" rel="stylesheet" type="text/css">
   
      </head>
 
@@ -64,28 +65,17 @@
 
 
             <table border="1">
-                <tr><td>タイトル：</td><td><?php echo $report["title"]; ?></td>
-                <td><?php echo $report["date"]; ?></td><td><?php echo $report["user_name"]; ?></td></tr>
-                <tr><td colspan="3"><?php echo $report["body"]; ?></td></tr>
+                <form method="POST" action="<?php echo $path; ?>?mode=individual_reports">
+                <tr><td>タイトル：</td> <td><input type="text" name="title" value="<?php echo $report["title"]; ?>" size="50"></td>
+                    <td>作成日:</td>    <td><input type="text" name="date" value="<?php echo $report["date"]; ?>" size="50"></td></tr>
+                    
+                <tr><td colspan="4"><textarea name="body"  rows="30" cols="100">本文をここに入力</textarea></td></tr>
             </table>
-            <br>
-            <br>
-            <h2>コメント</h2>
-            <table>
-            <?php foreach($comments as $temp) {?>
-                <tr><td>名前</td><td><?php echo $temp["user_name"]?></td></tr>
-                <tr><td></td><td><?php echo $temp["content"]?></td></tr>
-            <?php }?>
-            </table>
-            <br>
-            <h2>コメントする</h2>
-            <form action="<?php echo $path."?mode=report_edit"; ?>" method="POST">
-                    <input  type="hidden" name="content_id" value="<?php echo $report["content_id"]; ?> ">
-                    <input  type="textarea" name="body" style="width:400px; height:150px;">
-                    <div><input type="submit" value="送信"></div>
-            </form>
+            <input type="submit" value="投稿する"></form>
             
-                
+            <br>
+            <br>
+
             
         </div>
         
