@@ -67,6 +67,12 @@ abstract class DaoSuper implements DaoInterface {
 	     	}
 	     	$inputAll = implode(",",$input);
 	     	$sql = "update {$tableName} set {$inputAll} where id = $post[$id] ";
+			$this->errorLog = $this->resultCheck($this->execSQL($sql));
+			if ($this->errorLog=="") {
+				return true;
+			} else {
+				return false;
+			}
 	     }
 	 }
 	
