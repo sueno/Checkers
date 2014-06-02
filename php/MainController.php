@@ -71,6 +71,10 @@ class MainController {
                 require_once 'action/ReportShowAction.php';
                 return new ReportShowAction($this->post);
                 break;
+            case 'report_manage':
+                require_once 'action/ReportManageAction.php';
+                return new ReportManageAction($this->post);
+                break;
             case 'comment_show':
                	require_once 'action/CommentShowAction.php';
                	return new CommentShowAction($this->post);

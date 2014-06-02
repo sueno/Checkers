@@ -1,36 +1,48 @@
 <?php
-require_once('../dao/ContentDao.php');
+require_once 'dao/ContentDao.php';
+require_once 'action/ActionSuper.php';
+require_once 'action/ActionInterface.php';
 
-class ReportAction implements ActionInterface {
-	private $post;
-	private $mode;
-	
+class ReportManageAction extends ActionSuper implements ActionInterface {
+
+    private $contentDaoObj;
+    private $post;
+
     public function __construct($post) {
-        $this->post = $post;
-        $this->mode = $post['mode'];
-        $reportObj = new ContentDao();
+    	parent::__construct($post);
+    	$this->post = $post;
+    	$this->contentDaoObj = new ContentDao();
+    }
+    
+    /**
+     * @Override
+     */
+    public function initAction () {
+        $this->contentDaoObj->connect();
     }
     
     /** 
      * @Override
      */
     public function saveAction() {
-    	$this->reportObj->insert($this->post);
+    	// debug
+    	$this->post['content_id'] = 11;
+    	$this->post['title'] = "title edit title";
+    	$this->post['body'] = "contents edit contents";
+    	if ($this->post['content_id'] == null) {
+    		$this->contentDaoObj->insert($this->post);
+    	}
+    	else {
+    		$this->contentDaoObj->update($this->post);
+    	}
+    	header('Location: ReportShowAction.php');
+    	exit();
     }
     
     /** 
      * @Override
      */
     public function showAction() {
-        $BEANS = $this->reportObj->select($this->post);
-        switch($mode) {
-            case 'group_reports':
-                require_once('../view/group_view.php.php');
-                break;
-            case 'individual_reports':
-                require_once('../view/ndividual_view.php');
-                break;
-        }
     }
        
 }
