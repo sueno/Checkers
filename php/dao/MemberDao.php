@@ -19,7 +19,7 @@ class MemberDao extends DaoSuper implements DaoInterface {
 			return parent::selectTable(
 					"users",
 					"id as member_id, name as member_name",
-					"where group_id = {$post['group_id']} ");
+					"where group_id = {$post['group_id']} and stat = 1");
 		}
 	}
 

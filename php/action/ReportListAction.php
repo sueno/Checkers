@@ -39,7 +39,7 @@ class ReportAction implements ActionInterface {
         $BEANS["reports"] = $this->reportObj->select();
         $BEANS["member"] = $this->reportObj->select($this->post);
         
-        require_once('view/group_view.php.php');
+        require_once('view/php/group_view.php');
     }
 }
 

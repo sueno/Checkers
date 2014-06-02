@@ -22,16 +22,16 @@
  
     
      //パス指定
-  $path="testPOSTview.php";
-//    $path="MainController.php";
+//  $path="testPOSTview.php";
+    $path="MainController.php";
   
-    $headPath="../css/";
-//    $headPath="view/css/"; 
+//    $headPath="../css/";
+    $headPath="view/css/"; 
 
     //BEANSを代入
     $userInfo = $session;   //$_SESSION
-//    $memberList = $member;
-//    $candidateList = $candidate;
+    $memberList = $member;
+    $candidateList = $candidate;
     
     
 ?>
