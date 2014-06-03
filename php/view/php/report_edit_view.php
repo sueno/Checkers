@@ -11,30 +11,15 @@
 //                     "content_date"=>'2014-05-29', "comment_num"=>5
 //                     );
 
-                        
      //パス指定
 //  $path="testPOSTview.php";
     $path="MainController.php";
-  
 //    $headPath="../css/";
     $headPath="view/css/"; 
-
     $userInfo = $_SESSION;
-    //BEANSを代入
-
-    
 ?>
 
 <html>
-    <head>
-        <?php 
-    		require 'view/contents/headContents.php';
-    	?>
-        <title>日報編集ページ</title>
-     </head>
-
-
-    <body>
     <?php 
     	$headerHTML = 'view/contents/header.php';
     	$bodyHTML = 'view/contents/reportManage.php';
@@ -42,6 +27,36 @@
     	
     	require 'view/layout/singleContentLayout.php';
     ?>
-        
-    </body>
+
+  <head>
+    <?php require 'view/contents/headContents.php'; ?>
+    <title>日報編集ページ</title>
+  </head>
+  <body>
+    <?php require 'view/contents/header.php'; ?>
+    <div class="body_part">
+      <h1>日報編集ページ</h1>
+      <?php $report=$BEANS['contents'][0]; ?>
+      <form method="post" action="<?php echo $path; ?>?mode=report_manage_save">
+        <table class="table table-bordered table-striped">      
+          <tr>
+            <td>タイトル：</td><td><input type="text" name="contents_title" value="<?php echo isset($report["title"]) ? $report["title"] : "" ; ?>" size="50" /></td>
+            <td>作成日:</td><td><input type="text" name="contents_content_date" value="<?php echo isset($report["content_date"]) ? $report["content_date"] : ""; ?>" size="50" /></td>
+          </tr>          
+          <tr>
+            <td colspan="4">
+              <textarea name="contents_body" rows="30" cols="100" placeholder="本文をここに入力"><?php echo isset($report["body"]) ? $report["body"] : ""; ?></textarea>
+            </td>
+          </tr>
+          <input type="hidden" name="contents_user_id" value="<?php echo isset($report["user_id"]) ? $report["user_id"] : "";?>" />
+          <input type="hidden" name="contents_id" value="<?php echo isset($report["id"]) ? $report["id"] : "";?>" />
+          <input type="submit" value="投稿する" />
+        </table>
+      </form>
+      
+      <br>
+      <br>
+      
+    </div>   
+  </body>
 </html>

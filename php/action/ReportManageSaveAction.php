@@ -32,14 +32,16 @@ class ReportManageSaveAction extends ActionSuper implements ActionInterface {
 //     	$this->post['contents_body'] = "test edit contents";
 //     	$this->post['contents_content_date'] = "2014-06-03";
 //     	$this->post['contents_kind'] = 0;
+
+//     	var_dump($this->post);
 		
-    	// 日報新規投稿か、日報更新かの分岐
-    	if (array_key_exists('contents_title', $this->post) && !empty($this->post['contents_title'])) {
+    	// 更新
+    	if (array_key_exists('contents_id', $this->post) && !empty($this->post['contents_id'])) {
     		//debug
 //     		echo '<br / ><br / >aaaaaa<br / ><br / >';
-    		$this->contentDaoObj->insert($this->post);
-    		echo $this->contentDaoObj->getResultCheck();
+    		$this->contentDaoObj->update($this->post);
     	}
+    	// 新規
     	else {
 //     		echo '<br / ><br / >bbbbbbb<br / ><br / >';
     		// debug
@@ -48,7 +50,8 @@ class ReportManageSaveAction extends ActionSuper implements ActionInterface {
 //     		print_r($this->post);
 //     		echo "<br><br><br>";
     		
-    		$this->contentDaoObj->update($this->post);
+    		$this->contentDaoObj->insert($this->post);
+    		echo $this->contentDaoObj->getResultCheck();
     	}
     }
     
