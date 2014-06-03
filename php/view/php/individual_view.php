@@ -73,7 +73,7 @@
 
 
                 <li><a href="" onclick="document.menuForm3.submit(); return false;">日報投稿</a>
-                       <form name="menuForm3" method="POST" action="<?php echo $path; ?>?mode=report_edit">
+                       <form name="menuForm3" method="POST" action="<?php echo $path; ?>?mode=report_manage">
                         </form>
                 </li>
  

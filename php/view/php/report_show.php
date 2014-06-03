@@ -55,7 +55,7 @@
 
 
                 <li><a href="" onclick="document.menuForm3.submit(); return false;">日報投稿</a>
-                       <form name="menuForm3" method="POST" action="<?php echo $path; ?>?mode=report_edit">
+                       <form name="menuForm3" method="POST" action="<?php echo $path; ?>?mode=report_manage">
                         </form>
                 </li>
  
@@ -128,7 +128,7 @@
 			</script>
 		            <br>
             <h2>コメントする</h2>
-            <form action="<?php echo $path."?mode=report_edit"; ?>" method="POST">
+            <form action="<?php echo $path."?mode=report_manage"; ?>" method="POST">
                     <input  type="hidden" name="content_id" value="<?php echo $report["content_id"]; ?> ">
                     <input  type="textarea" name="body" style="width:400px; height:150px;">
                     <div><input type="submit" value="送信"></div>
