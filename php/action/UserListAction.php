@@ -14,6 +14,8 @@ class UserListAction extends ActionSuper implements ActionInterface {
 
     public function __construct($post, $get) {
     	parent::__construct($post, $get);
+        echo "<h2>post</h2>";
+    	var_dump($get);
     	$this->reportObj = new ReportDao();
     	$this->userObj = new UserDao();
     	$this->groupObj = new GroupDao();
@@ -40,8 +42,10 @@ class UserListAction extends ActionSuper implements ActionInterface {
      */
     public function showAction() {
     	$BEANS = array();
-        $BEANS["reports"] = $this->reportObj->select(null,"","users.id = {$_SESSION['user_id']}");
-        $userId = $_SESSION["user_id"];
+        $userId = $this->post["user_id"];
+        echo "<h2>user id </h2>";
+        var_dump($this->post);
+        $BEANS["reports"] = $this->reportObj->select(null,"","user_id = {$userId}");
         $BEANS["users"] = $this->userObj->select($post,"*","where id = {$userId}");
         $groupId = $BEANS["users"]["group_id"];
         $BEANS["groups"] = $this->groupObj->select(null,"groups_name","where id = {$groupId}");
