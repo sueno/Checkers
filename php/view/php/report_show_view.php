@@ -25,7 +25,7 @@
 
     $userInfo = $_SESSION; 
     //◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆確認！！◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆
-    $report=$BEANS ["content"];
+    $report=$BEANS ["content"][0];
 ?>
 
 <html>
@@ -102,7 +102,7 @@
 	       	 	 // XMLHttpRequest オブジェクトを作成
 	         	var xhr = new XMLHttpRequest();
 	         
-	            xhr.open("GET" , $path+"?mode=comment_show");
+	            xhr.open("GET" , "<?php echo $path; ?>?mode=comment_show");
 	        	xhr.responseType = "json";
 				xhr.send(null);          
 	
@@ -119,7 +119,7 @@
 					 for (var key in obj) 
 					{
 						td1 += "<tr><td>"+"名前"+"</td>"+"<td>"+obj[key]["user_name"]+""+"</tr>";
-						td1 += "<tr><td>"+"</td>"+"<td>"+obj[key]["content"]+""+"</tr>";
+						td2 += "<tr><td>"+"</td>"+"<td>"+obj[key]["content"]+""+"</tr>";
 					 }
 					 window.document.getElementById("xmlObj").innerHTML = "<table>"+td1+td2+"</table>";
 				};
