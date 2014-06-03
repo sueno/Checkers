@@ -8,14 +8,12 @@ require_once 'dao/GroupDao.php';
 
 class UserListAction extends ActionSuper implements ActionInterface {
     
-    private $post;
    	private $reportObj;
    	private $userObj;
    	private $groupObj;
 
-    public function __construct($post) {
-    	parent::__construct($post);
-        $this->post = $post;
+    public function __construct($post, $get) {
+    	parent::__construct($post, $get);
     	$this->reportObj = new ReportDao();
     	$this->userObj = new UserDao();
     	$this->groupObj = new GroupDao();
