@@ -1,6 +1,8 @@
 <?php
 require_once 'dao/UserDao.php';
 
+session_start();
+
 $generateMainObj = new MainController();
 
 class MainController {

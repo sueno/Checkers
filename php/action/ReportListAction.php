@@ -71,7 +71,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function showAction() {
-    	parent::initAction();
+//     	parent::initAction();
     	$BEANS = array();
         $BEANS["reports"] = $this->reportObj->select(null,"","users.group_id = {$_SESSION['group_id']}");
         $post = array("groups_id"=>$_SESSION["group_id"],"stat"=>2);
