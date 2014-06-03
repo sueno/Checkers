@@ -30,20 +30,14 @@ class ReportManageAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function showAction() {
-    	// debug
-//     	$this->post['contents_id'] = 4;
-//     	echo '<br>va_dump post<br /><br />';
-//     	var_dump($this->post);
-    	if ($this->post['contents_id'] != null) {
-//     		echo "<br>aaaaaaaaaaaaaaaaa<br>";
-    		$BEANS['content'] = $this->contentDaoObj->select ( $this->post ,"*","where id = {$this->post['contents_id']}");
+    	if ($this->post['content_id'] != null) {
+    		$BEANS['contents'] = $this->contentDaoObj->select ( $this->post ,"*","where id = {$this->post['content_id']}");
     	}
     	else {
-    		$BEANS['title'] = '';
-    		$BEANS['body'] = '';
+    		$BEANS['contents'] = array(array("title"=>"","body"=>"","content_date"=>date('Y-m-d')));
     	}
 //     	echo '<br>va_dump BEANS<br /><br />';
-//     	var_dump($BEANS);
+    	var_dump($BEANS);
 //     	echo '<br>echo<br /><br />';
 //     	echo json_encode($BEANS);
 //     	print_r($BEANS['content']);

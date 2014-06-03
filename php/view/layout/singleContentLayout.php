@@ -7,13 +7,9 @@
 	</div>
 </div>
 
+<!-- body -->
 <div class="row">
-	<!-- sideber -->
-	<div class="col-sm-4">
-		<?php include $sidebarHTML; ?>
-	</div>
-	<!-- body -->
-	<div class="col-sm-8">
+	<div class="col-sm-12">
 		<?php include $bodyHTML; ?>
 	</div>
 </div>
