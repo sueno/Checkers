@@ -1,14 +1,5 @@
 <?php $DEBUG = 1; 
 
-    //テスト用配列　
-//     $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>3,"group_id"=>1); 
-
-//     $reports = array(   array("content_id"=>1,"title"=>"【日報】20140529",       "body"=>"今日は暑かった。日傘ほしい", "content_date"=>'2014-05-29', "comment_num"=>5),
-//                         array("content_id"=>2,"title"=>"【日報】20140530",       "body"=>"今日は寒かった。毛布ほしい", "content_date"=>'2014-05-30', "comment_num"=>3),
-//                         array("content_id"=>3,"title"=>"【日報】20140531",       "body"=>"今日は適当な日だった"      , "content_date"=>'2014-05-31', "comment_num"=>10)
-//                     );
-//     $profInfo = array("id"=>1,"name"=>"百田", "mail"=>"momota@momoclo.com", "group_name"=>"11期");
-
      //パス指定
 //  $path="testPOSTview.php";
     $path="MainController.php";
@@ -130,19 +121,19 @@
                     foreach($reports as $temp)
                     {
                         echo "<tr>";
-                        echo "<td><a href=\"\" onclick=\"bodyClick(".$temp["content_id"]."); return false;\">".$temp["title"]."</a></td>";
-                        echo "<td><a href=\"\" onclick=\"commentClick(".$temp["content_id"]."); return false;\">コメント(".$temp["comment_num"].")</a></td>";
+                        echo "<td><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">".$temp["title"]."</a></td>";
+                        echo "<td><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">"."コメント(".$temp["comment_num"].")</a></td>";
                         echo "<td>".$temp["content_date"]."</td>";
                         if($profInfo["id"]==$userInfo["user_id"])
                         {
                             echo "<form action=\"".$path."\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"削除\"></form>";                        
-                            echo "<form action=\"".$path."?mode=report_edit\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"編集\"></form></td></tr>"; 
+                            echo "<form action=\"".$path."?mode=report_edit&content_id=".$temp["content_id"]."\" method=\"POST\" ><input type=\"submit\" value=\"編集\"></form></td></tr>"; 
                         }
                         
                         else
                             echo "<td></td></tr>";
                             
-                        echo "<tr><td colspan=\"5\"><a href=\"\" onclick=\"bodyClick(".$temp["content_id"]."); return false;\">".$temp["body"]."</a></td></tr>";
+                        echo "<tr><td colspan=\"5\"><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">".$temp["body"]."</a></td></tr>";
                     }
                 ?>
                 
