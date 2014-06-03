@@ -33,7 +33,7 @@
         <meta charset="utf-8">
         <title>登録完了ページ</title>
         <link href="<?php echo $headPath; ?>login_confirm_view.css" rel="stylesheet" type="text/css">
-        <meta http-equiv="refresh" content="10;URL=<?php echo $path; ?>?mode=individual_reports">
+        <meta http-equiv="refresh" content="5;URL=<?php echo $path; ?>?mode=individual_reports">
 
     </head>
 
@@ -53,7 +53,7 @@
             
  
         </div>
-        <p>10秒後に自動的にトップページに転送します</p>
+        <p>5秒後に自動的にトップページに転送します</p>
         
     </body>
     

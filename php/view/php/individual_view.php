@@ -133,7 +133,7 @@
                         else
                             echo "<td></td></tr>";
                             
-                        echo "<tr><td colspan=\"5\"><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">".$temp["body"]."</a></td></tr>";
+                        echo "<tr><td colspan=\"5\"><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\" style=\"text-overflow:  ellipsis;\">".$temp["body"]."</a></td></tr>";
                     }
                 ?>
                 
