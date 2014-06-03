@@ -12,12 +12,11 @@
 
 <html>
 <head>
-<meta charset="utf-8">
+        <?php 
+    		require 'view/contents/headContents.php';
+    	?>
+        
 <title>ログインページ</title>
-<link href="view/css/login_view.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
 </head>
 
 
@@ -27,21 +26,43 @@
 
 <div id="main">
 
-<div id ="left" Align="left">
+<div class="row">
+	<!-- sideber -->
+	<div class="col-sm-6">
+
 <h2>ログイン</h2>
 <form action="<?php echo $path; ?>?mode=group_reports" method="POST">
-<table>
-    <tr><td>ログインID:</td><td><input type="text" name="users_name"><td></tr>
-    <tr><td>パスワード:</td><td><input type="text" name="users_password"><td></tr>
-    <tr><td></td><td><input type="submit" value="ログイン" ></td></tr>
-</table>
-</form>
+<div class="input-group">
+  <span class="input-group-addon">ログインID</span>
+  <input type="text" class="form-control" name="users_name" placeholder="User Name">
 </div>
+<br />
+<div class="input-group">
+  <span class="input-group-addon">パスワード</span>
+  <input type="password" class="form-control" name="users_password" placeholder="Password">
+</div>
+<br />
+<input type="submit" class="btn btn-default btn-lg" value="ログイン" />
+</form>
 
+</div>
+<div class="col-sm-6">
 
-<div id ="right" Align="right">
 <h2>ユーザー登録</h2>
 <form action="<?php echo $path; ?>?mode=signup_confirm" method="POST">
+<div class="input-group">
+  <span class="input-group-addon">ログインID</span>
+  <input type="text" class="form-control" name="users_name" placeholder="User Name">
+</div>
+<br />
+<div class="input-group">
+  <span class="input-group-addon">メールアドレス</span>
+  <input type="password" class="form-control" name="users_password" placeholder="E-Mail">
+</div>
+<div class="input-group">
+  <span class="input-group-addon">パスワード</span>
+  <input type="password" class="form-control" name="users_password" placeholder="Password">
+</div>
 <table>
     <tr><td>ユーザーID:</td><td><input type="text" name="users_name"><td></tr>
     <tr><td>メールアドレス:</td><td><input type="text" name="users_mail"><td></tr>
@@ -49,16 +70,9 @@
     <tr><td>グループを選択:</td><td><select name="groups_id">
     <!-- アクションの連想配列名に変更-->
     <?php
-
-            
-//        var_dump($groupsBeans);
-        foreach($groupList as $bean)
-        {
-            
+        foreach($groupList as $bean) {
               echo "<option value=\"".$bean["id"]."\">".$bean["name"]."</option>";
-
         }
-    
     ?>
     </select><td></tr>
     <tr><td></td><td><input type="submit" value="ユーザー登録" ></td></tr>

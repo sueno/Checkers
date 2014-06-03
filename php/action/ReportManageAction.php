@@ -36,11 +36,6 @@ class ReportManageAction extends ActionSuper implements ActionInterface {
     	else {
     		$BEANS['contents'] = array(array("title"=>"","body"=>"","content_date"=>date('Y-m-d')));
     	}
-//     	echo '<br>va_dump BEANS<br /><br />';
-    	var_dump($BEANS);
-//     	echo '<br>echo<br /><br />';
-//     	echo json_encode($BEANS);
-//     	print_r($BEANS['content']);
     	require_once ('view/php/report_edit_view.php');
     }
        
