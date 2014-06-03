@@ -1,5 +1,5 @@
 <?php
-require_once 'dao/ContentDao.php';
+require_once 'dao/ReportDao.php';
 require_once 'action/ActionSuper.php';
 require_once 'action/ActionInterface.php';
 
@@ -8,8 +8,8 @@ class ReportShowAction extends ActionSuper implements ActionInterface {
     private $contentDaoObj;
 
     public function __construct($post, $get) {
-    	parent::__construct($post);
-    	$this->contentDaoObj = new ContentDao();
+    	parent::__construct($post,$get);
+    	$this->contentDaoObj = new ReportDao();
     }
     
     /**
@@ -31,9 +31,10 @@ class ReportShowAction extends ActionSuper implements ActionInterface {
     public function showAction() {
     	//debug
     	$this->post['content_id'] = 1;
-		$BEANS ["content"] = $this->contentDaoObj->select($this->post,"title, body","where id = {$this->post['content_id']}");
+		$BEANS ["content"] = $this->contentDaoObj->select($this->post,"","contents.id = {$this->post['content_id']}");
+		var_dump($BEANS);
 // 		$BEANS = json_encode($BEANS);
-		require_once ('view/php/report_show.php');
+		require_once ('view/php/report_show_view.php');
     }
        
 }
