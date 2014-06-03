@@ -1,7 +1,7 @@
 
 <!-- 日報一覧表示部-->
 <div>
-	<table border="2">
+	<table class="table table-bordered table-striped">
 		<tr>
 			<th>タイトル</th>
 <!-- 			<th>コメント数</th> -->
