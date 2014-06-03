@@ -26,7 +26,7 @@
                         echo "<td>".$temp["content_date"]."</td>";
                         if($session["user_id"]==$temp["user_id"]) {
                             echo "<td>".
-                                   "<form action=\"".$path."?delete_report\" method=\"POST\" >".
+                                   "<form action=\"".$path."?mode=delete_report\" method=\"POST\" >".
                                      "<input type=\"hidden\" name=\"contents_id\" value=\"".$temp["content_id"]."\">".
                                      "<input type='hidden' name='contents_title' value='".$temp["title"]."'>".
                                      "<input type='hidden' name='contents_body' value='".$temp["body"]."'>".

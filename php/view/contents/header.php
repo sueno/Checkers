@@ -15,7 +15,7 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav">
-				<li id="navi_indvidual_view"><a href="MainController.php?mode=individual_reports">個人ページ</a></li>
+				<li id="navi_individual_view"><a href="MainController.php?mode=individual_reports">個人ページ</a></li>
 				<li id="navi_group_view"><a href="MainController.php?mode=group_reports" >グループページ</a></li>
 				<li id="navi_report_edit_view"><a href="MainController.php?mode=report_manage" >日報投稿</a></li>
 				

@@ -80,7 +80,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     	} else if (array_key_exists('user_id', $_SESSION) && !empty($_SESSION['user_id'])) {
     		$userObj = new UserDao();
     		$userObj->connect();
-    		$userData = $userObj->select(null,"id, group_id, password, stat","where name = '{$sessionVal["users_name"]}'");
+    		$userData = $userObj->select(null,"stat","where id = {$_SESSION["user_id"]}");
     		$user = $userData[0];
     		
     		if ($user["stat"]==2) {

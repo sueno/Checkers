@@ -28,6 +28,11 @@
         <?php 
     		require 'view/contents/headContents.php';
     	?>
+        <script type="text/javascript">
+			$(function() {
+				$("#navi_group_view").naviActive();
+			});
+        </script>
         
         <title>グループページ</title>
     </head>

@@ -33,7 +33,7 @@ class ReportManageSaveAction extends ActionSuper implements ActionInterface {
 //     	$this->post['contents_content_date'] = "2014-06-03";
 //     	$this->post['contents_kind'] = 0;
 
-    	var_dump($this->post);
+//     	var_dump($this->post);
 		
     	// 更新
     	if (array_key_exists('contents_id', $this->post) && $this->post['contents_id']!="") {
@@ -60,7 +60,7 @@ class ReportManageSaveAction extends ActionSuper implements ActionInterface {
      */
     public function showAction() {
     	// todo 個人日報一覧ページを表示させる
-//     	header("Location: MainController.php?mode=individual_reports");
+    	header("Location: MainController.php?mode=individual_reports");
     }
        
 }

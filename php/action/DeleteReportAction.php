@@ -24,16 +24,21 @@ class DeleteReportAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function saveAction() {
-//     	echo '<br><br>dump<br><br>';
-//     	var_dump($this->post);
+
+    	
     	$this->post['contents_delete_flg'] = true;
     	// debug	
-//     	$this->post['contents_id'] = 4;
+//     	$this->post['contents_id'] = 1;
 //     	var_dump($this->post);
 //     	$this->post['contents_title'] = "title edit title";
 //     	$this->post['contents_body'] = "test edit contents";
 //     	$this->post['contents_content_date'] = "2014-06-03";
     	$this->post['contents_kind'] = 0;
+    	
+//     	echo '<br><br>dump<br><br>';
+//     	var_dump($this->post);
+    	 
+//     	echo '<br><br><br><br>';
 		
     	$this->contentDaoObj->update($this->post);
 

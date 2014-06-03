@@ -5,3 +5,6 @@
 
 <script src="view/js/jquery-1.9.1.min.js"></script>
 <script src="view/bootstrap/js/bootstrap.min.js"></script>
+
+
+<script src="view/js/naviActive.js"></script>
