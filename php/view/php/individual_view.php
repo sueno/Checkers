@@ -128,7 +128,7 @@
                         echo "<td>".$temp["content_date"]."</td>";
                         if($profInfo["id"]==$userInfo["user_id"])
                         {
-                            echo "<form action=\"".$path."\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"削除\"></form>";                        
+                            echo "<form action=\"".$path."?delete_report\" method=\"POST\" ><input type=\"hidden\" name=\"contents_id\" value=\"".$temp["content_id"]."\"><input type=\"submit\" value=\"削除\"></form>";                        
                             echo "<form action=\"".$path."?mode=report_edit&content_id=".$temp["content_id"]."\" method=\"POST\" ><input type=\"submit\" value=\"編集\"></form></td></tr>"; 
                         }
                         
