@@ -24,8 +24,9 @@ class ReportManageSaveAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function saveAction() {
+    	$this->post['contents_kind'] = 0;
     	// debug
-    	$this->post['contents_user_id'] = 3;
+//     	$this->post['contents_user_id'] = 3;
 //     	$this->post['contents_id'] = 4;
 //     	$this->post['contents_title'] = "title edit title";
 //     	$this->post['contents_body'] = "test edit contents";
