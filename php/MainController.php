@@ -84,6 +84,10 @@ class MainController {
                	require_once 'action/DeleteReportAction.php';
                	return new DeleteReportAction($_POST, $_GET);
                	break;
+            case 'logout':
+               	require_once 'action/LogoutAction.php';
+               	return new LogoutAction($_POST, $_GET);
+               	break;
         }
     }
 }
