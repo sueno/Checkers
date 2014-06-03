@@ -32,7 +32,7 @@ class ReportShowAction extends ActionSuper implements ActionInterface {
     	//debug
     	$this->post['content_id'] = 1;
 		$BEANS ["content"] = $this->contentDaoObj->select($this->post,"title, body","where id = {$this->post['content_id']}");
-		$BEANS = json_encode($BEANS);
+// 		$BEANS = json_encode($BEANS);
 		require_once ('view/php/report_show.php');
     }
        
