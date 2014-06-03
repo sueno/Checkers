@@ -22,7 +22,7 @@ class ReportDao extends DaoSuper implements DaoInterface {
 			
 			return parent::selectTable(
 					"contents",
-					"contents.id as content_id, title, users.id as user_id, users.name as user_name, contents.body as body, content_date, count(comments.id) as comment_num {$elem} ",
+					"contents.id as content_id, title, users.id as user_id, users.name as user_name, contents.body as body, content_date, count(comments.id) as comment_num, contents.delete_flg as delete_flg {$elem} ",
 					"join comments ".
 					"join users ".
 					"on contents.id = comments.content_id ".

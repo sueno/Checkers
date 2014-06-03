@@ -2,6 +2,8 @@
 require_once 'action/ActionSuper.php';
 require_once 'action/ActionInterface.php';
 
+require_once 'action/UserListAction.php';
+
 require_once 'dao/UserDao.php';
 require_once 'dao/GroupDao.php';
 require_once 'dao/ReportDao.php';
@@ -11,9 +13,13 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     
    	private $reportObj;
    	private $memberObj;
+   	
+   	private $state;
+   	private $userAct;
 
     public function __construct($post, $get) {
     	parent::__construct($post, $get);
+        $this->userAct = new UserListAction($post, $get);
     	$this->reportObj = new ReportDao();
     	$this->memberObj = new MemberDao();
     }
@@ -32,36 +38,48 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function saveAction() {
-    	$sessionVal = $this->getTableCalumnExistList($this->post, array("users_name","users_password"));
+    	$sessionVal = null;
+    	if (array_key_exists('user_id', $_SESSION) && empty($_SESSION['user_id'])) {
+    		$sessionVal = $_SESSION["user_id"];
+    	} else {
+    		$sessionVal = $this->getTableCalumnExistList($this->post, array("users_name","users_password"));
+    	}
     	if ($sessionVal!=null) {
     		$userObj = new UserDao();
     		$userObj->connect();
-    		$userData = $userObj->select(null,"id, group_id, password","where name = '{$sessionVal["users_name"]}'");
+    		$userData = $userObj->select(null,"id, group_id, password, stat","where name = '{$sessionVal["users_name"]}'");
     		$user = $userData[0];
     		
-    		echo "<br><br><h1>session create</h1><br><br>";		
-    		var_dump($user);
+    		if ($user["stat"]) {
+    			$this->state = true;
+    		} else {
+    			$this->state = false;
+    		}
+    		
+//     		echo "<br><br><h1>session create</h1><br><br>";		
+//     		var_dump($user);
     		
     		if ( $sessionVal["users_password"] != $user["password"] ) {
         		throw new Exception('password no match');
     		}
+    		
     		$groupObj = new GroupDao();
     		$groupObj->connect();
-    		$groupData = $groupObj->select(null,"name","where id = {$user['group_id']}");
+    		$groupData = $groupObj->select(null,"name","where id = {$user['group_id']} and contents.delete_flg = false");
     		echo "session    ok";
     		echo "<br><br><h1>groupdata</h1><br><br>";	
     		var_dump($groupData);
     		$group = $groupData[0];
 
-    		echo "<br><br><h1>session insert</h1><br><br>";
+//     		echo "<br><br><h1>session insert</h1><br><br>";
 
     		$_SESSION["user_id"] = $user["id"];
     		$_SESSION["user_name"] = $sessionVal["users_name"];
     		$_SESSION["group_id"] = $user["group_id"];
     		$_SESSION["group_name"] = $group["name"];
     		
-    		var_dump($_SESSION);
-    		echo "<br><br><h1>session end</h1><br><br>";
+//     		var_dump($_SESSION);
+//     		echo "<br><br><h1>session end</h1><br><br>";
     	} else {
         	throw new Exception('login failed');
     	}
@@ -72,15 +90,19 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      */
     public function showAction() {
 //     	parent::initAction();
-    	$BEANS = array();
-        $BEANS["reports"] = $this->reportObj->select(null,"","users.group_id = {$_SESSION['group_id']}");
-        $post = array("groups_id"=>$_SESSION["group_id"],"stat"=>2);
-        $BEANS["member"] = $this->memberObj->select($post);
-        $post2 = array("groups_id"=>$_SESSION["group_id"],"stat"=>1);
-        $BEANS["candidate"] = $this->memberObj->select($post2);
-        
-        
-        require_once('view/php/group_view.php');
+		if ($this->state) {
+	    	$BEANS = array();
+	        $BEANS["reports"] = $this->reportObj->select(null,"","users.group_id = {$_SESSION['group_id']}");
+	        $post = array("groups_id"=>$_SESSION["group_id"],"stat"=>2);
+	        $BEANS["member"] = $this->memberObj->select($post);
+	        $post2 = array("groups_id"=>$_SESSION["group_id"],"stat"=>1);
+	        $BEANS["candidate"] = $this->memberObj->select($post2);
+       		require_once('view/php/group_view.php');
+		} else {
+			$this->userAct->initAction();
+			$this->userAct->saveAction();
+			$this->userAct->showAction();
+		}
     }
     
 
