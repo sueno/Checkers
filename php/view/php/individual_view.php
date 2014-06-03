@@ -135,7 +135,6 @@
                         echo "<td>".$temp["content_date"]."</td>";
                         if($profInfo["id"]==$userInfo["user_id"])
                         {
-                            echo "<td><form action=\"".$path."\" method=\POST\" name=\"delete\"><input type=\"checkbox\" value=\"".$temp["content_id"]."\"></form>";
                             echo "<form action=\"".$path."\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"削除\"></form>";                        
                             echo "<form action=\"".$path."?mode=report_edit\" method=\"POST\" ><input type=\"hidden\" name=\"content_id\" value=\"".$temp["comment_num"]."\"><input type=\"submit\" value=\"編集\"></form></td></tr>"; 
                         }
@@ -152,7 +151,6 @@
             
             </div>
         </div>
-<a href="aaa.php">test</a>
 </body>
 
 </html>

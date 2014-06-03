@@ -73,6 +73,8 @@
 
     <body>
 
+    <?php require 'view/layout/header.php'; ?>
+    
         <div id="menu">
             <ul>
                 <li><a href="" onclick="window.document.menuForm1.submit(); return false;" >個人ページ</a>

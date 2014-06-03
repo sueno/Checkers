@@ -1,20 +1,20 @@
 <?php $DEBUG = 1; 
 
         //テスト用配列　
-    $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>2,"group_id"=>1); 
+//     $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>2,"group_id"=>1); 
     
-    $report = array("content_id"=>1,
-                    "title"=>"【日報】20140529", 
-                    "user_id"=>3,
-                    "user_name"=>"百田",    
-                    "body"=>"ニューシングル、泣いてもいいんだよが5月8日発売ということで！6日、7日、8日と全国いろんなところに行ってきましたぁ!!名古屋、滋賀、山形、新潟、仙台、盛いやぁ～楽しかった(*゜▽゜*)それぞれの地域の色があって、どこに行っても楽しい方々ばかりで…（´∀`*）笑いすぎてお腹が筋肉痛になったの久しぶり！笑モノノフさんにもたくさん会えて(*´艸｀)ふふみんなありがとねーん！(。-∀-)「泣いてもいいんだよ」たくさん聞いてください(＾＾)", 
-                    "content_date"=>'2014-05-29', 
-                    "comment_num"=>5
-                    );
-    $comments = array(  array("user_name"=>"武士", "content"=>"いいね。見習いたい", "user_id"=>5, "date"=>'2014-05-29'), 
-                        array("user_name"=>"モノノフ", "content"=>"あーりんわっしょい","user_id"=>6, "date"=>'2014-05-29'), 
-                        array("user_name"=>"ぼへみあ", "content"=>"こんにちは。","user_id"=>7, "date"=>'2014-05-29'),
-                    );
+//     $report = array("content_id"=>1,
+//                     "title"=>"【日報】20140529", 
+//                     "user_id"=>3,
+//                     "user_name"=>"百田",    
+//                     "body"=>"ニューシングル、泣いてもいいんだよが5月8日発売ということで！6日、7日、8日と全国いろんなところに行ってきましたぁ!!名古屋、滋賀、山形、新潟、仙台、盛いやぁ～楽しかった(*゜▽゜*)それぞれの地域の色があって、どこに行っても楽しい方々ばかりで…（´∀`*）笑いすぎてお腹が筋肉痛になったの久しぶり！笑モノノフさんにもたくさん会えて(*´艸｀)ふふみんなありがとねーん！(。-∀-)「泣いてもいいんだよ」たくさん聞いてください(＾＾)", 
+//                     "content_date"=>'2014-05-29', 
+//                     "comment_num"=>5
+//                     );
+//     $comments = array(  array("user_name"=>"武士", "content"=>"いいね。見習いたい", "user_id"=>5, "date"=>'2014-05-29'), 
+//                         array("user_name"=>"モノノフ", "content"=>"あーりんわっしょい","user_id"=>6, "date"=>'2014-05-29'), 
+//                         array("user_name"=>"ぼへみあ", "content"=>"こんにちは。","user_id"=>7, "date"=>'2014-05-29'),
+//                     );
                         
      //パス指定
 //   $path="testPOSTview.php";
@@ -24,7 +24,7 @@
     $headPath="view/css/"; 
 
     $userInfo = $_SESSION; 
-    
+    $report=$BEANS;
 ?>
 
 <html>
@@ -74,7 +74,7 @@
             if($userInfo["user_id"]==$report["user_id"])
                 {
                     ?>
-                 <form action="<?php echo $path."?mode=report_edit"; ?>" method="POST">
+                 <form action="<?php echo $path."?mode=report_manage"; ?>" method="POST">
                     <input  type="hidden" name="content_id" value="<?php echo $report["content_id"]; ?> ">
                     <div align="right"><input type="submit" value="編集"></div>
                 </form>
