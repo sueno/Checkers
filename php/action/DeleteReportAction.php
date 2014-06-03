@@ -33,7 +33,7 @@ class DeleteReportAction extends ActionSuper implements ActionInterface {
 //     	$this->post['contents_title'] = "title edit title";
 //     	$this->post['contents_body'] = "test edit contents";
 //     	$this->post['contents_content_date'] = "2014-06-03";
-//     	$this->post['contents_kind'] = 0;
+    	$this->post['contents_kind'] = 0;
 		
     	$this->contentDaoObj->update($this->post);
 
