@@ -30,7 +30,8 @@ class ReportManageAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function showAction() {
-    	if ($this->post['content_id'] != null) {
+    	print_r($this->post);
+    	if (array_key_exists('content_id', $this->post) && !empty($this->post['content_id'])) {
     		$BEANS['contents'] = $this->contentDaoObj->select ( $this->post ,"*","where id = {$this->post['content_id']}");
     	}
     	else {
