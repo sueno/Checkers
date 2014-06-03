@@ -1,18 +1,17 @@
 
             <!-- グループメンバ表示部-->
             <div>
-                <h2>メンバー</h2><br>
-                <ul>
+                <div class="list-group">
+  					<a href="#" class="list-group-item list-group-item-info">メンバー</a>
                     <?php
                         foreach($memberList as $temp)
-                         echo "<li><a href=\"".$path."?mode=individual_reports&user_id=".$temp["member_id"]."\">".$temp["member_name"]."</a></li>";
+                         echo "<a class='list-group-item' href=\"".$path."?mode=individual_reports&user_id=".$temp["member_id"]."\">".$temp["member_name"]."</a>";
 
                     ?>
-                </ul>
+                </div>
                 
-                 <h2>承認待ちユーザー</h2><br>
-
-                <ul>
+                <div class="list-group">
+  					<a href="#" class="list-group-item list-group-item-info">承認待ちユーザー</a>
                     <?php
                         foreach($candidateList as $temp)
                         { ?>
@@ -20,9 +19,9 @@
                         		<input type="hidden" name="users_id" value="<?php echo $temp["member_id"]; ?>">
                         	</form>
                         <?php 
-                         echo "<li>".$temp["member_name"]."　　　　"."<a href='' onclick='document.groupRecog".$temp["member_id"].".submit(); return false; '>承認</a></li>";
+                         echo "<a class='list-group-item' href=\"".$path."?mode=individual_reports&user_id=".$temp["member_id"]."\">".$temp["member_name"]."　　　　"."<button onclick='document.groupRecog".$temp["member_id"].".submit(); return false; '>承認</button></a>";
                         }
                     ?>
-                </ul>               
+                </div>               
                 
             </div>

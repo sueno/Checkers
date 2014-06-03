@@ -39,7 +39,7 @@
 
 
     <body>
-    <?php require 'view/layout/header.php'; ?>
+    <?php require 'view/contents/header.php'; ?>
 
         <div id="menu">
             <ul>

@@ -36,7 +36,7 @@
 
 
     <body>
-    <?php require 'view/layout/header.php'; ?>
+    <?php require 'view/contents/header.php'; ?>
         
         
         <div class="body_part">
