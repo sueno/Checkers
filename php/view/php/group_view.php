@@ -25,32 +25,11 @@
 
 <html>
     <head>
-        <meta charset="utf-8">
-        <title>グループページ</title>
-        <link href="<?php echo $headPath; ?>group_view.css" rel="stylesheet" type="text/css">
-        <link href="<?php echo $headPath; ?>menu.css" rel="stylesheet" type="text/css">
+        <?php 
+    		require 'view/contents/headContents.php';
+    	?>
         
-        <!-- リンクをクリックした時のPOST送信動作-->
-        <script type="text/javascript">
-            function bodyClick(content_id){
-                document.getElementById("content_id_input").value = content_id;
-                document.bodyForm.submit();
-                
-            }
-            
-            function commentClick(content_id){
-                document.getElementById("comment_input1").value = content_id;
-                document.commentForm.submit();
-                
-            }
-            
-            function userClick(user_id){
-                document.getElementById("user_input").value= user_id;
-                document.userForm.submit();
-                
-            
-            }
-        </script>
+        <title>グループページ</title>
     </head>
 
 
@@ -63,10 +42,6 @@
     	
     	require 'view/layout/sideMenuLayout.php';
     ?>
-            
-<!--         <div class="body_part">
-        <h2><?php //echo $userInfo["group_name"]?>さんのページです</h2>
-<!--         </div> -->
     
 </body>
 
