@@ -29,7 +29,7 @@ class GroupRecogAction extends ActionSuper implements ActionInterface {
     	
     	$this->post["users_stat"] = 2;
     	$this->userDaoObj->update($this->post);
-    	header('Location: ReportListAction.php');
+    	header('Location: MainController.php?mode=group_reports');
     	exit();
     }
     
