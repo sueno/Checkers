@@ -16,6 +16,7 @@ class ReportShowAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function initAction () {
+    	parent::initAction();
         $this->contentDaoObj->connect();
     }
     
