@@ -29,7 +29,6 @@
     <?php 
     	$headerHTML = 'view/contents/header.php';
     	$bodyHTML = 'view/contents/reportManage.php';
-    	$footerHTML = '';
     	
     	require 'view/layout/singleContentLayout.php';
     ?>  

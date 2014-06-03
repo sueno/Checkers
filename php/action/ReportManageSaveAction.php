@@ -36,7 +36,7 @@ class ReportManageSaveAction extends ActionSuper implements ActionInterface {
 //     	var_dump($this->post);
 		
     	// 更新
-    	if (array_key_exists('contents_id', $this->post) && !empty($this->post['contents_id'])) {
+    	if (array_key_exists('contents_id', $this->post) && $this->post['contents_id']!="") {
     		//debug
 //     		echo '<br / ><br / >aaaaaa<br / ><br / >';
     		$this->contentDaoObj->update($this->post);
