@@ -14,8 +14,8 @@ class UserListAction extends ActionSuper implements ActionInterface {
 
     public function __construct($post, $get) {
     	parent::__construct($post, $get);
-        echo "<h2>post</h2>";
-    	var_dump($get);
+//         echo "<h2>post</h2>";
+//     	var_dump($get);
     	$this->reportObj = new ReportDao();
     	$this->userObj = new UserDao();
     	$this->groupObj = new GroupDao();
@@ -43,14 +43,18 @@ class UserListAction extends ActionSuper implements ActionInterface {
     public function showAction() {
     	$BEANS = array();
         $userId = $this->post["user_id"];
-        echo "<h2>user id </h2>";
-        var_dump($this->post);
-        $BEANS["reports"] = $this->reportObj->select(null,"","user_id = {$userId}");
+//         var_dump($this->post);
         $BEANS["users"] = $this->userObj->select($post,"*","where id = {$userId}");
-        $groupId = $BEANS["users"]["group_id"];
-        $BEANS["groups"] = $this->groupObj->select(null,"groups_name","where id = {$groupId}");
+        $groupId = $BEANS["users"][0]["group_id"];
         
-        print_r($BEANS);
+        if ($groupId==$_SESSION["group_id"]) {
+        	$BEANS["reports"] = $this->reportObj->select(null,"","user_id = {$userId}");
+        	$BEANS["groups"] = $this->groupObj->select(null,"name","where id = {$groupId}");
+        } else {
+        	$BEANS["reports"] = array(array());
+        	$BEANS["groups"] = array(array("name"=>"非公開"));
+        	$BEANS["users"] = array(array("name"=>"非公開","mail"=>"非公開"));
+        }
         
         require_once 'view/php/individual_view.php';
     }
