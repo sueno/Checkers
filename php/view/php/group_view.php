@@ -2,6 +2,8 @@
 
 
  $reports = $BEANS["reports"];
+ 
+ var_dump($reports);
  $member = $BEANS["member"];
  $candidate = $BEANS["candidate"];
  

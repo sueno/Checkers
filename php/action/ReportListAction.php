@@ -91,7 +91,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
 		if ($this->state) {
 	    	$BEANS = array();
 	    	$groupId = $_SESSION['group_id'];
-	        $BEANS["reports"] = $this->reportObj->select(null,"","users.group_id = {$groupId}  and contents.delete_flg = false");
+	        $BEANS["reports"] = $this->reportObj->select(null,"","users.group_id = {$groupId} and contents.delete_flg = 0");
 	        $post = array("groups_id"=>$groupId,"stat"=>2);
 	        $BEANS["member"] = $this->memberObj->select($post);
 	        $post2 = array("groups_id"=>$groupId,"stat"=>1);
