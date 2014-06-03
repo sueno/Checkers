@@ -24,7 +24,7 @@
                         echo "<td>".$temp["content_date"]."</td>";
                         if($session["user_id"]==$temp["user_id"]) {
                             echo "<td><form action=\"".$path."?delete_report\" method=\"POST\" ><input type=\"hidden\" name=\"contents_id\" value=\"".$temp["content_id"]."\"><input type=\"submit\" value=\"削除\"></form>";                        
-                            echo "<form action=\"".$path."?mode=report_edit&content_id=".$temp["content_id"]."\" method=\"POST\" ><input type=\"submit\" value=\"編集\"></form></td></tr>"; 
+                            echo "<form action=\"".$path."?mode=report_manage&content_id=".$temp["content_id"]."\" method=\"POST\" ><input type=\"submit\" value=\"編集\"></form></td></tr>"; 
                         } else {
                             echo "<td><a href='MainController.php?mode=individual_reports&user_id=".$temp["user_id"]."'>".$temp["user_name"]."</a></td></tr>";
                         }
