@@ -105,7 +105,7 @@
                         foreach($candidateList as $temp)
                         { ?>
                         	<form name="groupRecog<?php echo $temp["member_id"]; ?>" method="POST" action="<?php echo $path; ?>?mode=group_recog">
-                        		<input type="hidden" name="member_id" value="<?php echo $temp["member_id"]; ?>">
+                        		<input type="hidden" name="user_id" value="<?php echo $temp["member_id"]; ?>">
                         	</form>
                         <?php 
                          echo "<li>".$temp["member_name"]."　　　　"."<a href=\"\" action=\"document.groupRecog".$temp["member_id"].".submit()\">承認</a></li>";
