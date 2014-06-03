@@ -85,7 +85,7 @@
         ELSE		//新規作成の場合
         {?>
         	<table border="1">
-        	<form method="POST" action="<?php echo $path; ?>?mode=report_manage">
+        	<form method="POST" action="<?php echo $path; ?>?mode=report_manage_save">
         	<tr><td>タイトル：</td> <td><input type="text" name="contents_title"  size="50"></td>
         	<td>作成日:</td>    <td><input type="text" name="contents_content_date" value="<?php echo date('Y-m-d'); ?>" size="50"></td></tr>
         	
