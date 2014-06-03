@@ -23,7 +23,7 @@
  $member = $BEANS["member"];
  $candidate = $BEANS["candidate"];
  
- var_dump($BEANS);
+//  var_dump($BEANS);
     
      //パス指定
 //  $path="testPOSTview.php";
