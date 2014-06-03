@@ -29,10 +29,8 @@ class LoginCompleteAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function saveAction() {
-            $this->post["users_stat"] = 1;
-            echo 'post <br />';
-            var_dump($this->post);
-            $this->userDaoObj->insert($this->post);
+    	$this->post["users_stat"] = 1;
+        $this->userDaoObj->insert($this->post);
     }
     
     /** 

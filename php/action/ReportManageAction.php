@@ -31,7 +31,8 @@ class ReportManageAction extends ActionSuper implements ActionInterface {
     	$this->post['contents_body'] = "contents edit contents";
     	$this->post['contents_date'] = "2014-06-03";
     	$this->post['contents_kind'] = 0;
-
+		
+    	// 日報新規投稿か、日報更新かの分岐
     	if (array_key_exists('contents_title', $this->post)) {
     		$this->contentDaoObj->insert($this->post);
     	}
@@ -43,8 +44,7 @@ class ReportManageAction extends ActionSuper implements ActionInterface {
     		
     		$this->contentDaoObj->update($this->post);
     	}
-    	header('Location: ReportShowAction.php');
-    	exit();
+    	// todo 日報ページを表示させる
     }
     
     /** 

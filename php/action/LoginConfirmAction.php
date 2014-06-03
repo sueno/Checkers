@@ -13,8 +13,8 @@ class LoginConfirmAction extends ActionSuper implements ActionInterface {
     	$this->loginObj = new GroupDao();
     	$this->post = $post;
     	//debub
-    	echo 'post <br />';
-    	var_dump($this->post);
+//     	echo 'post <br />';
+//     	var_dump($this->post);
     }
     
     /**
@@ -40,18 +40,8 @@ class LoginConfirmAction extends ActionSuper implements ActionInterface {
      */
     public function showAction() {
         $BEANS["groups"] = $this->loginObj->select($this->post);
-        //         switch($mode) {
-//             case 'visitor':
-//                 require 'view/php/login_top_view.php';
-//                 break;
-//             case 'signup_confirm':
-                $data = array('users_name' => $this->post['users_name'], 'users_mail' => $this->post['users_mail'], 'users_password' => $this->post['users_password'], 'groups_id' => $this->post['groups_id']);
-                require_once('view/php/login_confirm_view.php');
-//                 break;
-//             case 'signup_complete':
-//                 require_once('../view/login_complete_view.php');
-//                 break;
-//         }
+        $data = array('users_name' => $this->post['users_name'], 'users_mail' => $this->post['users_mail'], 'users_password' => $this->post['users_password'], 'groups_id' => $this->post['groups_id']);
+        require_once('view/php/login_confirm_view.php');
     }
        
 }

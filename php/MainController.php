@@ -80,9 +80,9 @@ class MainController {
                	return new CommentShowAction($this->post);
                	break;
             case 'comment_add':
-               		require_once 'action/CommentAddAction.php';
-               		return new CommentAddAction($this->post);
-               		break;
+               	require_once 'action/CommentAddAction.php';
+               	return new CommentAddAction($this->post);
+               	break;
             case 'group_recog':
                	require_once 'action/GroupRecogAction.php';
                	return new GroupRecogAction($this->post);
