@@ -6,11 +6,9 @@ require_once 'action/ActionInterface.php';
 class CommentShowAction extends ActionSuper implements ActionInterface {
 
     private $commentDaoObj;
-    private $post;
 
-    public function __construct($post) {
-    	parent::__construct($post);
-    	$this->post = $post;
+    public function __construct($post, $get) {
+    	parent::__construct($post, $get);
     	$this->commentDaoObj = new CommentDao();
     }
     

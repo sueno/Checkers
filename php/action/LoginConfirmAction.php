@@ -6,12 +6,10 @@ require_once 'action/ActionInterface.php';
 class LoginConfirmAction extends ActionSuper implements ActionInterface {
 
     private $loginObj;
-    private $post;
 
-    public function __construct($post) {
-//     	parent::__construct($post);
+    public function __construct($post, $get) {
+    	parent::__construct($post, $get);
     	$this->loginObj = new GroupDao();
-    	$this->post = $post;
     	//debub
 //     	echo 'post <br />';
 //     	var_dump($this->post);
@@ -21,7 +19,6 @@ class LoginConfirmAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function initAction () {
-        $this->loginObj = new GroupDao();
         $this->loginObj->connect();
     }
     

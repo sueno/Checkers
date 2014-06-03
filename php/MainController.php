@@ -10,13 +10,6 @@ class MainController {
     private $mode;
     
     public function __construct() {
-    	
-
-    	//todo 各オブジェクトに直接渡す
-    	$this->post = $_POST;
-    	// debug
-    	
-    	
         if (isset($_GET['mode'])) {
             $this->mode = htmlspecialchars($_GET['mode']);
         }
@@ -24,8 +17,6 @@ class MainController {
             $this->mode = "visitor";
         }
         $this->actionObj = $this->getAction($this->mode);
-//         echo 'this action obj <br />';
-//         var_dump($this->actionObj);
         $this->init();
     }
 
@@ -36,56 +27,52 @@ class MainController {
             $this->actionObj->showAction();
         }
         catch(Exception $e){
-        	echo 'error aaa<br />';
+        	echo '<br />error<br />';
             $this->actionObj->errorAction($e);
         }
     }
     
     public function getAction($mode) {
-
-//         echo "aaaa <br />";
-//         echo $mode;
-
         switch($mode) {
             case 'visitor':
             	require_once 'action/LoginAction.php';
-            	return new LoginAction($this->post);
+            	return new LoginAction($_POST, $_GET);
             	break;
             case 'signup_confirm':
             	require_once 'action/LoginConfirmAction.php';
-            	return new LoginConfirmAction($this->post);
+            	return new LoginConfirmAction($_POST, $_GET);
             	break;
             case 'signup_complete':
                 require_once 'action/LoginCompleteAction.php';
-                return new LoginCompleteAction($this->post);
+                return new LoginCompleteAction($_POST, $_GET);
                 break;
             case 'group_reports':
                 require_once 'action/ReportListAction.php';
-                return new ReportListAction($this->post); 
+                return new ReportListAction($_POST, $_GET); 
                 break;
             case 'individual_reports':
                 require_once 'action/UserListAction.php';
-                return new UserListAction($this->post);
+                return new UserListAction($_POST, $_GET);
                 break;
             case 'report_show':
                 require_once 'action/ReportShowAction.php';
-                return new ReportShowAction($this->post);
+                return new ReportShowAction($_POST, $_GET);
                 break;
             case 'report_manage':
                 require_once 'action/ReportManageAction.php';
-                return new ReportManageAction($this->post);
+                return new ReportManageAction($_POST, $_GET);
                 break;
             case 'comment_show':
                	require_once 'action/CommentShowAction.php';
-               	return new CommentShowAction($this->post);
+               	return new CommentShowAction($_POST, $_GET);
                	break;
             case 'comment_add':
                	require_once 'action/CommentAddAction.php';
-               	return new CommentAddAction($this->post);
+               	return new CommentAddAction($_POST, $_GET);
                	break;
             case 'group_recog':
                	require_once 'action/GroupRecogAction.php';
-               	return new GroupRecogAction($this->post);
+               	return new GroupRecogAction($_POST, $_GET);
                	break;
         }
     }

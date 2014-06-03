@@ -6,11 +6,9 @@ require_once 'action/ActionInterface.php';
 class ReportManageAction extends ActionSuper implements ActionInterface {
 
     private $contentDaoObj;
-    private $post;
 
-    public function __construct($post) {
-    	parent::__construct($post);
-    	$this->post = $post;
+    public function __construct($post, $get) {
+    	parent::__construct($post, $get);
     	$this->contentDaoObj = new ContentDao();
     }
     
@@ -33,7 +31,7 @@ class ReportManageAction extends ActionSuper implements ActionInterface {
     	$this->post['contents_kind'] = 0;
 		
     	// 日報新規投稿か、日報更新かの分岐
-    	if (array_key_exists('contents_title', $this->post)) {
+    	if (array_key_exists('contents_title', $this->post) && empty($this->post['contents_title'])) {
     		$this->contentDaoObj->insert($this->post);
     	}
     	else {

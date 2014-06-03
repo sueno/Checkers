@@ -8,14 +8,12 @@ require_once 'dao/ReportDao.php';
 require_once 'dao/MemberDao.php';
 
 class ReportListAction extends ActionSuper implements ActionInterface {
-
     
-    private $post;
    	private $reportObj;
    	private $memberObj;
 
-    public function __construct($post) {
-        $this->post = $post;
+    public function __construct($post, $get) {
+    	parent::__construct($post, $get);
     	$this->reportObj = new ReportDao();
     	$this->memberObj = new MemberDao();
     }

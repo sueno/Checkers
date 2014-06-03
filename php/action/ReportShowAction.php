@@ -6,11 +6,9 @@ require_once 'action/ActionInterface.php';
 class ReportShowAction extends ActionSuper implements ActionInterface {
 
     private $contentDaoObj;
-    private $post;
 
-    public function __construct($post) {
+    public function __construct($post, $get) {
     	parent::__construct($post);
-    	$this->post = $post;
     	$this->contentDaoObj = new ContentDao();
     }
     
