@@ -24,7 +24,8 @@
     $headPath="view/css/"; 
 
     $userInfo = $_SESSION; 
-    $report=$BEANS;
+    //◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆確認！！◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆
+    $report=$BEANS ["content"];
 ?>
 
 <html>
@@ -82,7 +83,7 @@
         <?php } ?>
         
         
-        
+        	<!-- 日報表示部 -->>
             <table border="1">
                 <tr><td><?php echo $report["title"]; ?></td><td><?php echo $report["content_date"]; ?></td><td><?php echo $report["user_name"]; ?></td></tr>
                 <tr><td colspan="3"><?php echo $report["body"]; ?></td></tr>
