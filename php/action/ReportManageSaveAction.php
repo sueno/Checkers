@@ -33,17 +33,17 @@ class ReportManageSaveAction extends ActionSuper implements ActionInterface {
 //     	$this->post['contents_content_date'] = "2014-06-03";
 //     	$this->post['contents_kind'] = 0;
 
-//     	var_dump($this->post);
+    	var_dump($this->post);
 		
     	// 更新
     	if (array_key_exists('contents_id', $this->post) && !empty($this->post['contents_id'])) {
     		//debug
-//     		echo '<br / ><br / >aaaaaa<br / ><br / >';
+//     		echo '<br / ><br / >update<br / ><br / >';
     		$this->contentDaoObj->update($this->post);
     	}
     	// 新規
     	else {
-//     		echo '<br / ><br / >bbbbbbb<br / ><br / >';
+//     		echo '<br / ><br / >insert<br / ><br / >';
     		// debug
 //     		$this->post['contents_id'] = 1;
 //     		echo "<br><br><br>";
@@ -60,7 +60,7 @@ class ReportManageSaveAction extends ActionSuper implements ActionInterface {
      */
     public function showAction() {
     	// todo 個人日報一覧ページを表示させる
-    	header("Location: MainController.php?mode=individual_reports");
+//     	header("Location: MainController.php?mode=individual_reports");
     }
        
 }
