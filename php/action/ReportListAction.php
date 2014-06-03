@@ -57,7 +57,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
 //     		var_dump($user);
     		
     		if ( $sessionVal["users_password"] != $user["password"] ) {
-        		throw new Exception('password no match');
+        		throw new Exception('password miss match');
     		}
     		
     		$groupObj = new GroupDao();
