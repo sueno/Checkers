@@ -72,6 +72,7 @@
         <h1>日報閲覧ページ</h1>
         <?php
             //閲覧者と投稿者が同じ場合には編集ボタンを作る 
+            var_dump($userInfo);
             if($userInfo["user_id"]==$report["user_id"])
                 {
                     ?>
