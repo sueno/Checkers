@@ -1,7 +1,7 @@
 <?php $DEBUG = 1; 
 
         //テスト用配列　
-var_dump($BEANS);
+// var_dump($BEANS);
 
 
     $groupList= $BEANS["groups"];

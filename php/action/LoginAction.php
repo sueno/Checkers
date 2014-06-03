@@ -10,10 +10,10 @@ class LoginAction extends ActionSuper implements ActionInterface {
     public function __construct($post, $get) {
     	parent::__construct($post, $get);
     	
-    	if ( !isset( $_SESSION["user_id"] ) || $_SESSION["user_id"]=="" ) {
-    		header("Location: MainController.php?mode=report_list");
-    		exit();
-        }
+//     	if ( !isset( $_SESSION["user_id"] ) || $_SESSION["user_id"]=="" ) {
+//     		header("Location: MainController.php?mode=report_list");
+//     		exit();
+//         }
     	
     	$this->loginObj = new GroupDao();
     }
@@ -36,8 +36,13 @@ class LoginAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function showAction() {
-        $BEANS["groups"] = $this->loginObj->select($this->post);
-        require 'view/php/login_top_view.php';
+    	if ( !array_key_exists('user_id', $_SESSION ) ) {
+        	$BEANS["groups"] = $this->loginObj->select($this->post);
+        	require 'view/php/login_top_view.php';
+        } else {
+    		header("Location: MainController.php?mode=group_reports");
+    		exit();
+        }
     }
        
 }

@@ -25,7 +25,7 @@ class GroupRecogAction extends ActionSuper implements ActionInterface {
      */
     public function saveAction() {
     	//debug
-    	$this->post['users_id'] = 4;
+//     	$this->post['users_id'] = 4;
     	
     	$this->post["users_stat"] = 2;
     	$this->userDaoObj->update($this->post);
@@ -37,6 +37,8 @@ class GroupRecogAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function showAction() {
+    		header("Location: MainController.php?mode=group_reports");
+    		exit();
     }
        
 }
