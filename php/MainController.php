@@ -80,6 +80,10 @@ class MainController {
                	require_once 'action/GroupRecogAction.php';
                	return new GroupRecogAction($_POST, $_GET);
                	break;
+            case 'delete_report':
+               	require_once 'action/DeleteReportAction.php';
+               	return new DeleteReportAction($_POST, $_GET);
+               	break;
         }
     }
 }
