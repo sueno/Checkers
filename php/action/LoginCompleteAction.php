@@ -19,6 +19,7 @@ class LoginCompleteAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function initAction () {
+    	parent::initAction();
         $this->userDaoObj->connect();
         $this->groupDaoObj->connect();
     }
