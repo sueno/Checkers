@@ -102,29 +102,29 @@
             <script>
 
 	       	 	 // XMLHttpRequest オブジェクトを作成
-	         	var xhr = new XMLHttpRequest();
+// 	         	var xhr = new XMLHttpRequest();
 	         
-	            xhr.open("GET" , "<?php echo $path; ?>?mode=comment_show");
-	        	xhr.responseType = "json";
-				xhr.send(null);          
+//	            xhr.open("GET" , "<?php // echo $path; ?> // ?mode=comment_show");
+// 	        	xhr.responseType = "json";
+// 				xhr.send(null);          
 	
-				xhr.onload = function(e)
-				{
-					// 指定したデータ型でレスポンスボディの内容を取得
-					var obj = xhr.response;
-					// 出力テスト
-					console.log(obj);
-	// 				 document.write('<tr>');
+// 				xhr.onload = function(e)
+// 				{
+// 					// 指定したデータ型でレスポンスボディの内容を取得
+// 					var obj = xhr.response;
+// 					// 出力テスト
+// 					console.log(obj);
+// 	// 				 document.write('<tr>');
 	
-					 var td1 = "";
-					 var td2 = "";
-					 for (var key in obj) 
-					{
-						td1 += "<tr><td>"+"名前"+"</td>"+"<td>"+obj[key]["user_name"]+""+"</tr>";
-						td2 += "<tr><td>"+"</td>"+"<td>"+obj[key]["content"]+""+"</tr>";
-					 }
-					 window.document.getElementById("xmlObj").innerHTML = "<table>"+td1+td2+"</table>";
-				};
+// 					 var td1 = "";
+// 					 var td2 = "";
+// 					 for (var key in obj) 
+// 					{
+// 						td1 += "<tr><td>"+"名前"+"</td>"+"<td>"+obj[key]["user_name"]+""+"</tr>";
+// 						td2 += "<tr><td>"+"</td>"+"<td>"+obj[key]["content"]+""+"</tr>";
+// 					 }
+// 					 window.document.getElementById("xmlObj").innerHTML = "<table>"+td1+td2+"</table>";
+// 				};
         	
 			</script>
 			
@@ -133,76 +133,22 @@
 		    
             <h2>コメントする</h2>
             
-             <form id="comment" action="MainController?mode=comment_add" method="post">
-               <input  type="hidden"  name="content_id" value="<?php echo $report["content_id"]; ?>"> 
-               <textarea name="body" style="width:400px; height:150px;"> </textarea>
+             <form id="comment" action="MainController.php?mode=comment_add" method="post">
+               <input  type="hidden"  name="comments_contents_id" value="<?php echo $report["content_id"]; ?>"> 
+				<input type="hidden" name="comments_poster" value="<?php echo $report["user_id"]; ?>" />
+               <textarea id="input-comment" placeholder="コメントを入力してください" name="comments_body" style="width:400px; height:150px;"></textarea>
 			   <input id="comment-btn" type="button" value ="送信">
              </form>
              
-            
-            <script>
-
-
-
-           
-// 			function SendClick()
-// 			{         
-// 				console.log("クリック" );
-// 	        	var form_data = new FormData();
-// 	        	var url = $path+"?mode=comment_add";
-	        	
-// 	        	form_data.append("comments_contents_id",document.comment.content_id.value);
-// 	        	form_data.append("comments_body",document.comment.body.value);
-
-
-// 	        	var xhr = new XMLHttpRequest();
-
-// 	        	// ------------------------------------------------------------
-// 	        	// 「POST メソッド」「接続先 URL」を指定
-// 	        	// ------------------------------------------------------------
-// 	        	xhr.open("POST" , url);
-
-// 	        	// ------------------------------------------------------------
-// 	        	// 「送信データ」を指定、XHR 通信を開始する
-// 	        	// ------------------------------------------------------------
-// 	        	xhr.send(form_data);
-	        	
-// 				xhr.onload = function(e)
-// 				{
-// 		      	 	 // XMLHttpRequest オブジェクトを作成
-// 		         	var xhr2 = new XMLHttpRequest();
-		         
-// 		            xhr2.open("GET" , $path+"?mode=comment_show");
-// 		        	xhr2.responseType = "json";
-// 					xhr2.send(null);          
-
-// 					xhr2.onload = function(e)
-// 					{
-// 						// 指定したデータ型でレスポンスボディの内容を取得
-// 						var obj = xhr.response;
-// 						// 出力テスト
-// 						console.log(obj);
-// //		 				 document.write('<tr>');
-
-// 						 var td1 = "";
-// 						 var td2 = "";
-// 						 for (var key in obj) 
-// 						{
-// 							td1 += "<tr><td>"+"名前"+"</td>"+"<td>"+obj[key]["user_name"]+""+"</tr>";
-// 							td1 += "<tr><td>"+"</td>"+"<td>"+obj[key]["content"]+""+"</tr>";
-// 						 }
-// 						 window.document.getElementById("xmlObj").innerHTML = "<table>"+td1+td2+"</table>";
-// 					};
-	
-// 				};
-// 			}
-	     </script>
+             <form id="comment-show" action="MainController.php?mode=comment_show" method="post">
+               <input  type="hidden"  name="comments_contents_id" value="<?php echo $report["content_id"]; ?>">
+             </form>
+             
         </div>
         
         
     </body>
 </html>
+<script type="text/javascript" src="view/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="view/js/report_show_view.js"></script>
-               
-               
                

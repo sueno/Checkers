@@ -27,7 +27,7 @@ class CommentAddAction extends ActionSuper implements ActionInterface {
     	//debug
 //     	$this->post['comments_contents_id'] = 1;
 //     	$this->post['comments_poster'] = 3;
-//     	$this->post['comments_body'] = "hogebodyhoge";
+//     	$this->post['comments_body'] = "aaiaiaiia";
     	$this->commentDaoObj->insert($this->post);
     }
     
