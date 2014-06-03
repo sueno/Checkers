@@ -37,33 +37,6 @@
 
     <body>
     <?php require 'view/layout/header.php'; ?>
-
-        <div id="menu">
-            <ul>
-                <li><a href="" onclick="window.document.menuForm1.submit(); return false;" >個人ページ</a>
-                    <form name="menuForm1" method="POST" action="<?php echo $path; ?>?mode=individual_reports">
-                    <input type="hidden" name="user_id" value="<?php echo $userInfo["user_id"]; ?>">
-                    </form>
-                </li>
-
-
-                <li><a href="" onclick="document.menuForm2.submit();return false;">グループページ</a>
-                    <form name="menuForm2" method="POST" action="<?php echo $path; ?>?mode=group_reports">
-                    </form>
-                </li>
-
-
-                <li><a href="" onclick="document.menuForm3.submit(); return false;">日報投稿</a>
-                       <form name="menuForm3" method="POST" action="<?php echo $path; ?>?mode=report_manage">
-                        </form>
-                </li>
- 
-
-                <li><a href=""><font id="info"><?php echo $userInfo["user_name"]?><br><?php echo $userInfo["group_name"]?></font></a>
-                </li>
-            </ul>
-        </div>
-        <br>
         
         
         <div class="body_part">
@@ -85,13 +58,14 @@
         
         ELSE		//新規作成の場合
         {?>
-        	<table border="1">
         	<form method="POST" action="<?php echo $path; ?>?mode=report_manage_save">
+        	<table border="1">
         	<tr><td>タイトル：</td> <td><input type="text" name="contents_title"  size="50"></td>
         	<td>作成日:</td>    <td><input type="text" name="contents_content_date" value="<?php echo date('Y-m-d'); ?>" size="50"></td></tr>
         	
         	<tr><td colspan="4"><textarea name="contents_body"  rows="30" cols="100">本文をここに入力</textarea></td></tr>
         	</table>
+        	<input type="hidden" name="contents_user_id" value=<?php echo $userInfo["user_id"];?>>
         	
         	<input type="submit" value="投稿する"></form>
         

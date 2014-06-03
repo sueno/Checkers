@@ -78,6 +78,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
 //     		var_dump($_SESSION);
 //     		echo "<br><br><h1>session end</h1><br><br>";
     	} else if (array_key_exists('user_id', $_SESSION) && !empty($_SESSION['user_id'])) {
+    			$this->state = true;
     	} else {
         	throw new Exception('login failed');
     	}

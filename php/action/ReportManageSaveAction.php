@@ -38,6 +38,7 @@ class ReportManageSaveAction extends ActionSuper implements ActionInterface {
     		//debug
 //     		echo '<br / ><br / >aaaaaa<br / ><br / >';
     		$this->contentDaoObj->insert($this->post);
+    		echo $this->contentDaoObj->getResultCheck();
     	}
     	else {
 //     		echo '<br / ><br / >bbbbbbb<br / ><br / >';
@@ -49,15 +50,14 @@ class ReportManageSaveAction extends ActionSuper implements ActionInterface {
     		
     		$this->contentDaoObj->update($this->post);
     	}
-    	// todo 個人日報一覧ページを表示させる
-    	header("Location: MainController.php?mode=individual_reports");
-    	exit();
     }
     
     /** 
      * @Override
      */
     public function showAction() {
+    	// todo 個人日報一覧ページを表示させる
+    	header("Location: MainController.php?mode=individual_reports");
     }
        
 }

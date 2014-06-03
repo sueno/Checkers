@@ -43,6 +43,9 @@ class UserListAction extends ActionSuper implements ActionInterface {
     public function showAction() {
     	$BEANS = array();
         $userId = $this->post["user_id"];
+        if ($userId==null) {
+        	$userId = $_SESSION["user_id"];
+        }
 //         var_dump($this->post);
         $BEANS["users"] = $this->userObj->select($post,"*","where id = {$userId}");
         $groupId = $BEANS["users"][0]["group_id"];

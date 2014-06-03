@@ -48,7 +48,7 @@
 			<ul class="nav navbar-nav">
 				<li><a href="MainController.php?mode=individual_reports&user_id=<?php echo $session["user_id"]; ?>">個人ページ</a></li>
 				<li class="active"><a href="MainController.php?mode=group_reports" >グループページ</a></li>
-				<li class="active"><a href="MainController.php?mode=report_manage" >日報投稿</a></li>
+				<li><a href="MainController.php?mode=report_manage" >日報投稿</a></li>
 				
 				<li><a href="MainController.php?mode=individual_reports&user_id=<?php echo $session["user_id"]; ?>">設定</a></li>
 			</ul>
