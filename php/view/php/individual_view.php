@@ -22,7 +22,12 @@
         <?php 
     		require 'view/contents/headContents.php';
     	?>
-    	
+        <script type="text/javascript">
+			$(function() {
+				$("#navi_individual_view").naviActive();
+			});
+        </script>
+        
         <title>個人ページ</title>
     </head>
 

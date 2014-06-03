@@ -23,6 +23,12 @@
 
   <head>
     <?php require 'view/contents/headContents.php'; ?>
+        <script type="text/javascript">
+			$(function() {
+				$("#navi_report_edit_view").naviActive();
+			});
+        </script>
+        
     <title>日報編集ページ</title>
   </head>
   <body>
