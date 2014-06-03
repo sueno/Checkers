@@ -30,44 +30,16 @@
 
 <html>
     <head>
-        <meta charset="utf-8">
+        <?php 
+    		require 'view/contents/headContents.php';
+    	?>
+    	
         <title>日報閲覧ページ</title>
-        <link href="<?php echo $headPath; ?>menu.css" rel="stylesheet" type="text/css">
-        <link href="<?php echo $headPath; ?>report_show.css" rel="stylesheet" type="text/css">
-  
      </head>
 
 
     <body>
     <?php require 'view/contents/header.php'; ?>
-
-        <div id="menu">
-            <ul>
-                <li><a href="" onclick="window.document.menuForm1.submit(); return false;" >個人ページ</a>
-                    <form name="menuForm1" method="POST" action="<?php echo $path; ?>?mode=individual_reports">
-                    <input type="hidden" name="user_id" value="<?php echo $userInfo["user_id"]; ?>" >
-                    </form>
-                </li>
-
-
-                <li><a href="" onclick="document.menuForm2.submit();return false;">グループページ</a>
-                    <form name="menuForm2" method="POST" action="<?php echo $path; ?>?mode=group_reports">
-                    </form>
-                </li>
-
-
-                <li><a href="" onclick="document.menuForm3.submit(); return false;">日報投稿</a>
-                       <form name="menuForm3" method="POST" action="<?php echo $path; ?>?mode=report_manage">
-                        </form>
-                </li>
- 
-
-                <li><a href=""><font id="info"><?php echo $userInfo["user_name"]?><br><?php echo $userInfo["group_name"]?></font></a>
-                </li>
-            </ul>
-        </div>
-        <br>
-        
         
         <div class="body_part">
         <h1>日報閲覧ページ</h1>
