@@ -89,7 +89,7 @@
                 <ul>
                     <?php
                         foreach($memberList as $temp)
-                         echo "<li><a href=\"\" onclick=\"userClick(".$temp["member_id"]."); return false;\">".$temp["member_name"]."</a></li>";
+                         echo "<li><a href=\"".$path."?mode=individual_reports&user_id=".$temp["user_id"]."\">".$temp["user_name"]."</a></li>";
 
                     ?>
                 </ul>
@@ -98,7 +98,7 @@
                 <ul>
                     <?php
                         foreach($candidateList as $temp)
-                         echo "<li>".$temp["member_name"]."　　　　"."<a href=\"\" onclick=\"userClick(".$temp["member_id"]."); return false;\">承認</a></li>";
+                         echo "<li>".$temp["member_name"]."　　　　"."<a href=\"".$path."?mode=group_recog&user_id=".$temp["user_id"]."\">承認</a></li>";
 
                     ?>
                 </ul>               
@@ -115,38 +115,22 @@
                     <th colspan="4">本文</th>
                 </tr>
                 
-                <!-- POST送信のFORM-->
-                <form name="bodyForm" method="POST" action="<?php echo $path; ?>?mode=report_show">
-                    <input id="content_id_input" type="hidden" name="content_id" value="0">
-                </form>
-                
-                <form name="commentForm" method="POST" action="<?php echo $path; ?>?mode=report_show">
-                    <input id="comment_input1" type="hidden" name="content_id" value="0">
-                    <input id="comment_input2" type="hidden" name="comment" value="1">
-                </form>
-                
-                <form name="userForm" method="POST" action="<?php echo $path; ?>?mode=individual_reports">
-                    <input id="user_input" type="hidden" name="user_id" value="0">
-                </form>
-                
                 <?php
                     foreach($reports as $temp)
                     {
                         echo "<tr>";
-                        echo "<td><a href=\"\" onclick=\"bodyClick(".$temp["content_id"]."); return false;\">".$temp["title"]."</a></td>";
-                        echo "<td><a href=\"\" onclick=\"commentClick(".$temp["content_id"]."); return false;\">コメント(".$temp["comment_num"].")</a></td>";
+                        echo "<td><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">".$temp["title"]."</a></td>";
+                        echo "<td><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">"."コメント(".$temp["comment_num"].")</a></td>";
                         echo "<td>".$temp["content_date"]."</td>";
-                        echo "<td><a href=\"\" onclick=\"userClick(".$temp["user_id"]."); return false;\">".$temp["user_name"]."</a></td>";
-                        echo "<tr><td colspan=\"4\"><a href=\"\" onclick=\"bodyClick(".$temp["content_id"]."); return false;\">".$temp["body"]."</a></td></tr>";
+                        echo "<td><a href=\"".$path."?mode=individual_reports&user_id=".$temp["user_id"]."\">".$temp["user_name"]."</a></td>";
+                        echo "<tr><td colspan=\"4\"><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">".$temp["body"]."</a></td></tr>";
                     }
                 ?>
-                
-                
+
             </table>
             
             </div>
         </div>
-<a href="aaa.php">test</a>
 </body>
 
 </html>
