@@ -38,14 +38,9 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function saveAction() {
-    	$sessionVal = null;
+    	
     	if ($this->getTableCalumnExistList($this->post, array("users_name","users_password"))!=null) {
     		$sessionVal = $this->getTableCalumnExistList($this->post, array("users_name","users_password"));
-    	} else if (array_key_exists('user_id', $_SESSION) && empty($_SESSION['user_id'])) {
-    		$sessionVal = $_SESSION["user_id"];
-    	}
-    	
-    	if ($sessionVal!=null) {
     		$userObj = new UserDao();
     		$userObj->connect();
     		$userData = $userObj->select(null,"id, group_id, password, stat","where name = '{$sessionVal["users_name"]}'");
@@ -82,6 +77,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     		
 //     		var_dump($_SESSION);
 //     		echo "<br><br><h1>session end</h1><br><br>";
+    	} else if (array_key_exists('user_id', $_SESSION) && empty($_SESSION['user_id'])) {
     	} else {
         	throw new Exception('login failed');
     	}

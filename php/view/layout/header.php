@@ -49,7 +49,7 @@
 				data-target="#bs-example-navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="MainController.php?mode=individual_reports&user_id=<?php echo $session["user_id"]; ?>">個人ページ</a>
+			<a class="navbar-brand" href="MainController.php?mode=individual_reports&users_id=<?php echo $session["user_id"]; ?>">個人ページ</a>
 		</div>
 		-->
 
