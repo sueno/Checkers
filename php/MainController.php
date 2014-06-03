@@ -62,6 +62,10 @@ class MainController {
                 require_once 'action/ReportManageAction.php';
                 return new ReportManageAction($_POST, $_GET);
                 break;
+            case 'report_manage_save':
+                require_once 'action/ReportManageSaveAction.php';
+                return new ReportManageSaveAction($_POST, $_GET);
+                break;            
             case 'comment_show':
                	require_once 'action/CommentShowAction.php';
                	return new CommentShowAction($_POST, $_GET);
