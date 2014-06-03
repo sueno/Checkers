@@ -78,7 +78,17 @@ class ReportListAction extends ActionSuper implements ActionInterface {
 //     		var_dump($_SESSION);
 //     		echo "<br><br><h1>session end</h1><br><br>";
     	} else if (array_key_exists('user_id', $_SESSION) && !empty($_SESSION['user_id'])) {
+    		$userObj = new UserDao();
+    		$userObj->connect();
+    		$userData = $userObj->select(null,"id, group_id, password, stat","where name = '{$sessionVal["users_name"]}'");
+    		$user = $userData[0];
+    		
+    		if ($user["stat"]==2) {
     			$this->state = true;
+    		} else {
+    			$this->state = false;
+    			$this->post["user_id"] = $user["id"];
+    		}
     	} else {
         	throw new Exception('login failed');
     	}

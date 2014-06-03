@@ -30,9 +30,11 @@
 
 <html>
     <head>
-        <meta charset="utf-8">
+        <?php 
+    		require 'view/contents/headContents.php';
+    	?>
+    	
         <title>登録確認ページ</title>
-        <link href="<?php echo $headPath; ?>login_confirm_view.css" rel="stylesheet" type="text/css">
 
     </head>
 
@@ -41,12 +43,12 @@
         <div id="body">
             <h2>以下の内容で登録してもよろしいですか？</h2>
             <br>
-            <table>
+            <table class="table table-bordered table-striped">
                 
-                <tr><td>ユーザーID</td>         <td><?php echo $signupInfo["users_name"]; ?></td></tr>
-                <tr><td>メールアドレス</td>     <td><?php echo $signupInfo["users_mail"]; ?></td></tr>
-                <tr><td>パスワード</td>         <td><?php echo $signupInfo["users_password"]; ?></td></tr>
-                <tr><td>選択グループ</td>       <td><?php echo $groupName; ?></td></tr>
+                <tr><td>ユーザーID</td><td><?php echo $signupInfo["users_name"]; ?></td></tr>
+                <tr><td>メールアドレス</td><td><?php echo $signupInfo["users_mail"]; ?></td></tr>
+                <tr><td>パスワード</td><td><?php echo $signupInfo["users_password"]; ?></td></tr>
+                <tr><td>選択グループ</td><td><?php echo $groupName; ?></td></tr>
                 
             </table>
             

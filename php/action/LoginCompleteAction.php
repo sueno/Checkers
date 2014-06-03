@@ -27,8 +27,40 @@ class LoginCompleteAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function saveAction() {
-    	$this->post["users_stat"] = 1;
-        $this->userDaoObj->insert($this->post);
+        
+
+        if ( isset( $this->post["users_name"] ) && $this->post["users_name"]!="" ) {
+        	$userObj = new UserDao();
+        	$userObj->connect();
+        	$userData = $userObj->select(null,"id, group_id, password, stat","where name = '{$this->post["users_name"]}'");
+        	$user = $userData[0];
+        
+        
+        	if ($user!=null) {
+        		throw new Exception("username is already taken");
+        	}
+        
+        	$groupObj = new GroupDao();
+        	$groupObj->connect();
+        	$groupData = $groupObj->select(null,"name","where id = {$this->post['groups_id']}");
+        	//     		echo "session    ok";
+        	//     		echo "<br><br><h1>groupdata</h1><br><br>";
+        	//     		var_dump($groupData);
+        	$group = $groupData[0];
+        
+        	//     		echo "<br><br><h1>session insert</h1><br><br>";
+
+        	$this->post["users_stat"] = 1;
+        	$id = $this->userDaoObj->insert($this->post);
+        	
+        	if (0<$id) {
+        		$_SESSION["user_id"] = $id;
+        		$_SESSION["user_name"] = $this->post["users_name"];
+    			$_SESSION["group_id"] = $this->post["groups_id"];
+            	$_SESSION["group_name"] = $group["name"];
+        	}            
+
+        }
     }
     
     /** 
