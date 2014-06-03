@@ -57,7 +57,7 @@
             <input type=hidden name="groups_id"         value="<?php echo $signupInfo["groups_id"]; ?>">
             <input type="submit" value="登録">
         </div>
-        
+        <p><a href="#" onClick="history.back(); return false;">前のページにもどる</a></p>
     </body>
     
 </html>

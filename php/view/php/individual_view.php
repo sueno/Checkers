@@ -99,7 +99,10 @@
             <div class="body_right">
             <table border="2">
                 <tr>
-                    <th>タイトル</th><th>コメント数</th><th>投稿日</th><th>削除・編集</th>
+                    <th>タイトル</th><th>コメント数</th><th>投稿日</th>
+                     <?php if($profInfo["id"]==$userInfo["user_id"]){?>
+                        <th>削除・編集</th>
+                        <?php }?>
                 </tr>
                 <tr>
                     <th colspan="4">本文</th>
@@ -130,13 +133,15 @@
                         {
                             echo "<form action=\"".$path."?delete_report\" method=\"POST\" ><input type=\"hidden\" name=\"contents_id\" value=\"".$temp["content_id"]."\"><input type=\"submit\" value=\"削除\"></form>";                        
                             echo "<form action=\"".$path."?mode=report_edit&content_id=".$temp["content_id"]."\" method=\"POST\" ><input type=\"submit\" value=\"編集\"></form></td></tr>"; 
+                            echo "<tr><td colspan=\"5\"><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\" style=\"text-overflow:  ellipsis;\">".$temp["body"]."</a></td></tr>";
                         }
                         
                         else
+                        {
                             echo "<td></td></tr>";
-                            
-                        echo "<tr><td colspan=\"5\"><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\" style=\"text-overflow:  ellipsis;\">".$temp["body"]."</a></td></tr>";
-                    }
+                       		echo "<tr><td colspan=\"4\"><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\" style=\"text-overflow:  ellipsis;\">".$temp["body"]."</a></td></tr>";
+                    
+                        }}
                 ?>
                 
                 
