@@ -51,7 +51,7 @@
 
 
                 <li><a href="" onclick="document.menuForm3.submit(); return false;">日報投稿</a>
-                       <form name="menuForm3" method="POST" action="<?php echo $path; ?>?mode=report_edit">
+                       <form name="menuForm3" method="POST" action="<?php echo $path; ?>?mode=report_manage">
                         </form>
                 </li>
  
@@ -69,7 +69,7 @@
 		if(ISSET($report))		//日報編集の場合
 		{	?>
             <table border="1">
-                <form method="POST" action="<?php echo $path; ?>?mode=individual_reports">
+                <form method="POST" action="<?php echo $path; ?>?mode=report_manage">
                 <tr><td>タイトル：</td> <td><input type="text" name="title" value="<?php echo $report["title"]; ?>" size="50"></td>
                     <td>作成日:</td>    <td><input type="text" name="content_date" value="<?php echo $report["content_date"]; ?>" size="50"></td></tr>
                     
@@ -82,7 +82,7 @@
         ELSE		//新規作成の場合
         {?>
         	<table border="1">
-        	<form method="POST" action="<?php echo $path; ?>?mode=individual_reports">
+        	<form method="POST" action="<?php echo $path; ?>?mode=report_manage">
         	<tr><td>タイトル：</td> <td><input type="text" name="title"  size="50"></td>
         	<td>作成日:</td>    <td><input type="text" name="content_date" value="<?php echo date('Y-m-d'); ?>" size="50"></td></tr>
         	
