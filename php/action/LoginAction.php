@@ -16,7 +16,6 @@ class LoginAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function initAction () {
-    	parent::initAction();
         $this->loginObj->connect();
     }
     
