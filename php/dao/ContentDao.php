@@ -14,8 +14,8 @@ class ContentDao extends DaoSuper implements DaoInterface {
 	 * @Override
 	 */
 	public function insert ($post) {
-		if ( parent::postExist($post, array("contents_user_id","contents_title","contents_body","contents_date","contents_kind")) ) {
-			return parent::insertTable($this->tableName,"null,".$post["contents_user_id"].",'".$post["contents_title"]."','".$post["contents_body"]."','".$post["contents_date"]."',now(),false,'".$post["contents_kind"]."'");
+		if ( parent::postExist($post, array("contents_user_id","contents_title","contents_body","contents_content_date","contents_kind")) ) {
+			return parent::insertTable($this->tableName,"null,".$post["contents_user_id"].",'".$post["contents_title"]."','".$post["contents_body"]."','".$post["contents_content_date"]."',now(),false,'".$post["contents_kind"]."'");
 		} else {
 			return -1;
 		}
