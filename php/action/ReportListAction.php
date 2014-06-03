@@ -40,14 +40,14 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     		$userObj->connect();
     		$userData = $userObj->select(null,"id, group_id, password","where name = '{$sessionVal["users_name"]}'");
     		$user = $userData[0];
-    		var_dump($user);
+//     		var_dump($user);
     		if ( $sessionVal["users_password"] != $user["password"] ) {
         		throw new Exception('password no match');
     		}
     		$groupObj = new GroupDao();
     		$groupObj->connect();
     		$groupData = $groupObj->select(null,"name","where id = {$user['group_id']}");
-    		var_dump($groupData);
+//     		var_dump($groupData);
     		$group = $groupData[0];
     		$_SESSION["user_id"] = $user["id"];
     		$_SESSION["user_name"] = $sessionVal["users_name"];
