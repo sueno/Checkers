@@ -9,6 +9,12 @@ class LoginAction extends ActionSuper implements ActionInterface {
 
     public function __construct($post, $get) {
     	parent::__construct($post, $get);
+    	
+    	if ( !isset( $_SESSION["user_id"] ) || $_SESSION["user_id"]=="" ) {
+    		header("Location: MainController.php?mode=report_list");
+    		exit();
+        }
+    	
     	$this->loginObj = new GroupDao();
     }
     
