@@ -36,7 +36,8 @@ abstract class ActionSuper implements ActionInterface {
      * @Override
      */
     public function errorAction($e) {
-        echo $e->getMessage();
+    	var_dump($_SESSION);
+        echo "<h1>".$e->getMessage()."</h1>";
         require_once 'action/LoginAction.php';
         $login = new LoginAction(null);
         $login->initAction();

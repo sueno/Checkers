@@ -38,19 +38,30 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     		$userObj->connect();
     		$userData = $userObj->select(null,"id, group_id, password","where name = '{$sessionVal["users_name"]}'");
     		$user = $userData[0];
-//     		var_dump($user);
+    		
+    		echo "<br><br><h1>session create</h1><br><br>";		
+    		var_dump($user);
+    		
     		if ( $sessionVal["users_password"] != $user["password"] ) {
         		throw new Exception('password no match');
     		}
     		$groupObj = new GroupDao();
     		$groupObj->connect();
     		$groupData = $groupObj->select(null,"name","where id = {$user['group_id']}");
-//     		var_dump($groupData);
+    		echo "session    ok";
+    		echo "<br><br><h1>groupdata</h1><br><br>";	
+    		var_dump($groupData);
     		$group = $groupData[0];
+
+    		echo "<br><br><h1>session insert</h1><br><br>";
+
     		$_SESSION["user_id"] = $user["id"];
     		$_SESSION["user_name"] = $sessionVal["users_name"];
     		$_SESSION["group_id"] = $user["group_id"];
     		$_SESSION["group_name"] = $group["name"];
+    		
+    		var_dump($_SESSION);
+    		echo "<br><br><h1>session end</h1><br><br>";
     	} else {
         	throw new Exception('login failed');
     	}
@@ -60,6 +71,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function showAction() {
+    	parent::initAction();
     	$BEANS = array();
         $BEANS["reports"] = $this->reportObj->select(null,"","users.group_id = {$_SESSION['group_id']}");
         $post = array("groups_id"=>$_SESSION["group_id"],"stat"=>2);
