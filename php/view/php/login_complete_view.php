@@ -30,6 +30,8 @@
 
 <html>
     <head>
+    <?php require 'view/contents/headContents.php'; ?>
+    
         <meta charset="utf-8">
         <title>登録完了ページ</title>
         <link href="<?php echo $headPath; ?>login_confirm_view.css" rel="stylesheet" type="text/css">
@@ -43,7 +45,7 @@
         <div id="body">
             <h2>以下の内容で登録しました</h2>
             <br>
-            <table>
+            <table class="table table-bordered table-striped">
                 
                 <tr><td>ユーザーID</td>         <td><?php echo $signupInfo["users_name"]; ?></td></tr>
                 <tr><td>メールアドレス</td>     <td><?php echo $signupInfo["users_mail"]; ?></td></tr>
