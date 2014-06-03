@@ -39,10 +39,10 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      */
     public function saveAction() {
     	$sessionVal = null;
-    	if (array_key_exists('user_id', $_SESSION) && empty($_SESSION['user_id'])) {
-    		$sessionVal = $_SESSION["user_id"];
-    	} else {
+    	if ($this->getTableCalumnExistList($this->post, array("users_name","users_password"))!=null) {
     		$sessionVal = $this->getTableCalumnExistList($this->post, array("users_name","users_password"));
+    	} else if (array_key_exists('user_id', $_SESSION) && empty($_SESSION['user_id'])) {
+    		$sessionVal = $_SESSION["user_id"];
     	}
     	
     	if ($sessionVal!=null) {
@@ -50,6 +50,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     		$userObj->connect();
     		$userData = $userObj->select(null,"id, group_id, password, stat","where name = '{$sessionVal["users_name"]}'");
     		$user = $userData[0];
+    		
     		
     		if ($user["stat"]) {
     			$this->state = true;
