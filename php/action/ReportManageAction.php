@@ -38,9 +38,9 @@ class ReportManageAction extends ActionSuper implements ActionInterface {
     	}
     	else {
     		$this->post['contents_id'] = 4;
-    		echo "<br><br><br>";
-    		print_r($this->post);
-    		echo "<br><br><br>";
+//     		echo "<br><br><br>";
+//     		print_r($this->post);
+//     		echo "<br><br><br>";
     		
     		$this->contentDaoObj->update($this->post);
     	}
@@ -67,7 +67,7 @@ class ReportManageAction extends ActionSuper implements ActionInterface {
 //     	var_dump($BEANS);
 //     	echo '<br>echo<br /><br />';
 //     	echo json_encode($BEANS);
-    	print_r($BEANS['content']);
+//     	print_r($BEANS['content']);
     	require_once ('view/php/report_edit_view.php');
     }
        
