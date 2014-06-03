@@ -13,6 +13,8 @@
     $reports = $BEANS["reports"];
     $profInfo = $BEANS["users"][0];
     $groupInfo = $BEANS["groups"][0];
+    
+    var_dump($reports);
 ?>
 
 <html>

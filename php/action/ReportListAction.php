@@ -44,6 +44,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     	} else {
     		$sessionVal = $this->getTableCalumnExistList($this->post, array("users_name","users_password"));
     	}
+    	
     	if ($sessionVal!=null) {
     		$userObj = new UserDao();
     		$userObj->connect();

@@ -41,8 +41,8 @@ class UserListAction extends ActionSuper implements ActionInterface {
     public function showAction() {
     	$BEANS = array();
         $BEANS["reports"] = $this->reportObj->select(null,"","users.id = {$_SESSION['user_id']}");
-        $userName = $this->post["user_id"];
-        $BEANS["users"] = $this->userObj->select($post,"*","where id = '{$userName}'");
+        $userId = $_SESSION["user_id"];
+        $BEANS["users"] = $this->userObj->select($post,"*","where id = {$userId}");
         $groupId = $BEANS["users"]["group_id"];
         $BEANS["groups"] = $this->groupObj->select(null,"groups_name","where id = {$groupId}");
         
