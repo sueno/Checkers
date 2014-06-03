@@ -46,7 +46,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     		$user = $userData[0];
     		
     		
-    		if ($user["stat"]) {
+    		if ($user["stat"]==2) {
     			$this->state = true;
     		} else {
     			$this->state = false;
@@ -63,9 +63,9 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     		$groupObj = new GroupDao();
     		$groupObj->connect();
     		$groupData = $groupObj->select(null,"name","where id = {$user['group_id']}");
-    		echo "session    ok";
-    		echo "<br><br><h1>groupdata</h1><br><br>";	
-    		var_dump($groupData);
+//     		echo "session    ok";
+//     		echo "<br><br><h1>groupdata</h1><br><br>";	
+//     		var_dump($groupData);
     		$group = $groupData[0];
 
 //     		echo "<br><br><h1>session insert</h1><br><br>";
@@ -77,7 +77,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     		
 //     		var_dump($_SESSION);
 //     		echo "<br><br><h1>session end</h1><br><br>";
-    	} else if (array_key_exists('user_id', $_SESSION) && empty($_SESSION['user_id'])) {
+    	} else if (array_key_exists('user_id', $_SESSION) && !empty($_SESSION['user_id'])) {
     	} else {
         	throw new Exception('login failed');
     	}

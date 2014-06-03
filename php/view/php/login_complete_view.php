@@ -39,6 +39,8 @@
 
 
     <body>
+    <?php require 'view/layout/header.php'; ?>
+    
         <div id="body">
             <h2>以下の内容で登録しました</h2>
             <br>

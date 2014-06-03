@@ -43,7 +43,7 @@ abstract class DaoSuper implements DaoInterface {
 	
 	public function selectTable ($tableName, $elem = "*", $condition = "") {
 		$sql = "select {$elem} from {$tableName} {$condition}";
-		print($sql."<br>");
+// 		print($sql."<br>");
 		$result = $this->execSQL($sql);
 		
 		$resultArray = array();

@@ -14,7 +14,7 @@
     $profInfo = $BEANS["users"][0];
     $groupInfo = $BEANS["groups"][0];
     
-    var_dump($BEANS);
+//     var_dump($BEANS);
 ?>
 
 <html>
@@ -49,6 +49,8 @@
 
 
     <body>
+    
+    <?php require 'view/layout/header.php'; ?>
   
         <div id="menu">
             <ul>

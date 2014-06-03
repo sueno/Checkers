@@ -21,7 +21,7 @@ abstract class ActionSuper implements ActionInterface {
      * @Override
      */
     public function initAction() {
-        if ( !isset( $_SESSION["user_name"] ) || $_SESSION["user_name"]=="" ) {
+        if ( !isset( $_SESSION["user_id"] ) || $_SESSION["user_id"]=="" ) {
         	throw new Exception('not session');
         }
     }

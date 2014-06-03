@@ -7,6 +7,7 @@
 
 
     <body>
+    <?php require 'view/layout/header.php'; ?>
     
     <h1>GET送信情報一覧</h1>
 <?php
