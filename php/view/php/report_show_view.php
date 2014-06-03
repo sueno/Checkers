@@ -18,7 +18,7 @@
                         
      //パス指定
 //   $path="testPOSTview.php";
-    $path="../../MainController.php";
+    $path="MainController.php";
   
 //    $headPath="../css/";
     $headPath="view/css/"; 
@@ -43,7 +43,7 @@
             <ul>
                 <li><a href="" onclick="window.document.menuForm1.submit(); return false;" >個人ページ</a>
                     <form name="menuForm1" method="POST" action="<?php echo $path; ?>?mode=individual_reports">
-                    <input type="hidden" name="user_id" value="<?php echo $userInfo["user_id"]; ?>">
+                    <input type="hidden" name="user_id" value="<?php echo $userInfo["user_id"]; ?>" >
                     </form>
                 </li>
 
@@ -98,42 +98,98 @@
             <!-- ここに非同期通信の処理を追加 -->
             <script>
 
-       	 	 // XMLHttpRequest オブジェクトを作成
-         	var xhr = new XMLHttpRequest();
-         
-            xhr.open("GET" , "commentTest.php");
-        	xhr.responseType = "json";
-			xhr.send(null);          
-
-			xhr.onload = function(e)
-			{
-				// 指定したデータ型でレスポンスボディの内容を取得
-				var obj = xhr.response;
-				// 出力テスト
-				console.log(obj);
-// 				 document.write('<tr>');
-
-				 var td1 = "";
-				 var td2 = "";
-				 for (var key in obj) 
+	       	 	 // XMLHttpRequest オブジェクトを作成
+	         	var xhr = new XMLHttpRequest();
+	         
+	            xhr.open("GET" , $path+"?mode=comment_show");
+	        	xhr.responseType = "json";
+				xhr.send(null);          
+	
+				xhr.onload = function(e)
 				{
-					td1 += "<tr><td>"+"名前"+"</td>"+"<td>"+obj[key]["user_name"]+""+"</tr>";
-					td1 += "<tr><td>"+"</td>"+"<td>"+obj[key]["content"]+""+"</tr>";
-				 }
-				 window.document.getElementById("xmlObj").innerHTML = "<table>"+td1+td2+"</table>";
-			};
+					// 指定したデータ型でレスポンスボディの内容を取得
+					var obj = xhr.response;
+					// 出力テスト
+					console.log(obj);
+	// 				 document.write('<tr>');
+	
+					 var td1 = "";
+					 var td2 = "";
+					 for (var key in obj) 
+					{
+						td1 += "<tr><td>"+"名前"+"</td>"+"<td>"+obj[key]["user_name"]+""+"</tr>";
+						td1 += "<tr><td>"+"</td>"+"<td>"+obj[key]["content"]+""+"</tr>";
+					 }
+					 window.document.getElementById("xmlObj").innerHTML = "<table>"+td1+td2+"</table>";
+				};
         	
-
-
 			</script>
-		            <br>
+			
+			
+		    <br>
+		    
             <h2>コメントする</h2>
-            <form action="<?php echo $path."?mode=report_manage"; ?>" method="POST">
-                    <input  type="hidden" name="content_id" value="<?php echo $report["content_id"]; ?> ">
-                    <input  type="textarea" name="body" style="width:400px; height:150px;">
-                    <div><input type="submit" value="送信"></div>
-            </form>	
             
+             <form name="comment"> 
+                   <input  type="hidden"  name="content_id" value="<?php echo $report["content_id"]; ?>"> 
+                    <textarea name="body" style="width:400px; height:150px;"> </textarea>
+					<input type="button" onclick="SendClick()" value ="送信">
+  					
+             </form>
+            
+            <script>
+			function SendClick()
+			{         
+				console.log("クリック" );
+	        	var form_data = new FormData();
+	        	var url = $path+"?mode=comment_add";
+	        	
+	        	form_data.append("comments_contents_id",document.comment.content_id.value);
+	        	form_data.append("comments_body",document.comment.body.value);
+
+
+	        	var xhr = new XMLHttpRequest();
+
+	        	// ------------------------------------------------------------
+	        	// 「POST メソッド」「接続先 URL」を指定
+	        	// ------------------------------------------------------------
+	        	xhr.open("POST" , url);
+
+	        	// ------------------------------------------------------------
+	        	// 「送信データ」を指定、XHR 通信を開始する
+	        	// ------------------------------------------------------------
+	        	xhr.send(form_data);
+	        	
+				xhr.onload = function(e)
+				{
+		      	 	 // XMLHttpRequest オブジェクトを作成
+		         	var xhr2 = new XMLHttpRequest();
+		         
+		            xhr2.open("GET" , $path+"?mode=comment_show");
+		        	xhr2.responseType = "json";
+					xhr2.send(null);          
+
+					xhr2.onload = function(e)
+					{
+						// 指定したデータ型でレスポンスボディの内容を取得
+						var obj = xhr.response;
+						// 出力テスト
+						console.log(obj);
+//		 				 document.write('<tr>');
+
+						 var td1 = "";
+						 var td2 = "";
+						 for (var key in obj) 
+						{
+							td1 += "<tr><td>"+"名前"+"</td>"+"<td>"+obj[key]["user_name"]+""+"</tr>";
+							td1 += "<tr><td>"+"</td>"+"<td>"+obj[key]["content"]+""+"</tr>";
+						 }
+						 window.document.getElementById("xmlObj").innerHTML = "<table>"+td1+td2+"</table>";
+					};
+	
+				};
+			}
+	     </script>
         </div>
         
         
