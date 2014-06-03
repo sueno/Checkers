@@ -19,7 +19,6 @@ class ReportListAction extends ActionSuper implements ActionInterface {
 
     public function __construct($post, $get) {
     	parent::__construct($post, $get);
-        $this->userAct = new UserListAction($post, $get);
     	$this->reportObj = new ReportDao();
     	$this->memberObj = new MemberDao();
     }
@@ -51,6 +50,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     			$this->state = true;
     		} else {
     			$this->state = false;
+    			$this->post["user_id"] = $user["id"];
     		}
     		
 //     		echo "<br><br><h1>session create</h1><br><br>";		
@@ -62,7 +62,7 @@ class ReportListAction extends ActionSuper implements ActionInterface {
     		
     		$groupObj = new GroupDao();
     		$groupObj->connect();
-    		$groupData = $groupObj->select(null,"name","where id = {$user['group_id']} and contents.delete_flg = false");
+    		$groupData = $groupObj->select(null,"name","where id = {$user['group_id']}");
     		echo "session    ok";
     		echo "<br><br><h1>groupdata</h1><br><br>";	
     		var_dump($groupData);
@@ -87,19 +87,20 @@ class ReportListAction extends ActionSuper implements ActionInterface {
      * @Override
      */
     public function showAction() {
-//     	parent::initAction();
 		if ($this->state) {
 	    	$BEANS = array();
-	        $BEANS["reports"] = $this->reportObj->select(null,"","users.group_id = {$_SESSION['group_id']}");
-	        $post = array("groups_id"=>$_SESSION["group_id"],"stat"=>2);
+	    	$groupId = $_SESSION['group_id'];
+	        $BEANS["reports"] = $this->reportObj->select(null,"","users.group_id = {$groupId}  and contents.delete_flg = false");
+	        $post = array("groups_id"=>$groupId,"stat"=>2);
 	        $BEANS["member"] = $this->memberObj->select($post);
-	        $post2 = array("groups_id"=>$_SESSION["group_id"],"stat"=>1);
+	        $post2 = array("groups_id"=>$groupId,"stat"=>1);
 	        $BEANS["candidate"] = $this->memberObj->select($post2);
        		require_once('view/php/group_view.php');
 		} else {
-			$this->userAct->initAction();
-			$this->userAct->saveAction();
-			$this->userAct->showAction();
+        	$userAct = new UserListAction($this->post, array());
+			$userAct->initAction();
+			$userAct->saveAction();
+			$userAct->showAction();
 		}
     }
     

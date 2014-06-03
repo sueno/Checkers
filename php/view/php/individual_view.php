@@ -14,7 +14,7 @@
     $profInfo = $BEANS["users"][0];
     $groupInfo = $BEANS["groups"][0];
     
-    var_dump($reports);
+    var_dump($BEANS);
 ?>
 
 <html>
