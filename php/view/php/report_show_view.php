@@ -10,6 +10,7 @@
 
 <html>
   <head>
+<!--     <link href="view/css/loading-dialog.css" rel="stylesheet" type="text/css"> -->
     <?php require 'view/contents/headContents.php'; ?>
     <title>日報閲覧ページ</title>
   </head>
@@ -54,6 +55,25 @@
         <textarea id="input-comment" placeholder="コメントを入力してください" name="comments_body" style="width:400px; height:150px;"></textarea>
 		<input id="comment-btn" type="button" value ="送信">
       </form>
+      
+<!--       <div id="floatingBarsG"> -->
+<!-- 		<div class="blockG" id="rotateG_01"> -->
+<!-- 		</div> -->
+<!-- 		<div class="blockG" id="rotateG_02"> -->
+<!-- 		</div> -->
+<!-- 		<div class="blockG" id="rotateG_03"> -->
+<!-- 		</div> -->
+<!-- 		<div class="blockG" id="rotateG_04"> -->
+<!-- 		</div> -->
+<!-- 		<div class="blockG" id="rotateG_05"> -->
+<!-- 		</div> -->
+<!-- 		<div class="blockG" id="rotateG_06"> -->
+<!-- 		</div> -->
+<!-- 		<div class="blockG" id="rotateG_07"> -->
+<!-- 		</div> -->
+<!-- 		<div class="blockG" id="rotateG_08"> -->
+<!-- 		</div> -->
+<!-- 	  </div> -->
              
       <form id="comment-show" action="MainController.php?mode=comment_show" method="post">
         <input  type="hidden"  name="comments_contents_id" value="<?php echo $report["content_id"]; ?>">
