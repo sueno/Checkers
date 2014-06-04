@@ -43,7 +43,7 @@
       
       <h2>コメント</h2>
             
-      <div id="xmlObj"></div>
+      <div id="comment-list"></div>
       
       <br>
       

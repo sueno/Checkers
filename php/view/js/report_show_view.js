@@ -39,7 +39,7 @@ $(function(){
 			              				   item.comment_date + "<br />" +
 			              				"</div>";
 			          });
-			    	  $('#xmlObj').empty().html(commentHtml);
+			    	  $('#comment-list').empty().html(commentHtml);
     			      $('#input-comment').val('');
 			      },
 			      error: function() {
