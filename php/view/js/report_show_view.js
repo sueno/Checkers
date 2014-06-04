@@ -3,6 +3,7 @@ $(function(){
 		var form, fd;
 	    form = $('#comment');
 	    fd = new FormData(form[0]);
+	    console.log(fd);
 	    $.ajax(form.attr("action"), {
 	      type: 'post',
 	      processData: false,
@@ -24,6 +25,7 @@ $(function(){
 			var form, fd;
 		    form = $('#comment-show');
 		    fd = new FormData(form[0]);
+		    console.log(form[0]);
 			$.ajax(form.attr("action"), {
 			      type: 'post',
 			      processData: false,
@@ -31,7 +33,7 @@ $(function(){
 			      data: fd,
 			      dataType: 'html',
 			      success: function(data){
-			    	  console.dir(JSON.parse(data)['comment']);
+//			    	  console.dir(JSON.parse(data)['comment']);
 			    	  var commentHtml = "";
 			    	  $.each(JSON.parse(data)['comment'], function(i, item) {
 			    		  commentHtml += "<div class='comment-row'>"+
@@ -39,7 +41,7 @@ $(function(){
 			              				   item.comment_date + "<br />" +
 			              				"</div>";
 			          });
-			    	  $('#comment-list').empty().html(commentHtml);
+			    	  $('#xmlObj').empty().html(commentHtml);
     			      $('#input-comment').val('');
 			      },
 			      error: function() {

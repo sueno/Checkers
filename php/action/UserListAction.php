@@ -51,7 +51,7 @@ class UserListAction extends ActionSuper implements ActionInterface {
         $groupId = $BEANS["users"][0]["group_id"];
         
         if ($groupId==$_SESSION["group_id"]) {
-        	$BEANS["reports"] = $this->reportObj->select(null,"","user_id = {$userId} and contents.delete_flg = 0");
+        	$BEANS["reports"] = $this->reportObj->select(null,"","and user_id = {$userId} and contents.delete_flg = 0 group by contents.id ");
         	$BEANS["groups"] = $this->groupObj->select(null,"name","where id = {$groupId}");
         } else {
         	$BEANS["reports"] = array(array());

@@ -16,9 +16,6 @@ class ReportDao extends DaoSuper implements DaoInterface {
 	 */
 	public function select ($post = null, $elem = "", $conditions = "") {
 		if ( parent::postExist($post, array()) ) {
-			if ($conditions!="") {
-				$conditions = "and ".$conditions;
-			}
 			
 			return parent::selectTable(
 					"contents",
@@ -39,7 +36,7 @@ class ReportDao extends DaoSuper implements DaoInterface {
 					"on contents.user_id = users.id ".
 					"and contents.id = comments.content_id ".
 					" {$conditions} ".
-					"group by contents.id ".
+					"".
 					"order by contents.content_date desc");
 		}
 	}

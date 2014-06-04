@@ -16,7 +16,7 @@
                 	$session = $_SESSION;
                 	$reports = $BEANS["reports"];
                 	
-//                 	var_dump($reports);
+                	var_dump($reports);
                 	
                     foreach($reports as $temp)
                     {
