@@ -25,7 +25,7 @@ class CommentDao extends DaoSuper implements DaoInterface {
 	 * @Override
 	 */
 	public function select ($post = null, $elem = "*", $conditions = "") {
-		return parent::selectTable($this->tableName,$elem,"where content_id = {$post['content_id']} ");
+		return parent::selectTable($this->tableName,$elem,"where content_id = {$post['comments_contents_id']} ");
 	}
 	
 	/**
