@@ -41,9 +41,9 @@
       <br>
       <br>
       
-      <h2>コメント</h2>
+      <h2>コメント一覧</h2>
             
-      <div id="xmlObj"></div>
+      <table id="comment-list" border="1" class="table table-bordered table-striped"></table>
       
       <br>
       

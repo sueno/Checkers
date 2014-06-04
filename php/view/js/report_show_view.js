@@ -36,12 +36,12 @@ $(function(){
 //			    	  console.dir(JSON.parse(data)['comment']);
 			    	  var commentHtml = "";
 			    	  $.each(JSON.parse(data)['comment'], function(i, item) {
-			    		  commentHtml += "<div class='comment-row'>"+
-			              				   item.body + "<br \>" +
-			              				   item.comment_date + "<br />" +
-			              				"</div>";
+			    		  commentHtml += "<tr>"+
+			    		  				    "<td>"+item.body+"</td>"+
+	   		    		  				    "<td>"+item.comment_date+"</td>"+
+			    		  				 "</tr>";
 			          });
-			    	  $('#xmlObj').empty().html(commentHtml);
+			    	  $('#comment-list').empty().html(commentHtml);
     			      $('#input-comment').val('');
 			      },
 			      error: function() {
