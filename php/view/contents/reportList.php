@@ -37,7 +37,7 @@
                         } else {
                             echo "<td><a href='MainController.php?mode=individual_reports&user_id=".$temp["user_id"]."'>".$temp["user_name"]."</a></td></tr>";
                         }
-                            echo "<tr><td colspan=\"5\"　height=\"70\"　><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\" style=\"text-overflow:  ellipsis;\">".$temp["body"]."</a></td></tr>";
+                            echo "<tr><td colspan=\"5\"　height=\"70\"　\" style=\"text-overflow:  ellipsis;\"　><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\" >".substr($temp["body"],0,100)."</a></td></tr>";
                     }
 				?>
 
