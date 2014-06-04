@@ -11,7 +11,7 @@
 		<tr>
 			<th colspan="4">本文</th>
 		</tr>
-                
+                              
                 <?php
                 	$session = $_SESSION;
                 	$reports = $BEANS["reports"];
@@ -20,7 +20,7 @@
                 	
                     foreach($reports as $temp)
                     {
-                        echo "<tr>";
+                        echo "<tr>";                   
                         echo "<td><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">".$temp["title"]."</a></td>";
                         echo "<td><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">"."コメント(".$temp["comment_num"].")</a></td>";
                         echo "<td>".$temp["content_date"]."</td>";
