@@ -1,126 +1,67 @@
-<?php $DEBUG = 1; 
-
-        //テスト用配列　
-//     $session = array("user_name"=>"有安杏果","group_name"=>"１１期", "user_id"=>2,"group_id"=>1); 
-    
-//     $report = array("content_id"=>1,
-//                     "title"=>"【日報】20140529", 
-//                     "user_id"=>3,
-//                     "user_name"=>"百田",    
-//                     "body"=>"ニューシングル、泣いてもいいんだよが5月8日発売ということで！6日、7日、8日と全国いろんなところに行ってきましたぁ!!名古屋、滋賀、山形、新潟、仙台、盛いやぁ～楽しかった(*゜▽゜*)それぞれの地域の色があって、どこに行っても楽しい方々ばかりで…（´∀`*）笑いすぎてお腹が筋肉痛になったの久しぶり！笑モノノフさんにもたくさん会えて(*´艸｀)ふふみんなありがとねーん！(。-∀-)「泣いてもいいんだよ」たくさん聞いてください(＾＾)", 
-//                     "content_date"=>'2014-05-29', 
-//                     "comment_num"=>5
-//                     );
-//     $comments = array(  array("user_name"=>"武士", "content"=>"いいね。見習いたい", "user_id"=>5, "date"=>'2014-05-29'), 
-//                         array("user_name"=>"モノノフ", "content"=>"あーりんわっしょい","user_id"=>6, "date"=>'2014-05-29'), 
-//                         array("user_name"=>"ぼへみあ", "content"=>"こんにちは。","user_id"=>7, "date"=>'2014-05-29'),
-//                     );
-                        
+<?php
      //パス指定
-//   $path="testPOSTview.php";
     $path="MainController.php";
-  
-//    $headPath="../css/";
     $headPath="view/css/"; 
-
+    
+    // initialize
     $userInfo = $_SESSION; 
-    //◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆確認！！◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆
     $report=$BEANS ["content"][0];
 ?>
 
 <html>
-    <head>
-        <?php 
-    		require 'view/contents/headContents.php';
-    	?>
-    	
-        <title>日報閲覧ページ</title>
-     </head>
-
-
-    <body>
+  <head>
+    <?php require 'view/contents/headContents.php'; ?>
+    <title>日報閲覧ページ</title>
+  </head>
+  <body>
     <?php require 'view/contents/header.php'; ?>
-        
-        <div class="body_part">
-        <h1>日報閲覧ページ</h1>
-        <?php
-            //閲覧者と投稿者が同じ場合には編集ボタンを作る 
-//             var_dump($userInfo);
-            if($userInfo["user_id"]==$report["user_id"])
-                {
-                    ?>
-                 <form action="<?php echo $path."?mode=report_manage"; ?>" method="POST">
-                    <input  type="hidden" name="content_id" value="<?php echo $report["content_id"]; ?> ">
-                    <div align="right"><input type="submit" value="編集"></div>
-                </form>
-        
-        <?php } ?>
-        
-        
-        	<!-- 日報表示部 -->>
-            <table border="1">
-                <tr><td><?php echo $report["title"]; ?></td><td><?php echo $report["content_date"]; ?></td><td><?php echo $report["user_name"]; ?></td></tr>
-                <tr><td colspan="3"><?php echo $report["body"]; ?></td></tr>
-            </table>
-            <br>
-            <br>
-            <h2>コメント</h2>
-
+    <div class="body_part">
+      <h1>日報閲覧ページ</h1>
+      <?php
+      // 閲覧者と投稿者が同じ場合には編集ボタンを作る 
+      // var_dump($userInfo);
+      if($userInfo["user_id"]==$report["user_id"]) {
+      ?>
+        <form action="<?php echo $path."?mode=report_manage"; ?>" method="POST">
+          <input  type="hidden" name="content_id" value="<?php echo $report["content_id"]; ?>" />
+          <div align="right"><input type="submit" value="編集" /></div>
+        </form>
+      <?php } ?>
+      
+      <!-- 日報表示部 -->
+      <table border="1" class="table table-bordered table-striped">
+        <tr>
+          <td><?php echo $report["title"]; ?></td><td><?php echo $report["content_date"]; ?></td><td><?php echo $report["user_name"]; ?></td>
+        </tr>
+        <tr>
+          <td colspan="3"><?php echo $report["body"]; ?></td>
+        </tr>
+      </table>
+      
+      <br>
+      <br>
+      
+      <h2>コメント</h2>
             
-        <div id="xmlObj"></div>
-            
-            
-            <!-- ここに非同期通信の処理を追加 -->
-            <script>
-
-	       	 	 // XMLHttpRequest オブジェクトを作成
-// 	         	var xhr = new XMLHttpRequest();
-	         
-//	            xhr.open("GET" , "<?php // echo $path; ?> // ?mode=comment_show");
-// 	        	xhr.responseType = "json";
-// 				xhr.send(null);          
-	
-// 				xhr.onload = function(e)
-// 				{
-// 					// 指定したデータ型でレスポンスボディの内容を取得
-// 					var obj = xhr.response;
-// 					// 出力テスト
-// 					console.log(obj);
-// 	// 				 document.write('<tr>');
-	
-// 					 var td1 = "";
-// 					 var td2 = "";
-// 					 for (var key in obj) 
-// 					{
-// 						td1 += "<tr><td>"+"名前"+"</td>"+"<td>"+obj[key]["user_name"]+""+"</tr>";
-// 						td2 += "<tr><td>"+"</td>"+"<td>"+obj[key]["content"]+""+"</tr>";
-// 					 }
-// 					 window.document.getElementById("xmlObj").innerHTML = "<table>"+td1+td2+"</table>";
-// 				};
-        	
-			</script>
-			
-			
-		    <br>
-		    
-            <h2>コメントする</h2>
-            
-             <form id="comment" action="MainController.php?mode=comment_add" method="post">
-               <input  type="hidden"  name="comments_contents_id" value="<?php echo $report["content_id"]; ?>"> 
-				<input type="hidden" name="comments_poster" value="<?php echo $report["user_id"]; ?>" />
-               <textarea id="input-comment" placeholder="コメントを入力してください" name="comments_body" style="width:400px; height:150px;"></textarea>
-			   <input id="comment-btn" type="button" value ="送信">
-             </form>
+      <div id="xmlObj"></div>
+      
+      <br>
+      
+      <h2>コメントする</h2>
+      <form id="comment" action="MainController.php?mode=comment_add" method="post">
+        <input  type="hidden"  name="comments_contents_id" value="<?php echo $report["content_id"]; ?>"> 
+		<input type="hidden" name="comments_poster" value="<?php echo $report["user_id"]; ?>" />
+        <textarea id="input-comment" placeholder="コメントを入力してください" name="comments_body" style="width:400px; height:150px;"></textarea>
+		<input id="comment-btn" type="button" value ="送信">
+      </form>
              
-             <form id="comment-show" action="MainController.php?mode=comment_show" method="post">
-               <input  type="hidden"  name="comments_contents_id" value="<?php echo $report["content_id"]; ?>">
-             </form>
-             
-        </div>
-        
-        
-    </body>
+      <form id="comment-show" action="MainController.php?mode=comment_show" method="post">
+        <input  type="hidden"  name="comments_contents_id" value="<?php echo $report["content_id"]; ?>">
+      </form>
+    </div>
+  </body>
 </html>
+
 <script type="text/javascript" src="view/js/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="view/js/report_show_view.js"></script>
                

@@ -31,7 +31,8 @@ class ReportShowAction extends ActionSuper implements ActionInterface {
      */
     public function showAction() {
     	//debug
-    	$this->post['content_id'] = 1;
+//     	$this->post['content_id'] = 1;
+
 		$BEANS ["content"] = $this->contentDaoObj->select($this->post,"","contents.id = {$this->post['content_id']}");
 		var_dump($BEANS);
 // 		$BEANS = json_encode($BEANS);
