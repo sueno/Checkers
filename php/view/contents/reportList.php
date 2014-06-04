@@ -4,7 +4,7 @@
 	<table class="table table-bordered table-striped">
 		<tr>
 			<th>タイトル</th>
-<!-- 			<th>コメント数</th> -->
+			<th>コメント数</th>
 			<th>投稿日</th>
 			<th>作成者</th>
 		</tr>
@@ -22,7 +22,7 @@
                     {
                         echo "<tr>";
                         echo "<td><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">".$temp["title"]."</a></td>";
-//                         echo "<td><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">"."コメント(".$temp["comment_num"].")</a></td>";
+                        echo "<td><a href=\"".$path."?mode=report_show&content_id=".$temp["content_id"]."\">"."コメント(".$temp["comment_num"].")</a></td>";
                         echo "<td>".$temp["content_date"]."</td>";
                         if($session["user_id"]==$temp["user_id"]) {
                             echo "<td>".
